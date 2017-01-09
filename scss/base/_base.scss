@@ -1,0 +1,50 @@
+/* --------------------------
+  Base Styles
+--------------------------- */
+
+// Box Sizing
+// ----------
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+// Body
+// ----
+
+body {
+  font-family: $stack-roboto-condensed;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+}
+
+
+// Video
+// -----
+
+video {
+  display      : block;
+  width        : 100%;
+}
+
+
+// SVG
+// ---
+
+svg * {
+  transform-origin: 50% 50%;
+}
+
+
+// Container
+// ---------
+
+.container {
+  max-width   : $max-width;
+  margin-left : auto;
+  margin-right: auto;
+}

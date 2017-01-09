@@ -1,0 +1,15 @@
+/* --------------------------
+  Keyframe Animations
+--------------------------- */
+
+@keyframes slide {
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+}

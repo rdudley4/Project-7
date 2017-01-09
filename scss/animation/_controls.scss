@@ -1,0 +1,88 @@
+/* --------------------------
+  Control Animations
+--------------------------- */
+
+.play,
+.time-stamp,
+.speaker,
+.screen,
+.sound-waves path {
+  animation: slide $anim-speed forwards;
+}
+
+
+// Left - Group1
+// -------------
+
+.play {
+  transform: translate3d(0, 45px, 0);
+
+  path {
+    transition: fill $trans-speed;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    path {
+      fill: $color-highlight;
+    }
+  }
+}
+
+.time-stamp {
+  transition     : color $trans-speed;
+  transform      : translate3d(0, -32px, 0);
+  animation-delay: .3s;
+
+  &:hover {
+    cursor: default;
+    color : $color-highlight;
+  }
+}
+
+
+// Right - Group2
+// --------------
+
+.group2 {
+  g {
+    transition: fill $trans-speed;
+  }
+
+  svg:hover {
+    cursor: pointer;
+
+    g:first-of-type {
+      fill: $color-highlight;
+    }
+  }
+}
+
+.speaker,
+.screen {
+  transform      : translate3d(60px, 0, 0);
+  animation-delay: .7s;
+}
+
+.screen {
+  animation-delay: .9s;
+}
+
+.sound-waves path {
+  transform: translate3d(28px, 0, 0);
+}
+
+.screen-contents path {
+  animation: grow $anim-speed backwards;
+}
+
+.sound-waves path,
+.screen-contents path {
+  @for $i from 1 through 3 {
+    $delay: $i / 5 + .9;
+    &:nth-of-type(#{$i}) {
+      animation-delay: unquote("#{$delay}s");
+    }
+  }
+}

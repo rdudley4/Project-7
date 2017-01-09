@@ -1,0 +1,41 @@
+/* --------------------------
+  Transcript Styles
+--------------------------- */
+
+.transcript {
+  line-height     : 1.5;
+  padding         : 1em;
+  margin          : 1em;
+  background-color: $white;
+  box-shadow: 0 5px 5px -5px #666;
+}
+
+//  Single Block style
+//  ------------------
+// .transcript {
+//   line-height     : 1.5;
+//   padding         : 1em;
+//   margin          : 0 1em;
+//   background-color: $white;
+
+//   &:first-of-type {
+//     margin-top: 1em;
+//   }
+
+//   &:last-of-type {
+//     margin-bottom: 1em;
+//   }
+// }
+
+.highlight {
+  transition      : background-color $trans-speed;
+  background-color: $color-highlight;
+  color           : $color-highlight-text;
+  border-radius   : $border-radius;
+  padding         : 3px 7.5px;
+
+  &:hover {
+    cursor          : pointer;
+    background-color: darken($color-highlight, 10%);
+  }
+}

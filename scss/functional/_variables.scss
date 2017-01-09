@@ -1,0 +1,38 @@
+/* --------------------------
+  Project Variables
+--------------------------- */
+
+// Descriptive Color Variables
+// ---------------------------
+
+$white           : #fff;
+$jungle-green    : #27ae60;
+$pickled-bluewood: #2c3e50;
+
+
+// Functional Color Variables
+// --------------------------
+
+$color-text-light    : $white;
+
+$color-highlight     : $jungle-green;
+$color-highlight-text: $white;
+
+$controls-bg         : $pickled-bluewood;
+
+
+
+// Font Variables
+// --------------
+
+$stack-sans-serif      : Helvetica, sans-serif;
+$stack-roboto-condensed: 'Roboto Condensed', $stack-sans-serif;
+
+
+// Miscellaneous Variables
+// -----------------------
+
+$border-radius: 5px;
+$max-width    : 1150px;
+$trans-speed  : .3s;
+$anim-speed   : .4s;

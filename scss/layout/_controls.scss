@@ -1,0 +1,53 @@
+/* --------------------------
+  Video Control Styles
+--------------------------- */
+
+// Controls Container
+// ------------------
+
+.controls {
+  display        : flex;
+  align-items    : center;
+  overflow       : hidden;
+  justify-content: space-between;
+  background     : $controls-bg;
+  height         : 50px;
+
+  svg {
+    width       : 30px;
+    height      : 30px;
+    margin-left : 10px;
+    margin-right: 10px;
+  }
+
+  .play {
+    margin-left: 5px;
+  }
+}
+
+
+// Control Elements
+// ----------------
+
+.group {
+  &1,
+  &2 {
+    display    : flex;
+    align-items: center;
+  }
+}
+
+.time-stamp {
+  color: $color-text-light;
+}
+
+.progress {
+  height          : 14px;
+  background-color: #46586A;
+
+  .bar {
+    height          : 14px;
+    width           : 15%;
+    background-color: #27ae60;
+  }
+} 
