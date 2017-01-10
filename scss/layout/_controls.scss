@@ -11,13 +11,17 @@
   overflow       : hidden;
   justify-content: space-between;
   background     : $controls-bg;
-  height         : 50px;
+  height         : 60px;
 
   svg {
     width       : 30px;
     height      : 30px;
     margin-left : 10px;
     margin-right: 10px;
+  }
+
+  .cc {
+    width: 31px;
   }
 
   .play {

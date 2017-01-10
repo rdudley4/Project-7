@@ -1,0 +1,22 @@
+/* --------------------------
+  Mixins
+--------------------------- */
+
+// Media Query Handler
+// -------------------
+
+@mixin mediaQuery($breakpoint) {
+  @if $breakpoint == "tablet" {
+    @media #{$brk-tablet} {
+      @content;
+    }
+  } @else if $breakpoint == "desktop" {
+    @media #{$brk-desktop} {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}

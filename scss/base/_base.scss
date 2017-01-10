@@ -29,6 +29,12 @@ body {
 video {
   display      : block;
   width        : 100%;
+
+  @include mediaQuery(1150px) {
+    margin-top             : 20px;
+    border-top-left-radius : $border-radius;
+    border-top-right-radius: $border-radius;
+  }
 }
 
 
@@ -47,4 +53,12 @@ svg * {
   max-width   : $max-width;
   margin-left : auto;
   margin-right: auto;
+
+  @include mediaQuery(1150px) {
+    margin-bottom             : 20px;
+    background                : $white;
+    border-bottom             : 2px solid #bbb;
+    border-bottom-left-radius : $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
 }

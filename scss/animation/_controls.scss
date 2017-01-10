@@ -4,8 +4,9 @@
 
 .play,
 .time-stamp,
-.speaker,
-.screen,
+.cc,
+.unmuted,
+.fullscreen,
 .sound-waves path {
   animation: slide $anim-speed forwards;
 }
@@ -14,7 +15,8 @@
 // Left - Group1
 // -------------
 
-.play {
+.play,
+.cc {
   transform: translate3d(0, 45px, 0);
 
   path {
@@ -32,7 +34,7 @@
 
 .time-stamp {
   transition     : color $trans-speed;
-  transform      : translate3d(0, -32px, 0);
+  transform      : translate3d(0, -42px, 0);
   animation-delay: .3s;
 
   &:hover {
@@ -55,19 +57,26 @@
 
     g:first-of-type {
       fill: $color-highlight;
-    }
+    }   
   }
 }
 
-.speaker,
-.screen {
-  transform      : translate3d(60px, 0, 0);
-  animation-delay: .7s;
+
+// Animate group2 icon containers
+// ------------------------------
+
+@each $icon, $transform, $delay in (cc, 141px, .5s),
+                                   (unmuted, 90px, .7s),
+                                   (fullscreen, 40px, .9s) {
+  .#{$icon} {
+    transform      : translate3d(#{$transform}, 0, 0);
+    animation-delay: $delay;
+  }
 }
 
-.screen {
-  animation-delay: .9s;
-}
+
+// Animate group2 icon pieces
+// --------------------------
 
 .sound-waves path {
   transform: translate3d(28px, 0, 0);
@@ -85,4 +94,4 @@
       animation-delay: unquote("#{$delay}s");
     }
   }
-}
+} 

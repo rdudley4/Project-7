@@ -8,24 +8,17 @@
   margin          : 1em;
   background-color: $white;
   box-shadow: 0 5px 5px -5px #666;
+
+  @include mediaQuery(1150px) {
+    margin       : 0 1em;
+    box-shadow   : none;
+    border-bottom:  1px solid #ccc;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
 }
-
-//  Single Block style
-//  ------------------
-// .transcript {
-//   line-height     : 1.5;
-//   padding         : 1em;
-//   margin          : 0 1em;
-//   background-color: $white;
-
-//   &:first-of-type {
-//     margin-top: 1em;
-//   }
-
-//   &:last-of-type {
-//     margin-bottom: 1em;
-//   }
-// }
 
 .highlight {
   transition      : background-color $trans-speed;

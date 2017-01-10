@@ -8,6 +8,9 @@
   Project Variables
 --------------------------- */
 /* --------------------------
+  Mixins
+--------------------------- */
+/* --------------------------
   Extended Styles
 --------------------------- */
 /* --------------------------
@@ -481,6 +484,13 @@ video {
   display: block;
   width: 100%;
 }
+@media (min-width: 1150px) {
+  video {
+    margin-top: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
 
 svg * {
   transform-origin: 50% 50%;
@@ -490,6 +500,15 @@ svg * {
   max-width: 1150px;
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 1150px) {
+  .container {
+    margin-bottom: 20px;
+    background: #fff;
+    border-bottom: 2px solid #bbb;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 }
 
 /* --------------------------
@@ -504,13 +523,16 @@ svg * {
   overflow: hidden;
   justify-content: space-between;
   background: #2c3e50;
-  height: 50px;
+  height: 60px;
 }
 .controls svg {
   width: 30px;
   height: 30px;
   margin-left: 10px;
   margin-right: 10px;
+}
+.controls .cc {
+  width: 31px;
 }
 .controls .play {
   margin-left: 5px;
@@ -544,6 +566,16 @@ svg * {
   margin: 1em;
   background-color: #fff;
   box-shadow: 0 5px 5px -5px #666;
+}
+@media (min-width: 1150px) {
+  .transcript {
+    margin: 0 1em;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .transcript:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .highlight {
@@ -579,28 +611,33 @@ svg * {
 --------------------------- */
 .play,
 .time-stamp,
-.speaker,
-.screen,
+.cc,
+.unmuted,
+.fullscreen,
 .sound-waves path {
   animation: slide 0.4s forwards;
 }
 
-.play {
+.play,
+.cc {
   transform: translate3d(0, 45px, 0);
 }
-.play path {
+.play path,
+.cc path {
   transition: fill 0.3s;
 }
-.play:hover {
+.play:hover,
+.cc:hover {
   cursor: pointer;
 }
-.play:hover path {
+.play:hover path,
+.cc:hover path {
   fill: #27ae60;
 }
 
 .time-stamp {
   transition: color 0.3s;
-  transform: translate3d(0, -32px, 0);
+  transform: translate3d(0, -42px, 0);
   animation-delay: .3s;
 }
 .time-stamp:hover {
@@ -618,14 +655,19 @@ svg * {
   fill: #27ae60;
 }
 
-.speaker,
-.screen {
-  transform: translate3d(60px, 0, 0);
-  animation-delay: .7s;
+.cc {
+  transform: translate3d(141px, 0, 0);
+  animation-delay: 0.5s;
 }
 
-.screen {
-  animation-delay: .9s;
+.unmuted {
+  transform: translate3d(90px, 0, 0);
+  animation-delay: 0.7s;
+}
+
+.fullscreen {
+  transform: translate3d(40px, 0, 0);
+  animation-delay: 0.9s;
 }
 
 .sound-waves path {
