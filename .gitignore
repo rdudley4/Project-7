@@ -1,0 +1,7 @@
+# Ignore Cache Files
+.sass-cache
+.sass-cache/*
+
+# Ignore Project Files
+project_files
+project_files/*
