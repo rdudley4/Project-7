@@ -1,7 +1,9 @@
 var videos = [
   new Video(['media/video.mp4', 'media/video.ogg'], 'How the Internet Works', 'media/video1.vtt'),
   new Video(['media/video2.mp4', 'media/video2.ogg'], 'JavaScript and the DOM', 'media/video2.vtt'),
-  new Video(['media/video3.mp4', 'media/video3.ogg'], 'Overview of Web Media', 'media/video3.vtt')
+  new Video(['media/video3.mp4', 'media/video3.ogg'], 'Overview of Web Media', 'media/video3.vtt'),
+  new Video(['media/video4.mp4', 'media/video4.ogg'], 'Quiz Application Project - Overview', 'media/video4.vtt'),
+  new Video(['media/video5.mp4', 'media/video5.ogg'], 'Kappa', 'media/video4.vtt')
 ];
 
 var playlist = new Playlist(videos);

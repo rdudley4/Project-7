@@ -502,6 +502,10 @@ video {
 
 #video-title {
   margin: 0;
+  padding: 5px 15px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: #46586A;
   color: #fff;
   font-weight: 400;
 }
