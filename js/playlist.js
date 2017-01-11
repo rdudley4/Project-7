@@ -17,3 +17,12 @@ Playlist.prototype.next = function() {
   }
   UI.updateVideo();
 }
+
+Playlist.prototype.prev = function() {
+  this.currentVideoIndex--;
+  if(this.currentVideoIndex < 0) {
+    console.log('Going to end of playlist.');
+    this.currentVideoIndex = this.videos.length - 1;
+  }
+  UI.updateVideo();
+}

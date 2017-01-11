@@ -2,6 +2,23 @@
   Control Animations
 --------------------------- */
 
+// Top - Video Head
+// ----------------
+
+.video-head {
+  svg {
+    transition: fill $trans-speed;
+
+    &:hover {
+      cursor: pointer;
+      fill  : $color-highlight;
+    }    
+  }
+}
+
+
+
+
 .play,
 #time-stamp,
 .cc,

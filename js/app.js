@@ -9,10 +9,15 @@ var playlist = new Playlist(videos);
 // Update initial video information on page load.
 UI.updateVideo();
 
-// When video metadata has loaded, update time stamp.
+
+// Video Data Event Handlers
+// -------------------------
+
+// Metadata Loaded
 videoElement.onloadedmetadata = function() {
   console.log('Metadata has finished loading.');
   UI.updateTime(this.currentTime, this.duration);
+  UI.updateProgressBar();
 
   // Update caption track.
   var trackElement = document.getElementById('caption');
@@ -20,7 +25,7 @@ videoElement.onloadedmetadata = function() {
   this.replaceChild(UI.createCaptionTrack(captionSrc), trackElement);
 }
 
-// Event handler for ontimeupdate (called whenever currentTime changes.)
+// Time Update
 videoElement.ontimeupdate = function() {
   // Constantly update time as currentTime changes.
   UI.updateTime(this.currentTime, this.duration);
@@ -29,16 +34,30 @@ videoElement.ontimeupdate = function() {
   UI.updateProgressBar();
 }
 
-// Register click event handler for play button.
-var playButton = document.querySelector('.play');
 
+// Button Click Event Handlers
+// ---------------------------
+
+// Next Button
+var nextButton = document.getElementById('next');
+nextButton.addEventListener('click', function() {
+  playlist.next();
+});
+
+// Prev Button
+var prevButton = document.getElementById('prev');
+prevButton.addEventListener('click', function() {
+  playlist.prev();
+});
+
+// Play Button
+var playButton = document.querySelector('.play');
 playButton.addEventListener('click', function() {
   videoElement.play();
 });
 
-// Register click event handler for closed captioning.
+// CC Button
 var captionButton = document.querySelector('.cc');
-
 captionButton.addEventListener('click', function() {
   var track = videoElement.textTracks[0];
   if(track.mode === "hidden" || track.mode === "disabled") {
@@ -52,9 +71,8 @@ captionButton.addEventListener('click', function() {
   }
 });
 
-// Register click event handler for fullscreen
+// Fullscreen Button
 var fullscreenButton = document.querySelector('.fullscreen');
-
 fullscreenButton.addEventListener('click', function() {
   videoElement.requestFullscreen();
 });
