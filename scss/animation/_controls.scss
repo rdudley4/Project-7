@@ -3,7 +3,7 @@
 --------------------------- */
 
 .play,
-.time-stamp,
+#time-stamp,
 .cc,
 .unmuted,
 .fullscreen,
@@ -32,7 +32,7 @@
   }
 }
 
-.time-stamp {
+#time-stamp {
   transition     : color $trans-speed;
   transform      : translate3d(0, -42px, 0);
   animation-delay: .3s;

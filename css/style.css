@@ -484,8 +484,17 @@ video {
   display: block;
   width: 100%;
 }
+
+#video-title {
+  margin: 0;
+  padding: .675em;
+  text-align: center;
+  background: #2c3e50;
+  color: #fff;
+  font-weight: 400;
+}
 @media (min-width: 1150px) {
-  video {
+  #video-title {
     margin-top: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -506,8 +515,7 @@ svg * {
     margin-bottom: 20px;
     background: #fff;
     border-bottom: 2px solid #bbb;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
   }
 }
 
@@ -538,12 +546,16 @@ svg * {
   margin-left: 5px;
 }
 
+.on {
+  fill: #27ae60;
+}
+
 .group1, .group2 {
   display: flex;
   align-items: center;
 }
 
-.time-stamp {
+#time-stamp {
   color: #fff;
 }
 
@@ -553,7 +565,7 @@ svg * {
 }
 .progress .bar {
   height: 14px;
-  width: 15%;
+  width: 0;
   background-color: #27ae60;
 }
 
@@ -610,7 +622,7 @@ svg * {
   Control Animations
 --------------------------- */
 .play,
-.time-stamp,
+#time-stamp,
 .cc,
 .unmuted,
 .fullscreen,
@@ -635,12 +647,12 @@ svg * {
   fill: #27ae60;
 }
 
-.time-stamp {
+#time-stamp {
   transition: color 0.3s;
   transform: translate3d(0, -42px, 0);
   animation-delay: .3s;
 }
-.time-stamp:hover {
+#time-stamp:hover {
   cursor: default;
   color: #27ae60;
 }

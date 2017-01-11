@@ -29,6 +29,15 @@ body {
 video {
   display      : block;
   width        : 100%;
+}
+
+#video-title {
+  margin     : 0;
+  padding    : .675em;
+  text-align : center;
+  background : $title-bg;
+  color      : $white;
+  font-weight: 400;
 
   @include mediaQuery(1150px) {
     margin-top             : 20px;
@@ -58,7 +67,6 @@ svg * {
     margin-bottom             : 20px;
     background                : $white;
     border-bottom             : 2px solid #bbb;
-    border-bottom-left-radius : $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border-radius: $border-radius;
   }
 }

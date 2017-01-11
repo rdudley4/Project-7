@@ -1,0 +1,114 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.284
+[MUSIC]
+
+2
+00:00:04.284 --> 00:00:09.213
+[SOUND] Text and images have always been
+the foundation of web content, but
+
+3
+00:00:09.213 --> 00:00:13.761
+more than ever, video and audio are also a
+part of that content mix.
+
+4
+00:00:13.761 --> 00:00:17.443
+In this project, we'll learn how to use
+the HTML video and
+
+5
+00:00:17.443 --> 00:00:20.280
+audio elements to playback media.
+
+6
+00:00:20.280 --> 00:00:25.980
+We'll also learn how to add features like,
+captioning and custom playback controls.
+
+7
+00:00:25.980 --> 00:00:28.900
+First, let's take a look at the project.
+
+8
+00:00:28.900 --> 00:00:30.260
+It's actually pretty simple.
+
+9
+00:00:30.260 --> 00:00:35.390
+It's just a video player on a web page
+along with an audio player.
+
+10
+00:00:35.390 --> 00:00:39.710
+This may not look very impressive, but if
+you've been working in web technology for
+
+11
+00:00:39.710 --> 00:00:43.390
+even just a few years, you probably know
+how long it took for
+
+12
+00:00:43.390 --> 00:00:46.280
+web technology to catch up with video.
+
+13
+00:00:46.280 --> 00:00:51.050
+Video on the web used to involve plugins
+like QuickTime, Flash, RealPlayer, and
+
+14
+00:00:51.050 --> 00:00:52.400
+several others.
+
+15
+00:00:52.400 --> 00:00:56.280
+However, using browser plug-ins is
+typically bad for
+
+16
+00:00:56.280 --> 00:01:00.830
+accessibility, mobile devices, battery
+life, and many other factors.
+
+17
+00:01:00.830 --> 00:01:06.110
+If you can avoid browser plugins, you
+should, fortunately, we can create
+
+18
+00:01:06.110 --> 00:01:11.750
+standards based video and audio players
+that don't require the use of plugins.
+
+19
+00:01:11.750 --> 00:01:12.570
+Adding video and
+
+20
+00:01:12.570 --> 00:01:18.120
+audio to a webpage is almost as easy as
+adding an image or formatting some text.
+
+21
+00:01:18.120 --> 00:01:23.080
+In this course, we're going to spend most
+of our time focusing on just two elements,
+
+22
+00:01:23.080 --> 00:01:26.380
+the video element and the audio element.
+
+23
+00:01:26.380 --> 00:01:30.200
+We'll learn about a few others, but those
+two are the most important.
+
+24
+00:01:30.200 --> 00:01:33.620
+Now, let's move on and give the video
+element a try.
+

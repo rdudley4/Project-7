@@ -29,6 +29,10 @@
   }
 }
 
+.on {
+  fill: $color-highlight;
+}
+
 
 // Control Elements
 // ----------------
@@ -41,7 +45,7 @@
   }
 }
 
-.time-stamp {
+#time-stamp {
   color: $color-text-light;
 }
 
@@ -51,7 +55,7 @@
 
   .bar {
     height          : 14px;
-    width           : 15%;
+    width           : 0;
     background-color: #27ae60;
   }
 } 

@@ -1,0 +1,109 @@
+WEBVTT
+
+1
+00:00:00.420 --> 00:00:04.996
+[MUSIC]
+
+2
+00:00:04.996 --> 00:00:07.860
+[SOUND] Does writing plain JavaScript
+scare you, or
+
+3
+00:00:07.860 --> 00:00:10.933
+do you simply want to get a better grasp
+of JavaScript?
+
+4
+00:00:10.933 --> 00:00:13.060
+Then this is the course for you.
+
+5
+00:00:13.060 --> 00:00:17.152
+We're going to use JavaScript to create a
+to-do list application without any
+
+6
+00:00:17.152 --> 00:00:19.710
+third-party libraries like jQuery.
+
+7
+00:00:19.710 --> 00:00:21.660
+I'm Andrew, a JavaScript developer and
+
+8
+00:00:21.660 --> 00:00:25.420
+your guide to getting skilled up writing
+pure JavaScript code.
+
+9
+00:00:25.420 --> 00:00:28.860
+JavaScript is becoming a general purpose
+language, and it's used on
+
+10
+00:00:28.860 --> 00:00:33.038
+the server side with Node js, in
+electronics with devices like the Tessel,
+
+11
+00:00:33.038 --> 00:00:37.705
+and in crossplatform smartphone app SDKs
+like Titanium.
+
+12
+00:00:37.705 --> 00:00:41.130
+Browser based libraries, like jQuery, do a
+lot of the heavy lifting for
+
+13
+00:00:41.130 --> 00:00:44.870
+common tasks in a cross browser compatible
+way.
+
+14
+00:00:44.870 --> 00:00:48.210
+However, its ease of use can leave people
+feeling
+
+15
+00:00:48.210 --> 00:00:50.380
+uncomfortable writing JavaScript alone.
+
+16
+00:00:51.600 --> 00:00:55.760
+We're going to do a handful of common
+tasks that you could do easily with
+
+17
+00:00:55.760 --> 00:01:00.940
+jQuery but are just as nearly as easy to
+write in pure JavaScript.
+
+18
+00:01:00.940 --> 00:01:04.970
+The aim of this course is to get you more
+confident in your abilities writing
+
+19
+00:01:04.970 --> 00:01:09.730
+JavaScript code first in it's home in the
+browser, so you can go out and
+
+20
+00:01:09.730 --> 00:01:12.380
+explore more possibilities.
+
+21
+00:01:12.380 --> 00:01:13.900
+If you're new to JavaScript,
+
+22
+00:01:13.900 --> 00:01:18.060
+you may want to checkout some of the other
+JavaScript courses first.
+
+23
+00:01:18.060 --> 00:01:19.770
+They'll be linked in the teacher notes.
+
