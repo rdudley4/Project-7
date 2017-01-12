@@ -16,10 +16,13 @@
   }
 }
 
+// Add Slide Anim to Elements
+// --------------------------
 
-
-
-.play,
+#next,
+#prev,
+#play,
+#pause,
 #time-stamp,
 .cc,
 .unmuted,
@@ -32,7 +35,8 @@
 // Left - Group1
 // -------------
 
-.play,
+#play,
+#pause,
 .cc {
   transform: translate3d(0, 45px, 0);
 
@@ -79,13 +83,24 @@
 }
 
 
-// Animate group2 icon containers
-// ------------------------------
+// Loop to set base translates and 
+// animation delays for elements with similar 
+// slide animations (cc,mute,fs,next,prev)
+// ------------------------------------------
 
-@each $icon, $transform, $delay in (cc, 141px, .5s),
-                                   (unmuted, 90px, .7s),
-                                   (fullscreen, 40px, .9s) {
-  .#{$icon} {
+@each $icon, $transform, $delay in (cc,         141px, .5s),
+                                   (unmuted,    90px,  .7s),
+                                   (fullscreen, 40px,  .9s),
+                                   (next,       37px,  .5s),
+                                   (prev,       -37px, .5s) {
+  $selector: null;
+  @if $icon == next or $icon == prev {
+    $selector: unquote('##{$icon}'); // ID
+  } @else {
+    $selector: unquote('.#{$icon}'); // Class
+  }
+
+  #{$selector} {
     transform      : translate3d(#{$transform}, 0, 0);
     animation-delay: $delay;
   }
@@ -95,13 +110,8 @@
 // Animate group2 icon pieces
 // --------------------------
 
-.sound-waves path {
-  transform: translate3d(28px, 0, 0);
-}
-
-.screen-contents path {
-  animation: grow $anim-speed backwards;
-}
+.sound-waves path     { transform: translate3d(28px, 0, 0);    }
+.screen-contents path { animation: grow $anim-speed backwards; }
 
 .sound-waves path,
 .screen-contents path {

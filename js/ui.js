@@ -5,6 +5,16 @@ var UI = {
     var element = document.getElementById(id);
     element.innerHTML = text;
   },
+  playPause: function(button) {
+    if(button.id === "play") {
+      videoElement.play();
+      pauseButton.style.display = 'block';
+    } else {
+      videoElement.pause();
+      playButton.style.display = 'block';
+    }
+    button.style.display = 'none';
+  },
   updateTitle: function(title) {
     this.populateHtmlWithId('video-title', title);
   },
@@ -24,6 +34,21 @@ var UI = {
     newTrack.id      = 'caption';
 
     return newTrack;   
+  },
+  captionHandler: function(button, textTrack) {
+    if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
+      var htmlString = 'CLOSED CAPTIONING ENABLED \n';
+      htmlString += '-------------------------\n';
+      htmlString += 'Video       : ' + playlist.getVideoInfo().title + '\n';
+      htmlString += 'Caption File: ' + playlist.getVideoInfo().captionSrc;
+      console.log(htmlString);
+      textTrack.mode = "showing";
+      button.classList.add('on');
+    } else {
+      console.log('Disabling closed captioning.')
+      textTrack.mode = "hidden";
+      button.classList.remove('on');
+    }
   },
   convertTime: function(time) {
     var minutes = Math.floor(time / 60);

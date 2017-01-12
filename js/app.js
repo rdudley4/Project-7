@@ -53,24 +53,22 @@ prevButton.addEventListener('click', function() {
 });
 
 // Play Button
-var playButton = document.querySelector('.play');
+var playButton = document.getElementById('play');
 playButton.addEventListener('click', function() {
-  videoElement.play();
+  UI.playPause(this);
+});
+
+// Pause Button
+var pauseButton = document.getElementById('pause');
+pauseButton.addEventListener('click', function() {
+  UI.playPause(this);
 });
 
 // CC Button
 var captionButton = document.querySelector('.cc');
 captionButton.addEventListener('click', function() {
   var track = videoElement.textTracks[0];
-  if(track.mode === "hidden" || track.mode === "disabled") {
-    console.log("Enabling closed captioning.");
-    track.mode = "showing";
-    this.classList.add('on');
-  } else {
-    console.log('Disabling closed captioning.')
-    track.mode = "hidden";
-    this.classList.remove('on');
-  }
+  UI.captionHandler(this, track);
 });
 
 // Fullscreen Button

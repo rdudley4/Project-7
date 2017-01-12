@@ -489,6 +489,7 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   background-color: #2c3e50;
   padding: .675em;
 }
@@ -503,7 +504,7 @@ video {
 #video-title {
   margin: 0;
   padding: 5px 15px;
-  border: 1px solid white;
+  border-bottom: 2px solid #3c4b5b;
   border-radius: 15px;
   background-color: #46586A;
   color: #fff;
@@ -551,8 +552,9 @@ svg * {
 .controls .cc {
   width: 31px;
 }
-.controls .play {
-  margin-left: 5px;
+
+#pause {
+  display: none;
 }
 
 .on {
@@ -644,7 +646,10 @@ svg * {
   fill: #27ae60;
 }
 
-.play,
+#next,
+#prev,
+#play,
+#pause,
 #time-stamp,
 .cc,
 .unmuted,
@@ -653,19 +658,23 @@ svg * {
   animation: slide 0.4s forwards;
 }
 
-.play,
+#play,
+#pause,
 .cc {
   transform: translate3d(0, 45px, 0);
 }
-.play path,
+#play path,
+#pause path,
 .cc path {
   transition: fill 0.3s;
 }
-.play:hover,
+#play:hover,
+#pause:hover,
 .cc:hover {
   cursor: pointer;
 }
-.play:hover path,
+#play:hover path,
+#pause:hover path,
 .cc:hover path {
   fill: #27ae60;
 }
@@ -703,6 +712,16 @@ svg * {
 .fullscreen {
   transform: translate3d(40px, 0, 0);
   animation-delay: 0.9s;
+}
+
+#next {
+  transform: translate3d(37px, 0, 0);
+  animation-delay: 0.5s;
+}
+
+#prev {
+  transform: translate3d(-37px, 0, 0);
+  animation-delay: 0.5s;
 }
 
 .sound-waves path {

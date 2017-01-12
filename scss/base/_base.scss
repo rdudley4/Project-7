@@ -35,6 +35,7 @@ video {
   display         : flex;
   justify-content : space-between;
   align-items     : center;
+  overflow        : hidden; 
   background-color: $title-bg;
   padding         : .675em;
 
@@ -48,7 +49,7 @@ video {
 #video-title {
   margin          : 0;
   padding         : 5px 15px;
-  border          : 1px solid white;
+  border-bottom:  2px solid darken(#46586A, 5%);
   border-radius   : 15px;
   background-color: #46586A; 
   color           : $white;
