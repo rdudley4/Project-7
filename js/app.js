@@ -3,7 +3,7 @@ var videos = [
   new Video(['media/video2.mp4', 'media/video2.ogg'], 'JavaScript and the DOM', 'media/video2.vtt'),
   new Video(['media/video3.mp4', 'media/video3.ogg'], 'Overview of Web Media', 'media/video3.vtt'),
   new Video(['media/video4.mp4', 'media/video4.ogg'], 'Quiz Application Project - Overview', 'media/video4.vtt'),
-  new Video(['media/video5.mp4', 'media/video5.ogg'], 'Kappa', 'media/video4.vtt')
+  new Video(['media/video5.mp4', 'media/video5.ogg'], 'Kappa', 'media/video5.vtt')
 ];
 
 var playlist = new Playlist(videos);
@@ -36,6 +36,12 @@ videoElement.ontimeupdate = function() {
   UI.updateProgressBar();
 }
 
+// When video has ended.
+videoElement.onended = function() {
+  // Update our play/pause button to appropriate state.
+  UI.playPauseButtonHandler();
+}
+
 
 // Button Click Event Handlers
 // ---------------------------
@@ -65,14 +71,30 @@ pauseButton.addEventListener('click', function() {
 });
 
 // CC Button
-var captionButton = document.querySelector('.cc');
+var captionButton = document.getElementById('cc');
 captionButton.addEventListener('click', function() {
   var track = videoElement.textTracks[0];
   UI.captionHandler(this, track);
 });
 
+// Mute Button
+var muteButton = document.getElementById('unmuted');
+muteButton.addEventListener('click', function() {
+  videoElement.muted = true;
+  this.style.display = 'none';
+  unmuteButton.style.display = 'block';
+});
+
+// Unmute Button
+var unmuteButton = document.getElementById('muted');
+unmuteButton.addEventListener('click', function() {
+  videoElement.muted = false;
+  this.style.display = 'none';
+  muteButton.style.display = 'block';
+});
+
 // Fullscreen Button
-var fullscreenButton = document.querySelector('.fullscreen');
+var fullscreenButton = document.getElementById('fullscreen');
 fullscreenButton.addEventListener('click', function() {
   videoElement.requestFullscreen();
 });

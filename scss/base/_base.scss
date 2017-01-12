@@ -38,12 +38,6 @@ video {
   overflow        : hidden; 
   background-color: $title-bg;
   padding         : .675em;
-
-  @include mediaQuery(1150px) {
-    margin-top             : 20px;
-    border-top-left-radius : $border-radius;
-    border-top-right-radius: $border-radius;
-  }
 }
 
 #video-title {
@@ -72,11 +66,13 @@ svg * {
   max-width   : $max-width;
   margin-left : auto;
   margin-right: auto;
+  overflow: hidden;
 
   @include mediaQuery(1150px) {
-    margin-bottom             : 20px;
-    background                : $white;
-    border-bottom             : 2px solid #bbb;
+    margin-top   : 20px;
+    margin-bottom: 20px;
+    background   : $white;
+    border-bottom: 2px solid #bbb;
     border-radius: $border-radius;
   }
 }

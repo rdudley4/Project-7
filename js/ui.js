@@ -8,12 +8,19 @@ var UI = {
   playPause: function(button) {
     if(button.id === "play") {
       videoElement.play();
-      pauseButton.style.display = 'block';
     } else {
       videoElement.pause();
-      playButton.style.display = 'block';
     }
-    button.style.display = 'none';
+    this.playPauseButtonHandler();
+  },
+  playPauseButtonHandler: function() {
+    if(videoElement.paused || videoElement.ended) {
+      pauseButton.style.display = 'none';
+      playButton.style.display = 'block';
+    } else {
+      playButton.style.display = 'none';
+      pauseButton.style.display = 'block';
+    }
   },
   updateTitle: function(title) {
     this.populateHtmlWithId('video-title', title);

@@ -16,6 +16,7 @@
   }
 }
 
+
 // Add Slide Anim to Elements
 // --------------------------
 
@@ -24,9 +25,10 @@
 #play,
 #pause,
 #time-stamp,
-.cc,
-.unmuted,
-.fullscreen,
+#cc,
+#unmuted,
+#muted,
+#fullscreen,
 .sound-waves path {
   animation: slide $anim-speed forwards;
 }
@@ -37,7 +39,7 @@
 
 #play,
 #pause,
-.cc {
+#cc {
   transform: translate3d(0, 45px, 0);
 
   path {
@@ -88,21 +90,21 @@
 // slide animations (cc,mute,fs,next,prev)
 // ------------------------------------------
 
-@each $icon, $transform, $delay in (cc,         141px, .5s),
-                                   (unmuted,    90px,  .7s),
-                                   (fullscreen, 40px,  .9s),
-                                   (next,       37px,  .5s),
-                                   (prev,       -37px, .5s) {
-  $selector: null;
-  @if $icon == next or $icon == prev {
-    $selector: unquote('##{$icon}'); // ID
+@each $icon in cc, unmuted, muted, fullscreen, next, prev {
+  @if $icon == next {
+    ##{$icon} {
+      transform: translate3d(37px, 0, 0);
+      animation-delay: .5s;
+    }
+  } @else if $icon == prev {
+    ##{$icon} {
+      transform: translate3d(-37px, 0, 0);
+      animation-delay: .5s;
+    }
   } @else {
-    $selector: unquote('.#{$icon}'); // Class
-  }
-
-  #{$selector} {
-    transform      : translate3d(#{$transform}, 0, 0);
-    animation-delay: $delay;
+    ##{$icon} {
+      transform: translate3d(0, 42px, 0);
+    }    
   }
 }
 
@@ -116,7 +118,7 @@
 .sound-waves path,
 .screen-contents path {
   @for $i from 1 through 3 {
-    $delay: $i / 5 + .9;
+    $delay: $i / 5;
     &:nth-of-type(#{$i}) {
       animation-delay: unquote("#{$delay}s");
     }
