@@ -1,9 +1,14 @@
 var videoElement = document.getElementById('current-video');
+var progressBar = document.getElementById('bar');
 
 var UI = {
   populateHtmlWithId: function(id, text) {
     var element = document.getElementById(id);
     element.innerHTML = text;
+  },
+  swapButton: function(hideButton, showButton) {
+    hideButton.style.display = 'none';
+    showButton.style.display = 'block';
   },
   playPause: function(button) {
     if(button.id === "play") {
@@ -11,15 +16,22 @@ var UI = {
     } else {
       videoElement.pause();
     }
-    this.playPauseButtonHandler();
+    this.playPauseDisplayHandler();
   },
-  playPauseButtonHandler: function() {
+  playPauseDisplayHandler: function() {
     if(videoElement.paused || videoElement.ended) {
-      pauseButton.style.display = 'none';
-      playButton.style.display = 'block';
+      this.swapButton(pauseButton, playButton);
     } else {
-      playButton.style.display = 'none';
-      pauseButton.style.display = 'block';
+      this.swapButton(playButton, pauseButton);
+    }
+  },
+  muteHandler: function(button) {
+    if(button.id === 'unmuted') {
+      videoElement.muted = true;
+      this.swapButton(muteButton, unmuteButton);
+    } else {
+      videoElement.muted = false;
+      this.swapButton(unmuteButton, muteButton);
     }
   },
   updateTitle: function(title) {
@@ -59,7 +71,7 @@ var UI = {
   },
   convertTime: function(time) {
     var minutes = Math.floor(time / 60);
-    var seconds = Math.floor(time % 60);
+    var seconds = time % 60;
 
     if(seconds < 10) {
       return minutes + ":0" + seconds; 
@@ -74,10 +86,15 @@ var UI = {
 
     this.populateHtmlWithId('time-stamp', timeString);  
   },
+  setProgressValues: function() {
+    var min = 0;
+    var max = Math.round(videoElement.duration);
+    progressBar.min = min;
+    progressBar.max = max;
+    progressBar.value = min;
+  },
   updateProgressBar: function() {
-    var progressBar = document.querySelector('.bar');
-    var progressPercentage = (videoElement.currentTime / videoElement.duration) * 100 + "%";
-    progressBar.style.width = progressPercentage;
+    progressBar.value = videoElement.currentTime;
   },
   updateVideo: function() {
     this.updateTitle(playlist.getVideoInfo().title);

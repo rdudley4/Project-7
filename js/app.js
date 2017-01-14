@@ -18,8 +18,8 @@ UI.updateVideo();
 // Metadata Loaded
 videoElement.onloadedmetadata = function() {
   console.log('Metadata has finished loading.');
-  UI.updateTime(this.currentTime, this.duration);
-  UI.updateProgressBar();
+  UI.updateTime(Math.round(this.currentTime), Math.round(this.duration));
+  UI.setProgressValues();
 
   // Update caption track.
   var trackElement = document.getElementById('caption');
@@ -30,7 +30,7 @@ videoElement.onloadedmetadata = function() {
 // Time Update
 videoElement.ontimeupdate = function() {
   // Constantly update time as currentTime changes.
-  UI.updateTime(this.currentTime, this.duration);
+  UI.updateTime(Math.round(this.currentTime), Math.round(this.duration));
 
   // Constantly update our progress bar as video progresses.
   UI.updateProgressBar();
@@ -39,9 +39,12 @@ videoElement.ontimeupdate = function() {
 // When video has ended.
 videoElement.onended = function() {
   // Update our play/pause button to appropriate state.
-  UI.playPauseButtonHandler();
+  UI.playPauseDisplayHandler();
 }
 
+progressBar.onchange = function() {
+  videoElement.currentTime = this.value;
+}
 
 // Button Click Event Handlers
 // ---------------------------
@@ -80,17 +83,13 @@ captionButton.addEventListener('click', function() {
 // Mute Button
 var muteButton = document.getElementById('unmuted');
 muteButton.addEventListener('click', function() {
-  videoElement.muted = true;
-  this.style.display = 'none';
-  unmuteButton.style.display = 'block';
+  UI.muteHandler(this);
 });
 
 // Unmute Button
 var unmuteButton = document.getElementById('muted');
 unmuteButton.addEventListener('click', function() {
-  videoElement.muted = false;
-  this.style.display = 'none';
-  muteButton.style.display = 'block';
+  UI.muteHandler(this);
 });
 
 // Fullscreen Button

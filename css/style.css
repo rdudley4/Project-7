@@ -11,9 +11,6 @@
   Mixins
 --------------------------- */
 /* --------------------------
-  Extended Styles
---------------------------- */
-/* --------------------------
   Base Imports
 --------------------------- */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -572,16 +569,6 @@ svg * {
   color: #fff;
 }
 
-.progress {
-  height: 14px;
-  background-color: #46586A;
-}
-.progress .bar {
-  height: 14px;
-  width: 0;
-  background-color: #27ae60;
-}
-
 /* --------------------------
   Transcript Styles
 --------------------------- */
@@ -613,6 +600,65 @@ svg * {
 .highlight:hover {
   cursor: pointer;
   background-color: #1e8449;
+}
+
+/* --------------------------
+  Progress Bar Styles
+--------------------------- */
+.progress {
+  display: flex;
+  align-items: center;
+  background-color: #46586A;
+}
+
+#bar {
+  margin: 0;
+  height: 14px;
+  width: 100%;
+  -webkit-appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+#bar::-webkit-slider-thumb {
+  height: 14px;
+  width: 14px;
+  background-color: #27ae60;
+  border-radius: 0;
+  border: none;
+  -webkit-appearance: none;
+}
+#bar::-webkit-slider-runnable-track {
+  height: 14px;
+  background-color: #46586A;
+}
+#bar::-moz-range-thumb {
+  height: 14px;
+  width: 0;
+  background-color: #27ae60;
+  border-radius: 0;
+  border: none;
+}
+#bar::-moz-range-track {
+  height: 14px;
+  background-color: #46586A;
+}
+#bar::-moz-range-progress {
+  background-color: #27ae60;
+  height: 14px;
+}
+#bar:focus {
+  outline: none;
+}
+#bar::-moz-focus-outer {
+  border: 0;
+}
+#bar::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
 }
 
 /* --------------------------

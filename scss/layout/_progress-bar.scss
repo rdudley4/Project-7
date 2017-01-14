@@ -1,0 +1,69 @@
+/* --------------------------
+  Progress Bar Styles
+--------------------------- */
+
+.progress {
+  display         : flex;
+  align-items     : center;
+  background-color: #46586A;
+} 
+
+#bar {
+  margin            : 0;
+  height            : $bar-height;
+  width             : 100%;
+  -webkit-appearance: none;
+  background-color  : transparent;
+  cursor            : pointer;
+
+  // Chrome Styles
+  &::-webkit-slider {
+    &-thumb {
+      height          : $bar-height;
+      width           : $bar-height;
+      background-color: $color-highlight;
+      border-radius   : 0;
+      border          : none;
+      -webkit-appearance: none;
+    }
+
+    &-runnable-track {
+      height          : $bar-height;
+      background-color: #46586A;
+    }
+  }
+
+  // Firefox Styles
+  &::-moz-range {
+    &-thumb {
+      height          : $bar-height;
+      width           : 0;
+      background-color: $color-highlight;
+      border-radius   : 0;
+      border          : none;
+    }
+
+    &-track {
+      height          : $bar-height;
+      background-color: #46586A;
+    }
+
+    &-progress {
+      background-color: $color-highlight;
+      height          : $bar-height;
+    }
+  }
+  
+  &:focus             { outline: none; }
+  &::-moz-focus-outer { border: 0;     }
+  
+  &::-ms-track {
+    width       : 100%;
+    cursor      : pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background  : transparent; 
+    border-color: transparent;
+    color       : transparent;
+  }
+}
