@@ -1,8 +1,8 @@
-function Video(sources, title, caption) {
+function Video(sources, caption, title) {
   // Array of sources
   this.sources = sources;
-  // Video Title
-  this.title = title;
   // Captions file
   this.captionSrc = caption;
+  // Video Title
+  this.title = title;
 }

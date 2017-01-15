@@ -613,6 +613,7 @@ svg * {
 
 #bar {
   margin: 0;
+  padding: 0;
   height: 14px;
   width: 100%;
   -webkit-appearance: none;
@@ -646,19 +647,27 @@ svg * {
   background-color: #27ae60;
   height: 14px;
 }
+#bar::-ms-thumb {
+  height: 14px;
+  width: 0;
+  background-color: #27ae60;
+  border-radius: 0;
+  border: none;
+}
+#bar::-ms-track {
+  height: 14px;
+  background-color: #46586A;
+  border: 0;
+  color: transparent;
+}
+#bar::-ms-fill-lower {
+  background-color: #27ae60;
+}
 #bar:focus {
   outline: none;
 }
 #bar::-moz-focus-outer {
   border: 0;
-}
-#bar::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  /* Hides the slider so custom styles can be added */
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
 }
 
 /* --------------------------

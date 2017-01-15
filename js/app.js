@@ -1,9 +1,19 @@
+// Simple function so we don't have to type out the file path every time we add a new video.
+var getFiles = function(folder) {
+  var filePath = 'media/' + folder + '/';
+  var contents = {
+    sources: [filePath + 'video.mp4', filePath + 'video.ogg'],
+    caption: filePath + 'captions.vtt'
+  };
+  return contents;
+}
+
 var videos = [
-  new Video(['media/video.mp4', 'media/video.ogg'], 'How the Internet Works', 'media/video1.vtt'),
-  new Video(['media/video2.mp4', 'media/video2.ogg'], 'JavaScript and the DOM', 'media/video2.vtt'),
-  new Video(['media/video3.mp4', 'media/video3.ogg'], 'Overview of Web Media', 'media/video3.vtt'),
-  new Video(['media/video4.mp4', 'media/video4.ogg'], 'Quiz Application Project - Overview', 'media/video4.vtt'),
-  new Video(['media/video5.mp4', 'media/video5.ogg'], 'Kappa', 'media/video5.vtt')
+  new Video(getFiles('video1').sources, getFiles('video1').caption, 'How the Internet Works'),
+  new Video(getFiles('video2').sources, getFiles('video2').caption, 'JavaScript and the DOM'),
+  new Video(getFiles('video3').sources, getFiles('video3').caption, 'Overview of Web Media'),
+  new Video(getFiles('video4').sources, getFiles('video4').caption, 'Quiz Application Project'),
+  new Video(getFiles('video5').sources, getFiles('video5').caption, 'Kappa')
 ];
 
 var playlist = new Playlist(videos);

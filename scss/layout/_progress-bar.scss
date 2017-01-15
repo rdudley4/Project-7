@@ -10,6 +10,7 @@
 
 #bar {
   margin            : 0;
+  padding           : 0;
   height            : $bar-height;
   width             : 100%;
   -webkit-appearance: none;
@@ -54,16 +55,28 @@
     }
   }
   
+  // IE & Edge Styles
+  &::-ms {
+    &-thumb {
+      height          : $bar-height;
+      width           : 0;
+      background-color: $color-highlight;
+      border-radius   : 0;
+      border          : none;
+    }
+
+    &-track {
+      height          : $bar-height;
+      background-color: #46586A;
+      border          : 0;
+      color           : transparent;
+    }
+
+    &-fill-lower {
+      background-color: $color-highlight;
+    }
+  }
+  
   &:focus             { outline: none; }
   &::-moz-focus-outer { border: 0;     }
-  
-  &::-ms-track {
-    width       : 100%;
-    cursor      : pointer;
-
-    /* Hides the slider so custom styles can be added */
-    background  : transparent; 
-    border-color: transparent;
-    color       : transparent;
-  }
 }
