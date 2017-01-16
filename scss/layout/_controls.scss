@@ -7,7 +7,6 @@
 
 .controls {
   display        : flex;
-  align-items    : center;
   overflow       : hidden;
   justify-content: space-between;
   background     : $controls-bg;
@@ -54,4 +53,29 @@
 
 #time-stamp {
   color: $color-text-light;
+}
+
+
+// Volume Controls
+// ---------------
+
+#volume-controls {
+  display       : flex;
+  align-items   : center;
+  flex-direction: column;
+  margin-left   : 10px;
+  margin-right  : 10px;
+
+  @include mediaQuery("tablet") {
+    flex-direction: row;
+    margin-left   : 0;
+  }
+}
+
+#volume-slider {
+  max-width: 50px;
+
+  @include mediaQuery("tablet") {
+    max-width: 150px;
+  }
 }

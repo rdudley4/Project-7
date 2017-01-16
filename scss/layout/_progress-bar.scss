@@ -8,7 +8,8 @@
   background-color: #46586A;
 } 
 
-#bar {
+#bar,
+#volume-slider {
   margin            : 0;
   padding           : 0;
   height            : $bar-height;
@@ -79,4 +80,12 @@
   
   &:focus             { outline: none; }
   &::-moz-focus-outer { border: 0;     }
+}
+
+#volume-slider {
+  margin-top: 3px;
+
+  @include mediaQuery("tablet") {
+    margin-top: 0;
+  }
 }

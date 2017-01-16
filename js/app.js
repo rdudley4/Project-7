@@ -13,7 +13,7 @@ var videos = [
   new Video(getFiles('video2').sources, getFiles('video2').caption, 'JavaScript and the DOM'),
   new Video(getFiles('video3').sources, getFiles('video3').caption, 'Overview of Web Media'),
   new Video(getFiles('video4').sources, getFiles('video4').caption, 'Quiz Application Project'),
-  new Video(getFiles('video5').sources, getFiles('video5').caption, 'Kappa')
+  new Video(getFiles('video5').sources, getFiles('video5').caption, 'The Meaning of Life')
 ];
 
 var playlist = new Playlist(videos);
@@ -28,7 +28,11 @@ UI.updateVideo();
 // Metadata Loaded
 videoElement.onloadedmetadata = function() {
   console.log('Metadata has finished loading.');
+  // Update time stamp when video loads.
   UI.updateTime(Math.round(this.currentTime), Math.round(this.duration));
+  // If user goes to next video while current video is playing, make sure we update the play/pause button state.
+  UI.playPauseDisplayHandler();
+  // Set min / max / value for our input range when video loads.
   UI.setProgressValues();
 
   // Update caption track.
@@ -52,11 +56,16 @@ videoElement.onended = function() {
   UI.playPauseDisplayHandler();
 }
 
-progressBar.onchange = function() {
+progressBar.oninput = function() {
   videoElement.currentTime = this.value;
 }
 
-// Button Click Event Handlers
+var volumeSlider = document.getElementById('volume-slider');
+volumeSlider.oninput = function() {
+  videoElement.volume = this.value;
+}
+
+// Button Click Event Handlersz
 // ---------------------------
 
 // Next Button
