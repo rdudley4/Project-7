@@ -48,6 +48,7 @@
     &-track {
       height          : $bar-height;
       background-color: #46586A;
+      border          : none;
     }
 
     &-progress {
@@ -83,7 +84,27 @@
 }
 
 #volume-slider {
+  width     : auto;
   margin-top: 3px;
+  
+  &::-webkit-slider {
+    &-thumb,
+    &-runnable-track {
+      border-radius: 10px;
+    }
+  }
+
+  &::-moz-range {
+    &-track {
+      height: $bar-height - 2;
+    }
+  }
+
+  &::-ms {
+    &-track {
+      height: $bar-height - 2;
+    }
+  }
 
   @include mediaQuery("tablet") {
     margin-top: 0;

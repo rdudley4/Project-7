@@ -669,6 +669,7 @@ svg * {
 #volume-slider::-moz-range-track {
   height: 14px;
   background-color: #46586A;
+  border: none;
 }
 #bar::-moz-range-progress,
 #volume-slider::-moz-range-progress {
@@ -704,7 +705,17 @@ svg * {
 }
 
 #volume-slider {
+  width: auto;
   margin-top: 3px;
+}
+#volume-slider::-webkit-slider-thumb, #volume-slider::-webkit-slider-runnable-track {
+  border-radius: 10px;
+}
+#volume-slider::-moz-range-track {
+  height: 12px;
+}
+#volume-slider::-ms-track {
+  height: 12px;
 }
 @media (min-width: 768px) {
   #volume-slider {
