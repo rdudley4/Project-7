@@ -571,6 +571,16 @@ svg * {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .group2 {
+    max-width: 240px;
+  }
+}
+@supports (-ms-ime-align:auto) {
+  .group2 {
+    max-width: 240px;
+  }
+}
 
 #time-stamp {
   color: #fff;

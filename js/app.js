@@ -56,14 +56,31 @@ videoElement.onended = function() {
   UI.playPauseDisplayHandler();
 }
 
-progressBar.oninput = function() {
-  videoElement.currentTime = this.value;
-}
 
 var volumeSlider = document.getElementById('volume-slider');
-volumeSlider.oninput = function() {
-  videoElement.volume = this.value;
+if (!!navigator.userAgent.match(/Trident\/7\./)) {
+  // Because IE is a special snowflake.
+  console.log('Internet Explorer Detected, using special snowflake event handlers.');
+  // Volume Slider
+  volumeSlider.onchange = function() {
+    videoElement.volume = this.value;
+  }
+  // Progress Bar
+  progressBar.onchange = function() {
+    videoElement.currentTime = this.value;
+  }
+} else {
+  console.log('Sane Browser Detected, using normal event handlers.')
+  // Volume Slider
+  volumeSlider.oninput = function() {
+    videoElement.volume = this.value;
+  }
+  // Progress Bar
+  progressBar.oninput = function() {
+    videoElement.currentTime = this.value;
+  }
 }
+
 
 // Button Click Event Handlersz
 // ---------------------------

@@ -41,6 +41,8 @@ $bar-height: 14px;
 
 $brk-tablet : "(min-width: 768px)";
 $brk-desktop: "(min-width: 1024px)";
+$brk-ie     : "(-ms-high-contrast: none), (-ms-high-contrast: active)";
+$brk-edge   : "(-ms-ime-align:auto)";
 
 
 // Miscellaneous Variables
