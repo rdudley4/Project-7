@@ -17,16 +17,18 @@
   -webkit-appearance: none;
   background-color  : transparent;
   cursor            : pointer;
+  overflow: hidden;
 
   // Chrome Styles
   &::-webkit-slider {
     &-thumb {
-      height          : $bar-height;
-      width           : $bar-height;
-      background-color: $color-highlight;
-      border-radius   : 0;
-      border          : none;
+      height            : $bar-height;
+      width             : 0;
+      background-color  : $color-highlight;
+      border-radius     : 0;
+      border            : none;
       -webkit-appearance: none;
+      box-shadow        : -575px 0 0 575px $color-highlight;
     }
 
     &-runnable-track {
@@ -85,9 +87,12 @@
 
 #volume-slider {
   &::-webkit-slider {
-    &-thumb,
+    &-thumb {
+      box-shadow: -125px 0 0 125px $color-highlight;
+    }
+
     &-runnable-track {
-      border-radius: 10px;
+      height: $bar-height - 2;
     }
   }
 

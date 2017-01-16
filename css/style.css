@@ -637,15 +637,17 @@ svg * {
   -webkit-appearance: none;
   background-color: transparent;
   cursor: pointer;
+  overflow: hidden;
 }
 #bar::-webkit-slider-thumb,
 #volume-slider::-webkit-slider-thumb {
   height: 14px;
-  width: 14px;
+  width: 0;
   background-color: #27ae60;
   border-radius: 0;
   border: none;
   -webkit-appearance: none;
+  box-shadow: -575px 0 0 575px #27ae60;
 }
 #bar::-webkit-slider-runnable-track,
 #volume-slider::-webkit-slider-runnable-track {
@@ -699,8 +701,11 @@ svg * {
   border: 0;
 }
 
-#volume-slider::-webkit-slider-thumb, #volume-slider::-webkit-slider-runnable-track {
-  border-radius: 10px;
+#volume-slider::-webkit-slider-thumb {
+  box-shadow: -125px 0 0 125px #27ae60;
+}
+#volume-slider::-webkit-slider-runnable-track {
+  height: 12px;
 }
 #volume-slider::-moz-range-track {
   height: 12px;
