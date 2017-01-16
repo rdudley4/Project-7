@@ -11,17 +11,21 @@
   justify-content: space-between;
   background     : $controls-bg;
   height         : 60px;
+  padding        : 4px 10px;
 
   svg {
     width       : 30px;
     height      : 30px;
-    margin-left : 10px;
-    margin-right: 10px;
   }
 
   .cc {
     width: 31px;
   }
+}
+
+#play,
+#pause {
+  margin-right: 5px;
 }
 
 #pause,
@@ -49,33 +53,13 @@
     display    : flex;
     align-items: center;
   }
+
+  &2 {
+    justify-content: space-between;
+    flex-wrap  : wrap;
+  }
 }
 
 #time-stamp {
   color: $color-text-light;
-}
-
-
-// Volume Controls
-// ---------------
-
-#volume-controls {
-  display       : flex;
-  align-items   : center;
-  flex-direction: column;
-  margin-left   : 10px;
-  margin-right  : 10px;
-
-  @include mediaQuery("tablet") {
-    flex-direction: row;
-    margin-left   : 0;
-  }
-}
-
-#volume-slider {
-  max-width: 50px;
-
-  @include mediaQuery("tablet") {
-    max-width: 150px;
-  }
 }

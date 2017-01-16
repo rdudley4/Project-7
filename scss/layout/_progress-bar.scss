@@ -84,9 +84,6 @@
 }
 
 #volume-slider {
-  width     : auto;
-  margin-top: 3px;
-  
   &::-webkit-slider {
     &-thumb,
     &-runnable-track {

@@ -29,6 +29,7 @@
 #unmuted,
 #muted,
 #fullscreen,
+#pb-rate,
 .sound-waves path {
   animation: slide $anim-speed forwards;
 }
@@ -90,7 +91,7 @@
 // slide animations (cc,mute,fs,next,prev)
 // ------------------------------------------
 
-@each $icon in cc, unmuted, muted, fullscreen, next, prev {
+@each $icon in cc, unmuted, muted, fullscreen, next, prev, pb-rate {
   @if $icon == next {
     ##{$icon} {
       transform: translate3d(37px, 0, 0);
@@ -103,7 +104,7 @@
     }
   } @else {
     ##{$icon} {
-      transform: translate3d(0, 42px, 0);
+      transform: translate3d(0, 55px, 0);
     }    
   }
 }
