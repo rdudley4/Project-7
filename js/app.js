@@ -32,13 +32,16 @@ videoElement.onloadedmetadata = function() {
   UI.updateTime(Math.round(this.currentTime), Math.round(this.duration));
   // If user goes to next video while current video is playing, make sure we update the play/pause button state.
   UI.playPauseDisplayHandler();
-  // Set min / max / value for our input range when video loads.
+  // Set min / max / value for our input range when video loads. Also reset our buffer bar.
   UI.setProgressValues();
 
   // Update caption track.
   var trackElement = document.getElementById('caption');
   var captionSrc = playlist.getVideoInfo().captionSrc;
   this.replaceChild(UI.createCaptionTrack(captionSrc), trackElement);
+  
+  // Set Volume
+  this.volume = volumeSlider.value;
 }
 
 // Time Update

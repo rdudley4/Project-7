@@ -3,12 +3,19 @@
 --------------------------- */
 
 .progress {
-  display         : flex;
-  align-items     : center;
   background-color: $bg-light;
-} 
+  position        : relative;
+  height          : 14px;
+}
 
-#bar,
+#playing,
+#buffered-amount {
+  position: absolute;
+  bottom  : 0;
+  left    : 0;
+}
+
+#playing,
 #volume-slider {
   margin            : 0;
   padding           : 0;
@@ -17,7 +24,7 @@
   -webkit-appearance: none;
   background-color  : transparent;
   cursor            : pointer;
-  overflow: hidden;
+  overflow          : hidden;
 
   // Chrome Styles
   &::-webkit-slider {
@@ -32,8 +39,7 @@
     }
 
     &-runnable-track {
-      height          : $bar-height;
-      background-color: $bg-light;
+      background-color: transparent;
     }
   }
 
@@ -48,10 +54,9 @@
     }
 
     &-track {
-      height          : $bar-height;
-      background-color: $bg-light;
+      background-color: transparent;
       border          : none;
-      z-index: 1000;
+      outline         : none;
     }
 
     &-progress {
@@ -71,10 +76,9 @@
     }
 
     &-track {
-      height          : $bar-height;
-      background-color: $bg-light;
-      border          : 0;
+      background-color: transparent;
       color           : transparent;
+      border          : 0;
     }
 
     &-fill-lower {
@@ -87,27 +91,22 @@
 }
 
 #volume-slider {
+  $bar-height     : $bar-height - 4; // 10px
+  height          : $bar-height;
+  background-color: $bg-light;
+
   &::-webkit-slider {
     &-thumb {
       box-shadow: -125px 0 0 125px $color-highlight;
     }
 
     &-runnable-track {
-      height: $bar-height - 2;
+      height: $bar-height - 2; // 8px
     }
   }
 
-  &::-moz-range {
-    &-track {
-      height: $bar-height - 2;
-    }
-  }
-
-  &::-ms {
-    &-track {
-      height: $bar-height - 2;
-    }
-  }
+  &::-moz-range-track { height: $bar-height - 2; } // 8px
+  &::-ms-track        { height: $bar-height - 2; } // 8px
 
   @include mediaQuery("tablet") {
     margin-top: 0;
@@ -118,9 +117,7 @@
   &-amount {
     height          : $bar-height;
     margin-top      : -14px;
-    background-color: rgba(39,174,96, .3);
-    position        : relative;
+    background-color: rgba(39,174,96, .25);
     width           : 0;
-    pointer-events  : none;
   }
 }

@@ -1,5 +1,5 @@
 var videoElement = document.getElementById('current-video');
-var progressBar = document.getElementById('bar');
+var progressBar = document.getElementById('playing');
 var bufferedAmount = document.getElementById('buffered-amount');
 
 var UI = {
