@@ -42,12 +42,9 @@ video {
 
 #video-title {
   margin          : 0;
-  padding         : 5px 15px;
-  border-bottom:  2px solid darken(#46586A, 5%);
-  border-radius   : 15px;
-  background-color: #46586A; 
+  letter-spacing  : 1px; 
   color           : $white;
-  font-weight     : 400;
+  font-family     : $stack-nunito;
 }
 
 

@@ -493,12 +493,9 @@ video {
 
 #video-title {
   margin: 0;
-  padding: 5px 15px;
-  border-bottom: 2px solid #3c4b5b;
-  border-radius: 15px;
-  background-color: #46586A;
+  letter-spacing: 1px;
   color: #fff;
-  font-weight: 400;
+  font-family: "Nunito", Helvetica, sans-serif;
 }
 
 svg * {
@@ -570,16 +567,7 @@ svg * {
 .group2 {
   justify-content: space-between;
   flex-wrap: wrap;
-}
-@media (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .group2 {
-    max-width: 240px;
-  }
-}
-@supports (-ms-ime-align:auto) {
-  .group2 {
-    max-width: 240px;
-  }
+  max-width: 240px;
 }
 
 #time-stamp {
@@ -767,7 +755,8 @@ svg * {
 #muted,
 #fullscreen,
 #pb-rate,
-.sound-waves path {
+.sound-waves path,
+#dashes path {
   animation: slide 0.4s forwards;
 }
 
@@ -860,6 +849,28 @@ svg * {
 }
 .sound-waves path:nth-of-type(3),
 .screen-contents path:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+#dashes path {
+  transform: translate3d(-23px, 0, 0);
+}
+#dashes path:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+#dashes path:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+#dashes path:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+#dashes path:nth-of-type(4) {
+  animation-delay: 0.4s;
+}
+#dashes path:nth-of-type(5) {
+  animation-delay: 0.5s;
+}
+#dashes path:nth-of-type(6) {
   animation-delay: 0.6s;
 }
 

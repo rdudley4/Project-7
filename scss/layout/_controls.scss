@@ -56,16 +56,8 @@
 
   &2 {
     justify-content: space-between;
-    flex-wrap  : wrap;
-
-    // God damnit microsoft FeelsBadMan
-    @include mediaQuery("internet-explorer") {
-      max-width: 240px;
-    }
-
-    @include mediaQuery("ms-edge") {
-      max-width: 240px;
-    }
+    flex-wrap      : wrap;
+    max-width      : 240px; 
   }
 }
 

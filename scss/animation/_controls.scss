@@ -30,7 +30,8 @@
 #muted,
 #fullscreen,
 #pb-rate,
-.sound-waves path {
+.sound-waves path,
+#dashes path {
   animation: slide $anim-speed forwards;
 }
 
@@ -125,6 +126,16 @@
 .screen-contents path {
   @for $i from 1 through 3 {
     $delay: $i / 5;
+    &:nth-of-type(#{$i}) {
+      animation-delay: unquote("#{$delay}s");
+    }
+  }
+}
+
+#dashes path {
+  transform: translate3d(-23px, 0, 0);
+  @for $i from 1 through 6 {
+    $delay: $i / 10;
     &:nth-of-type(#{$i}) {
       animation-delay: unquote("#{$delay}s");
     }
