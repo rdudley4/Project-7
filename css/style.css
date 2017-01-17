@@ -496,6 +496,7 @@ video {
   letter-spacing: 1px;
   color: #fff;
   font-family: "Nunito", Helvetica, sans-serif;
+  text-align: center;
 }
 
 svg * {
@@ -655,6 +656,7 @@ svg * {
   height: 14px;
   background-color: #46586A;
   border: none;
+  z-index: 1000;
 }
 #bar::-moz-range-progress,
 #volume-slider::-moz-range-progress {
@@ -705,6 +707,15 @@ svg * {
   #volume-slider {
     margin-top: 0;
   }
+}
+
+#buffered-amount {
+  height: 14px;
+  margin-top: -14px;
+  background-color: rgba(39, 174, 96, 0.3);
+  position: relative;
+  width: 0;
+  pointer-events: none;
 }
 
 /* --------------------------

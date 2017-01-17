@@ -46,7 +46,12 @@ videoElement.ontimeupdate = function() {
   // Constantly update time as currentTime changes.
   UI.updateTime(Math.round(this.currentTime), Math.round(this.duration));
 
-  // Constantly update our progress bar as video progresses.
+  // Update buffered amount
+  if(this.buffered.length > 0 && playlist.getVideoInfo().isBuffering()) {
+    var bufferEnd = this.buffered.end(this.buffered.length - 1);
+    UI.updateBufferedAmount(bufferEnd);
+  }
+  // Update our progress bar as video progresses.
   UI.updateProgressBar();
 }
 
@@ -55,7 +60,6 @@ videoElement.onended = function() {
   // Update our play/pause button to appropriate state.
   UI.playPauseDisplayHandler();
 }
-
 
 var volumeSlider = document.getElementById('volume-slider');
 if (!!navigator.userAgent.match(/Trident\/7\./)) {

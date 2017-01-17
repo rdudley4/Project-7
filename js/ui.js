@@ -1,5 +1,6 @@
 var videoElement = document.getElementById('current-video');
 var progressBar = document.getElementById('bar');
+var bufferedAmount = document.getElementById('buffered-amount');
 
 var UI = {
   populateHtmlWithId: function(id, text) {
@@ -92,9 +93,15 @@ var UI = {
     progressBar.min = min;
     progressBar.max = max;
     progressBar.value = min;
+    // Reset our buffer amount
+    bufferedAmount.style.width = min;
   },
   updateProgressBar: function() {
     progressBar.value = videoElement.currentTime;
+  },
+  updateBufferedAmount: function(bufferEnd) {
+    bufferedAmount.style.width = Math.round((bufferEnd / videoElement.duration) * 100) + "%";
+    console.log(bufferedAmount.style.width + " loaded");
   },
   updateVideo: function() {
     this.updateTitle(playlist.getVideoInfo().title);

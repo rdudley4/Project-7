@@ -36,15 +36,16 @@ video {
   justify-content : space-between;
   align-items     : center;
   overflow        : hidden; 
-  background-color: $title-bg;
+  background-color: $bg-dark;
   padding         : .675em;
 }
 
 #video-title {
-  margin          : 0;
-  letter-spacing  : 1px; 
-  color           : $white;
-  font-family     : $stack-nunito;
+  margin        : 0;
+  letter-spacing: 1px; 
+  color         : $color-text-light;
+  font-family   : $stack-nunito;
+  text-align    : center;
 }
 
 
