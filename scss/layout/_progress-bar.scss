@@ -8,6 +8,13 @@
   height          : 14px;
 }
 
+#buffered-amount {
+  height          : $bar-height;
+  margin-top      : -14px;
+  background-color: rgba(39,174,96, .25);
+  width           : 0;
+}
+
 #playing,
 #buffered-amount {
   position: absolute;
@@ -83,6 +90,7 @@
 
     &-fill-lower {
       background-color: $color-highlight;
+      height          : $bar-height;
     }
   }
   
@@ -99,25 +107,9 @@
     &-thumb {
       box-shadow: -125px 0 0 125px $color-highlight;
     }
-
-    &-runnable-track {
-      height: $bar-height - 2; // 8px
-    }
   }
-
-  &::-moz-range-track { height: $bar-height - 2; } // 8px
-  &::-ms-track        { height: $bar-height - 2; } // 8px
 
   @include mediaQuery("tablet") {
     margin-top: 0;
-  }
-}
-
-#buffered {
-  &-amount {
-    height          : $bar-height;
-    margin-top      : -14px;
-    background-color: rgba(39,174,96, .25);
-    width           : 0;
   }
 }

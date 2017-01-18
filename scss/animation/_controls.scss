@@ -105,7 +105,7 @@
     }
   } @else {
     ##{$icon} {
-      transform: translate3d(0, 55px, 0);
+      transform: translate3d(0, -40px, 0);
     }    
   }
 }
@@ -140,7 +140,7 @@
       animation-delay: unquote("#{$delay}s");
     }
   }
-} 
+}
 
 
 // Animate Volume Slider
