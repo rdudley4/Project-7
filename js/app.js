@@ -129,6 +129,12 @@ fullscreenButton.addEventListener('click', function() {
   videoElement.requestFullscreen();
 });
 
+// Playback Rate Button
+var pbRateButton = document.getElementById('pb-rate');
+pbRateButton.addEventListener('click', function() {
+  UI.updatePlaybackRate();
+});
+
 // Rewind Button
 var rewindButton = document.getElementById('rewind');
 rewindButton.addEventListener('click', function() {

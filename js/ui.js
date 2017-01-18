@@ -103,6 +103,23 @@ var UI = {
     bufferedAmount.style.width = Math.round((bufferEnd / videoElement.duration) * 100) + "%";
     console.log(bufferedAmount.style.width + " loaded");
   },
+  updatePlaybackRate: function() {
+    var colorDefault = '#fff';
+    var colorMedium  = '#f5d76e';
+    var colorFast    = '#ec644b';
+    if(videoElement.playbackRate === 1) {
+      videoElement.playbackRate = 1.5;
+      pbRateButton.setAttribute('fill', colorMedium);
+    } else if(videoElement.playbackRate === 1.5) {
+      videoElement.playbackRate = 2;
+      pbRateButton.setAttribute('fill', colorFast);
+    } else {
+      videoElement.playbackRate = 1;
+      pbRateButton.setAttribute('fill', colorDefault);
+      console.log('Returning to normal rate.');
+    }
+    console.log('Playback Rate Change -> ' + videoElement.playbackRate + 'x');
+  },
   updateVideo: function() {
     this.updateTitle(playlist.getVideoInfo().title);
     this.updateSources(playlist.getVideoInfo().sources);
