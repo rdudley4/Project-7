@@ -56,6 +56,8 @@ var UI = {
     return newTrack;   
   },
   captionHandler: function(button, textTrack) {
+    var on  = '#27ae60';
+    var off = '#46586A';
     if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
       var htmlString = 'CLOSED CAPTIONING ENABLED \n';
       htmlString += '-------------------------\n';
@@ -63,11 +65,11 @@ var UI = {
       htmlString += 'Caption File: ' + playlist.getVideoInfo().captionSrc;
       console.log(htmlString);
       textTrack.mode = "showing";
-      button.classList.add('on');
+      button.setAttribute('fill', on);
     } else {
       console.log('Disabling closed captioning.')
       textTrack.mode = "hidden";
-      button.classList.remove('on');
+      button.setAttribute('fill', off);
     }
   },
   convertTime: function(time) {

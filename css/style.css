@@ -551,10 +551,6 @@ svg * {
   display: none;
 }
 
-.on {
-  fill: #27ae60;
-}
-
 #next,
 #prev {
   width: 30px;
