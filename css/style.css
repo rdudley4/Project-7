@@ -571,6 +571,23 @@ svg * {
   color: #fff;
 }
 
+#vol {
+  transition: color 0.6s;
+  width: 13%;
+  line-height: 10px;
+  text-align: center;
+}
+
+.volume-low {
+  color: #ec644b;
+}
+.volume-med {
+  color: #f5d76e;
+}
+.volume-high {
+  color: #27ae60;
+}
+
 /* --------------------------
   Transcript Styles
 --------------------------- */
@@ -700,6 +717,7 @@ svg * {
 }
 
 #volume-slider {
+  width: 87%;
   height: 10px;
   background-color: #46586A;
 }
@@ -765,7 +783,15 @@ svg * {
 #muted:hover,
 #unmuted:hover {
   cursor: pointer;
-  fill: #27ae60;
+}
+
+#prev:hover,
+#next:hover,
+#play:hover,
+#pause:hover,
+#fullscreen:hover,
+#rewind:hover {
+  fill: #fff;
 }
 
 #next,
@@ -789,30 +815,16 @@ svg * {
 #cc {
   transform: translate3d(0, 45px, 0);
 }
-#play path,
-#pause path,
-#cc path {
-  transition: fill 0.3s;
-}
-#play:hover,
-#pause:hover,
-#cc:hover {
-  cursor: pointer;
-}
-#play:hover path,
-#pause:hover path,
-#cc:hover path {
-  fill: #27ae60;
-}
 
 #time-stamp {
+  color: #46586A;
   transition: color 0.3s;
   transform: translate3d(0, -42px, 0);
   animation-delay: .3s;
 }
 #time-stamp:hover {
   cursor: default;
-  color: #27ae60;
+  color: #fff;
 }
 
 #cc {

@@ -60,3 +60,28 @@
 #time-stamp {
   color: $color-text-light;
 }
+
+
+// Volume Indicator
+// ----------------
+
+#vol {
+  transition : color $trans-speed * 2;
+  width      : 13%;
+  line-height: 10px;
+  text-align : center;
+}
+
+.volume {
+  &-low {
+    color: #ec644b;
+  }
+
+  &-med {
+    color: #f5d76e
+  }
+
+  &-high {
+    color: #27ae60;
+  }
+}

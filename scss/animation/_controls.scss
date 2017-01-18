@@ -19,7 +19,17 @@
 
   &:hover {
     cursor: pointer;
-    fill  : $color-highlight;
+  }
+}
+
+#prev,
+#next,
+#play,
+#pause,
+#fullscreen,
+#rewind {
+  &:hover {
+    fill: $white;
   }
 }
 
@@ -51,28 +61,17 @@
 #pause,
 #cc {
   transform: translate3d(0, 45px, 0);
-
-  path {
-    transition: fill $trans-speed;
-  }
-
-  &:hover {
-    cursor: pointer;
-
-    path {
-      fill: $color-highlight;
-    }
-  }
 }
 
 #time-stamp {
+  color: $bg-light;
   transition     : color $trans-speed;
   transform      : translate3d(0, -42px, 0);
   animation-delay: .3s;
 
   &:hover {
     cursor: default;
-    color : $color-highlight;
+    color : $white;
   }
 }
 

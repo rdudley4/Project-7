@@ -42,6 +42,9 @@ videoElement.onloadedmetadata = function() {
   
   // Set Volume
   this.volume = volumeSlider.value;
+  UI.updateVolIndicator(Math.round(this.volume * 100));
+  // Reset Playback Rate Icon to default color
+  pbRateButton.setAttribute('fill', '#46586A');
 }
 
 // Time Update
@@ -71,6 +74,7 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
   // Volume Slider
   volumeSlider.onchange = function() {
     videoElement.volume = this.value;
+    UI.updateVolIndicator(Math.round(this.value * 100));
   }
   // Progress Bar
   progressBar.onchange = function() {
@@ -81,6 +85,7 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
   // Volume Slider
   volumeSlider.oninput = function() {
     videoElement.volume = this.value;
+    UI.updateVolIndicator(Math.round(this.value * 100));
   }
   // Progress Bar
   progressBar.oninput = function() {

@@ -89,6 +89,17 @@ var UI = {
 
     this.populateHtmlWithId('time-stamp', timeString);  
   },
+  updateVolIndicator: function(volume) {
+    var indicator = document.getElementById('vol');
+    this.populateHtmlWithId('vol', volume);
+    if(volume <= 35) {
+      indicator.className = 'volume-low';
+    } else if(volume > 35 && volume < 75) {
+      indicator.className = 'volume-med';
+    } else {
+      indicator.className = 'volume-high';
+    }
+  },
   setProgressValues: function() {
     var min = 0;
     var max = Math.round(videoElement.duration);
@@ -106,7 +117,7 @@ var UI = {
     console.log(bufferedAmount.style.width + " loaded");
   },
   updatePlaybackRate: function() {
-    var colorDefault = '#fff';
+    var colorDefault = '#46586A';
     var colorMedium  = '#f5d76e';
     var colorFast    = '#ec644b';
     if(videoElement.playbackRate === 1) {
