@@ -746,10 +746,28 @@ svg * {
 /* --------------------------
   Control Animations
 --------------------------- */
-.video-head svg {
+#prev,
+#next,
+#play,
+#pause,
+#cc,
+#fullscreen,
+#pb-rate,
+#rewind,
+#muted,
+#unmuted {
   transition: fill 0.3s;
 }
-.video-head svg:hover {
+#prev:hover,
+#next:hover,
+#play:hover,
+#pause:hover,
+#cc:hover,
+#fullscreen:hover,
+#pb-rate:hover,
+#rewind:hover,
+#muted:hover,
+#unmuted:hover {
   cursor: pointer;
   fill: #27ae60;
 }
@@ -764,6 +782,7 @@ svg * {
 #muted,
 #fullscreen,
 #pb-rate,
+#rewind,
 .sound-waves path,
 #dashes path {
   animation: slide 0.4s forwards;
@@ -800,16 +819,6 @@ svg * {
   color: #27ae60;
 }
 
-.group2 g {
-  transition: fill 0.3s;
-}
-.group2 svg:hover {
-  cursor: pointer;
-}
-.group2 svg:hover g:first-of-type {
-  fill: #27ae60;
-}
-
 #cc {
   transform: translate3d(0, -40px, 0);
 }
@@ -837,6 +846,10 @@ svg * {
 }
 
 #pb-rate {
+  transform: translate3d(0, -40px, 0);
+}
+
+#rewind {
   transform: translate3d(0, -40px, 0);
 }
 

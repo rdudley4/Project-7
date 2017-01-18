@@ -2,17 +2,24 @@
   Control Animations
 --------------------------- */
 
-// Top - Video Head
-// ----------------
+// Hover Transitions
+// -----------------
 
-.video-head {
-  svg {
-    transition: fill $trans-speed;
+#prev,
+#next,
+#play,
+#pause,
+#cc,
+#fullscreen,
+#pb-rate,
+#rewind,
+#muted,
+#unmuted {
+  transition: fill $trans-speed;
 
-    &:hover {
-      cursor: pointer;
-      fill  : $color-highlight;
-    }    
+  &:hover {
+    cursor: pointer;
+    fill  : $color-highlight;
   }
 }
 
@@ -30,6 +37,7 @@
 #muted,
 #fullscreen,
 #pb-rate,
+#rewind,
 .sound-waves path,
 #dashes path {
   animation: slide $anim-speed forwards;
@@ -69,30 +77,12 @@
 }
 
 
-// Right - Group2
-// --------------
-
-.group2 {
-  g {
-    transition: fill $trans-speed;
-  }
-
-  svg:hover {
-    cursor: pointer;
-
-    g:first-of-type {
-      fill: $color-highlight;
-    }   
-  }
-}
-
-
 // Loop to set base translates and 
 // animation delays for elements with similar 
 // slide animations (cc,mute,fs,next,prev)
 // ------------------------------------------
 
-@each $icon in cc, unmuted, muted, fullscreen, next, prev, pb-rate {
+@each $icon in cc, unmuted, muted, fullscreen, next, prev, pb-rate, rewind {
   @if $icon == next {
     ##{$icon} {
       transform: translate3d(37px, 0, 0);

@@ -123,6 +123,19 @@ captionButton.addEventListener('click', function() {
   UI.captionHandler(this, track);
 });
 
+// Fullscreen Button
+var fullscreenButton = document.getElementById('fullscreen');
+fullscreenButton.addEventListener('click', function() {
+  videoElement.requestFullscreen();
+});
+
+// Rewind Button
+var rewindButton = document.getElementById('rewind');
+rewindButton.addEventListener('click', function() {
+  videoElement.currentTime = videoElement.currentTime - 10;
+  console.log('Rewinding 10 seconds, current time is ' + Math.round(videoElement.currentTime) + "s");
+});
+
 // Mute Button
 var muteButton = document.getElementById('unmuted');
 muteButton.addEventListener('click', function() {
@@ -133,10 +146,4 @@ muteButton.addEventListener('click', function() {
 var unmuteButton = document.getElementById('muted');
 unmuteButton.addEventListener('click', function() {
   UI.muteHandler(this);
-});
-
-// Fullscreen Button
-var fullscreenButton = document.getElementById('fullscreen');
-fullscreenButton.addEventListener('click', function() {
-  videoElement.requestFullscreen();
 });
