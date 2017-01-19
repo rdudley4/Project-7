@@ -10,6 +10,7 @@ Playlist.prototype.getVideoInfo = function() {
 }
 
 Playlist.prototype.next = function() {
+  videoElement.textTracks[0].mode = "disabled";
   this.currentVideoIndex++;
   if(this.currentVideoIndex >= this.videos.length) {
     console.log("Returning to start of playlist.")
@@ -19,6 +20,7 @@ Playlist.prototype.next = function() {
 }
 
 Playlist.prototype.prev = function() {
+  videoElement.textTracks[0].mode = "disabled";
   this.currentVideoIndex--;
   if(this.currentVideoIndex < 0) {
     console.log('Going to end of playlist.');

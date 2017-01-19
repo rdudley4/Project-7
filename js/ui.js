@@ -47,7 +47,7 @@ var UI = {
   createCaptionTrack: function(src) {
     var newTrack = document.createElement('track');
 
-    newTrack.kind    = 'subtitle';
+    newTrack.kind    = 'subtitles';
     newTrack.label   = 'English';
     newTrack.srclang = 'en';
     newTrack.src     = src;
@@ -67,7 +67,7 @@ var UI = {
       button.style.fill = on;
     } else {
       console.log('Disabling closed captioning.')
-      textTrack.mode = "hidden";
+      textTrack.mode = "disabled";
       button.removeAttribute('style');
     }
   },
@@ -128,5 +128,15 @@ var UI = {
     this.updateTitle(playlist.getVideoInfo().title);
     this.updateSources(playlist.getVideoInfo().sources);
     videoElement.load();
+  },
+  reset: function(video) {
+    pbRateButton.removeAttribute('style');
+    captionButton.removeAttribute('style');
+    
+    video.volume = volumeSlider.value;
+    this.updateVolIndicator(Math.round(video.volume * 100));
+    this.playPauseDisplayHandler();
+    this.setProgressValues();
+    this.updateTime(Math.round(video.currentTime), Math.round(video.duration));
   }
 }
