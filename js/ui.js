@@ -56,8 +56,7 @@ var UI = {
     return newTrack;   
   },
   captionHandler: function(button, textTrack) {
-    var on  = '#27ae60';
-    var off = '#46586A';
+    var on  = '#f2545b';
     if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
       var htmlString = 'CLOSED CAPTIONING ENABLED \n';
       htmlString += '-------------------------\n';
@@ -65,11 +64,11 @@ var UI = {
       htmlString += 'Caption File: ' + playlist.getVideoInfo().captionSrc;
       console.log(htmlString);
       textTrack.mode = "showing";
-      button.setAttribute('fill', on);
+      button.style.fill = on;
     } else {
       console.log('Disabling closed captioning.')
       textTrack.mode = "hidden";
-      button.setAttribute('fill', off);
+      button.removeAttribute('style');
     }
   },
   convertTime: function(time) {
@@ -92,13 +91,6 @@ var UI = {
   updateVolIndicator: function(volume) {
     var indicator = document.getElementById('vol');
     this.populateHtmlWithId('vol', volume);
-    if(volume <= 35) {
-      indicator.className = 'volume-low';
-    } else if(volume > 35 && volume < 75) {
-      indicator.className = 'volume-med';
-    } else {
-      indicator.className = 'volume-high';
-    }
   },
   setProgressValues: function() {
     var min = 0;
@@ -117,18 +109,17 @@ var UI = {
     console.log(bufferedAmount.style.width + " loaded");
   },
   updatePlaybackRate: function() {
-    var colorDefault = '#46586A';
     var colorMedium  = '#f5d76e';
-    var colorFast    = '#ec644b';
+    var colorFast    = '#f2545b';
     if(videoElement.playbackRate === 1) {
       videoElement.playbackRate = 1.5;
-      pbRateButton.setAttribute('fill', colorMedium);
+      pbRateButton.style.fill = colorMedium;
     } else if(videoElement.playbackRate === 1.5) {
       videoElement.playbackRate = 2;
-      pbRateButton.setAttribute('fill', colorFast);
+      pbRateButton.style.fill = colorFast;
     } else {
       videoElement.playbackRate = 1;
-      pbRateButton.setAttribute('fill', colorDefault);
+      pbRateButton.removeAttribute('style');
       console.log('Returning to normal rate.');
     }
     console.log('Playback Rate Change -> ' + videoElement.playbackRate + 'x');

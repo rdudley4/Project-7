@@ -12,15 +12,12 @@
   background     : $bg-dark;
   height         : 60px;
   padding        : 4px 10px;
+}
 
-  svg {
-    width       : 30px;
-    height      : 30px;
-  }
-
-  .cc {
-    width: 31px;
-  }
+.button {
+  fill  : $color-btn-default;
+  width : 30px;
+  height: 30px;
 }
 
 #play,
@@ -58,7 +55,7 @@
 }
 
 #time-stamp {
-  color: $color-text-light;
+  color: $color-btn-default;
 }
 
 
@@ -66,22 +63,8 @@
 // ----------------
 
 #vol {
-  transition : color $trans-speed * 2;
+  color      : $color-volume-level;
   width      : 13%;
   line-height: 10px;
   text-align : center;
-}
-
-.volume {
-  &-low {
-    color: #ec644b;
-  }
-
-  &-med {
-    color: #f5d76e
-  }
-
-  &-high {
-    color: #27ae60;
-  }
 }

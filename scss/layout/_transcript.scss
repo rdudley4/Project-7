@@ -22,13 +22,13 @@
 
 .highlight {
   transition      : background-color $trans-speed;
-  background-color: $color-highlight;
+  background-color: $color-btn-highlight;
   color           : $color-highlight-text;
   border-radius   : $border-radius;
   padding         : 3px 7.5px;
 
   &:hover {
     cursor          : pointer;
-    background-color: darken($color-highlight, 10%);
+    background-color: darken($color-btn-highlight, 10%);
   }
 }

@@ -44,7 +44,7 @@ videoElement.onloadedmetadata = function() {
   this.volume = volumeSlider.value;
   UI.updateVolIndicator(Math.round(this.volume * 100));
   // Reset Playback Rate Icon to default color
-  pbRateButton.setAttribute('fill', '#46586A');
+  pbRateButton.removeAttribute('style');
 }
 
 // Time Update
@@ -94,7 +94,7 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
 }
 
 
-// Button Click Event Handlersz
+// Button Click Event Handlers
 // ---------------------------
 
 // Next Button

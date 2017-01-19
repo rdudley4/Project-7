@@ -9,6 +9,9 @@ $white           : #fff;
 $jungle-green    : #27ae60;
 $fiord           : #46586A;
 $pickled-bluewood: #2c3e50;
+$powder-blue     : #bee9e8;
+$shadow-blue     : #788aa3;
+$sunset-orange   : #f2545b;
 
 
 // Functional Color Variables
@@ -16,8 +19,15 @@ $pickled-bluewood: #2c3e50;
 
 $color-text-light    : $white;
 
-$color-highlight     : $jungle-green;
+$color-btn-default   : $shadow-blue;
+$color-btn-highlight : $powder-blue;
+
+$color-volume-level  : $shadow-blue;
+
 $color-highlight-text: $white;
+
+$color-input-track   : $sunset-orange;
+$color-volume-track  : $shadow-blue;
 
 $bg-dark             : $pickled-bluewood;
 $bg-light            : $fiord;

@@ -11,7 +11,8 @@
 #buffered-amount {
   height          : $bar-height;
   margin-top      : -14px;
-  background-color: rgba(39,174,96, .25);
+  background-color: $color-input-track;
+  opacity         : .25;
   width           : 0;
 }
 
@@ -38,11 +39,11 @@
     &-thumb {
       height            : $bar-height;
       width             : 0;
-      background-color  : $color-highlight;
+      background-color  : $color-input-track;
       border-radius     : 0;
       border            : none;
       -webkit-appearance: none;
-      box-shadow        : -575px 0 0 575px $color-highlight;
+      box-shadow        : -575px 0 0 575px $color-input-track;
     }
 
     &-runnable-track {
@@ -55,7 +56,6 @@
     &-thumb {
       height          : $bar-height;
       width           : 0;
-      background-color: $color-highlight;
       border-radius   : 0;
       border          : none;
     }
@@ -67,7 +67,7 @@
     }
 
     &-progress {
-      background-color: $color-highlight;
+      background-color: $color-input-track;
       height          : $bar-height;
     }
   }
@@ -77,7 +77,7 @@
     &-thumb {
       height          : $bar-height;
       width           : 0;
-      background-color: $color-highlight;
+      background-color: $color-input-track;
       border-radius   : 0;
       border          : none;
     }
@@ -89,7 +89,7 @@
     }
 
     &-fill-lower {
-      background-color: $color-highlight;
+      background-color: $color-input-track;
       height          : $bar-height;
     }
   }
@@ -106,11 +106,15 @@
 
   &::-webkit-slider {
     &-thumb {
-      box-shadow: -125px 0 0 125px $color-highlight;
+      box-shadow: -125px 0 0 125px $color-volume-track;
     }
   }
 
-  @include mediaQuery("tablet") {
-    margin-top: 0;
+  &::-moz-range-progress {
+    background-color: $color-volume-track;
+  }
+  
+  &::-ms-fill-lower {
+    background-color: $color-volume-track;
   }
 }
