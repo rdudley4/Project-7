@@ -29,6 +29,10 @@ body {
 video {
   display: block;
   width  : 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .video-head {

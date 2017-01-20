@@ -481,6 +481,9 @@ video {
   display: block;
   width: 100%;
 }
+video:hover {
+  cursor: pointer;
+}
 
 .video-head {
   display: flex;

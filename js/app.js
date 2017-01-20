@@ -84,6 +84,10 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
   }
 }
 
+videoElement.addEventListener('click', function() {
+  UI.playPause();
+});
+
 
 // Button Click Event Handlers
 // ---------------------------
@@ -103,13 +107,13 @@ prevButton.addEventListener('click', function() {
 // Play Button
 var playButton = document.getElementById('play');
 playButton.addEventListener('click', function() {
-  UI.playPause(this);
+  UI.playPause();
 });
 
 // Pause Button
 var pauseButton = document.getElementById('pause');
 pauseButton.addEventListener('click', function() {
-  UI.playPause(this);
+  UI.playPause();
 });
 
 // CC Button

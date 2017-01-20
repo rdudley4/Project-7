@@ -11,11 +11,11 @@ var UI = {
     hideButton.style.display = 'none';
     showButton.style.display = 'block';
   },
-  playPause: function(button) {
-    if(button.id === "play") {
-      videoElement.play();
-    } else {
+  playPause: function() {
+    if(playlist.getVideoInfo().isPlaying()) {
       videoElement.pause();
+    } else {
+      videoElement.play();
     }
     this.playPauseDisplayHandler();
   },

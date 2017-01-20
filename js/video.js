@@ -8,10 +8,9 @@ function Video(sources, caption, title) {
 }
 
 Video.prototype.isBuffering = function() {
-  if(bufferedAmount.style.width !== "100%") {
-    this.buffering = true;
-  } else {
-    this.buffering = false;
-  }
-  return this.buffering;
+  return bufferedAmount.style.width !== "100%";
+}
+
+Video.prototype.isPlaying = function() {
+  return !videoElement.paused;
 }
