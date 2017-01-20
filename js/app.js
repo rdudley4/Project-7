@@ -50,6 +50,9 @@ videoElement.ontimeupdate = function() {
   }
   // Update our progress bar as video progresses.
   UI.updateProgressBar();
+
+  // Highlight current transcript part
+  UI.highlightTranscript();
 }
 
 // When video has ended.

@@ -14,7 +14,7 @@
   align-items    : center;
   justify-content: space-between;
   padding        : 10px;
-  transition     : all .5s;
+  transition     : all .3s;
 
   &:hover {
     cursor: pointer;
@@ -22,7 +22,7 @@
 }
 
 .time {
-  transition      : all .5s;
+  transition      : all .3s;
   margin-left     : 5px;
   background-color: $bg-light;
   border-radius   : 5px;

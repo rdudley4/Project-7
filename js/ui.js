@@ -144,14 +144,27 @@ var UI = {
   },
   populateTranscript: function() {
     var container = document.getElementById('transcript');
-    var currentVideoIndex = playlist.currentVideoIndex;
+    var currentTranscript = transcriptData[playlist.currentVideoIndex];
     container.innerHTML = "";
-    for(i = 0; i < transcriptData[currentVideoIndex].length; i++) {
-      var text = transcriptData[currentVideoIndex][i].text;
-      var time = transcriptData[currentVideoIndex][i].time;
-      container.appendChild(this.createTranscriptPart(text, time));
+    for(i = 0; i < currentTranscript.length; i++) {
+      var text = currentTranscript[i].text;
+      var time = Math.round(currentTranscript[i].start);
+      container.appendChild(this.createTranscriptPart(text, this.convertTime(time)));
     }
     console.log('Finished populating transcript.');
+  },
+  highlightTranscript: function() {
+    var partList = document.getElementsByClassName('part');
+    var currentTranscript = transcriptData[playlist.currentVideoIndex];
+    for(i = 0; i < currentTranscript.length; i++) {
+      var start = currentTranscript[i].start;
+      var end = currentTranscript[i].end;
+      if(videoElement.currentTime >= start && videoElement.currentTime < end) {
+        partList[i].classList.add('highlight');
+      } else {
+        partList[i].classList.remove('highlight');
+      }
+    }
   },
   reset: function(video) {
     pbRateButton.removeAttribute('style');
