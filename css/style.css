@@ -541,6 +541,14 @@ svg * {
   fill: #788aa3;
   width: 30px;
   height: 30px;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
 }
 
 #play,
@@ -583,34 +591,42 @@ svg * {
 /* --------------------------
   Transcript Styles
 --------------------------- */
-.transcript {
-  line-height: 1.5;
+#transcript {
   padding: 1em;
-  margin: 1em;
-  background-color: #fff;
-  box-shadow: 0 5px 5px -5px #666;
-}
-@media (min-width: 1150px) {
-  .transcript {
-    margin: 0 1em;
-    box-shadow: none;
-    border-bottom: 1px solid #ccc;
-  }
-  .transcript:last-of-type {
-    border-bottom: none;
-  }
+  background: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
-.highlight {
-  transition: background-color 0.3s;
-  background-color: #bee9e8;
-  color: #fff;
-  border-radius: 5px;
-  padding: 3px 7.5px;
+.part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all .5s;
 }
-.highlight:hover {
+.part:hover {
   cursor: pointer;
-  background-color: #98dcdb;
+}
+
+.time {
+  transition: all .5s;
+  margin-left: 5px;
+  background-color: #46586A;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+}
+
+.highlight,
+.part:hover {
+  background-color: #27ae60;
+  color: #fff;
+}
+.highlight > .time,
+.part:hover > .time {
+  background-color: #fff;
+  color: #27ae60;
 }
 
 /* --------------------------

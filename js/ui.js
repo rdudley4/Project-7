@@ -129,6 +129,30 @@ var UI = {
     this.updateSources(playlist.getVideoInfo().sources);
     videoElement.load();
   },
+  createTranscriptPart: function(text, time) {
+    var partSpan = document.createElement('span');
+    var timeSpan = document.createElement('span');
+    // Add classes
+    partSpan.classList.add("part");
+    timeSpan.classList.add("time");
+    // Set text contents
+    partSpan.innerText = text;
+    timeSpan.innerText = time;
+    // Append time to part.
+    partSpan.appendChild(timeSpan);
+    return partSpan;   
+  },
+  populateTranscript: function() {
+    var container = document.getElementById('transcript');
+    var currentVideoIndex = playlist.currentVideoIndex;
+    container.innerHTML = "";
+    for(i = 0; i < transcriptData[currentVideoIndex].length; i++) {
+      var text = transcriptData[currentVideoIndex][i].text;
+      var time = transcriptData[currentVideoIndex][i].time;
+      container.appendChild(this.createTranscriptPart(text, time));
+    }
+    console.log('Finished populating transcript.');
+  },
   reset: function(video) {
     pbRateButton.removeAttribute('style');
     captionButton.removeAttribute('style');
@@ -138,5 +162,6 @@ var UI = {
     this.playPauseDisplayHandler();
     this.setProgressValues();
     this.updateTime(Math.round(video.currentTime), Math.round(video.duration));
+    this.populateTranscript();
   }
 }
