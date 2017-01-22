@@ -137,10 +137,14 @@ var UI = {
     timeSpan.classList.add("time");
     // Set text contents
     partSpan.innerText = text;
-    timeSpan.innerText = time;
+    timeSpan.innerText = this.convertTime(time);
     // Append time to part.
     partSpan.appendChild(timeSpan);
-    return partSpan;   
+    // Register event handler for newly created element.
+    partSpan.onclick = function() {
+      videoElement.currentTime = time;
+    }
+    return partSpan;
   },
   populateTranscript: function() {
     var container = document.getElementById('transcript');
@@ -149,7 +153,7 @@ var UI = {
     for(i = 0; i < currentTranscript.length; i++) {
       var text = currentTranscript[i].text;
       var time = Math.round(currentTranscript[i].start);
-      container.appendChild(this.createTranscriptPart(text, this.convertTime(time)));
+      container.appendChild(this.createTranscriptPart(text, time));
     }
     console.log('Finished populating transcript.');
   },

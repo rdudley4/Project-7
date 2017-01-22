@@ -73,12 +73,12 @@
 @each $icon in cc, unmuted, muted, fullscreen, next, prev, pb-rate, rewind {
   @if $icon == next {
     ##{$icon} {
-      transform: translate3d(37px, 0, 0);
+      transform: translate3d(40px, 0, 0);
       animation-delay: .5s;
     }
   } @else if $icon == prev {
     ##{$icon} {
-      transform: translate3d(-37px, 0, 0);
+      transform: translate3d(-40px, 0, 0);
       animation-delay: .5s;
     }
   } @else {

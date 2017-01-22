@@ -498,7 +498,8 @@ video:hover {
   margin: 0;
   letter-spacing: 1px;
   color: #fff;
-  font-family: "Nunito", Helvetica, sans-serif;
+  font-family: "Open Sans Condensed", Helvetica, sans-serif;
+  font-weight: normal;
   text-align: center;
 }
 
@@ -844,12 +845,12 @@ svg * {
 }
 
 #next {
-  transform: translate3d(37px, 0, 0);
+  transform: translate3d(40px, 0, 0);
   animation-delay: .5s;
 }
 
 #prev {
-  transform: translate3d(-37px, 0, 0);
+  transform: translate3d(-40px, 0, 0);
   animation-delay: .5s;
 }
 
