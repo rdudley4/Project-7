@@ -137,7 +137,7 @@ var UI = {
     timeSpan.classList.add("time");
     // Set text contents
     partSpan.innerText = text;
-    timeSpan.innerText = this.convertTime(time);
+    timeSpan.innerText = this.convertTime(Math.round(time));
     // Append time to part.
     partSpan.appendChild(timeSpan);
     // Register event handler for newly created element.
@@ -152,7 +152,7 @@ var UI = {
     container.innerHTML = "";
     for(i = 0; i < currentTranscript.length; i++) {
       var text = currentTranscript[i].text;
-      var time = Math.round(currentTranscript[i].start);
+      var time = currentTranscript[i].start;
       container.appendChild(this.createTranscriptPart(text, time));
     }
     console.log('Finished populating transcript.');
