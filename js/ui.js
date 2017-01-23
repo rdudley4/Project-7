@@ -142,7 +142,7 @@ var UI = {
     partSpan.appendChild(timeSpan);
     // Register event handler for newly created element.
     partSpan.onclick = function() {
-      videoElement.currentTime = time;
+      videoElement.currentTime = time + 0.001;
     }
     return partSpan;
   },
@@ -164,10 +164,26 @@ var UI = {
       var start = currentTranscript[i].start;
       var end = currentTranscript[i].end;
       if(videoElement.currentTime >= start && videoElement.currentTime < end) {
-        partList[i].classList.add('highlight');
+        if(partList[i].classList.contains('highlight')) {
+          // Our part is already highlighted, exit loop.
+          return;
+        } else {
+          // Toggle the highlight class on.
+          partList[i].classList.toggle('highlight');
+          console.log('adding highlight to part ' + i);
+        }
+      } else if(typeof(partList[i]) == 'undefined') {
+        // Occurs when a user is currently playing a video and some part is highlighted.
+        // Then the user switches videos mid playback, and the loop would try to remove the highlight class from a now non-existant element.
+        console.info('Transcript part no longer exists. Exiting loop.');
       } else {
-        partList[i].classList.remove('highlight');
-      }
+        if(partList[i].classList.contains('highlight')) {
+          // If part has highlight class but is not the current part, I.E. last highlighted part.
+          // Toggle highlight off.
+          partList[i].classList.toggle('highlight');
+          console.log('removing highlight class from part ' + i);
+        } 
+      }  
     }
   },
   reset: function(video) {
