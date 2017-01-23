@@ -162,8 +162,13 @@ unmuteButton.addEventListener('click', function() {
 
 document.onkeypress = function(key) {
   var keyPressed = key.which;
-  console.log(keyPressed);
   switch(keyPressed) {
+    case 43:  // Plus (+) - Next Video
+      playlist.next();
+      break;
+    case 45:  // Minus(-) - Previous Video
+      playlist.prev();
+      break;
     case 102: // F - Fullscreen Toggle
       playlist.getVideoInfo().makeFullscreen();
       break;
