@@ -149,7 +149,7 @@ var UI = {
   populateTranscript: function() {
     var container = document.getElementById('transcript');
     var currentTranscript = transcriptData[playlist.currentVideoIndex];
-    container.innerHTML = "";
+    container.innerHTML = "<h2 class='title'>Video Transcript</h2>";
     for(i = 0; i < currentTranscript.length; i++) {
       var text = currentTranscript[i].text;
       var time = currentTranscript[i].start;
@@ -170,18 +170,17 @@ var UI = {
         } else {
           // Toggle the highlight class on.
           partList[i].classList.toggle('highlight');
-          console.log('adding highlight to part ' + i);
+          console.log('Moving to part: ' + i);
         }
       } else if(typeof(partList[i]) == 'undefined') {
         // Occurs when a user is currently playing a video and some part is highlighted.
         // Then the user switches videos mid playback, and the loop would try to remove the highlight class from a now non-existant element.
-        console.info('Transcript part no longer exists. Exiting loop.');
+        return console.info('Transcript part no longer exists. Exiting highlightTranscript().');
       } else {
         if(partList[i].classList.contains('highlight')) {
           // If part has highlight class but is not the current part, I.E. last highlighted part.
           // Toggle highlight off.
           partList[i].classList.toggle('highlight');
-          console.log('removing highlight class from part ' + i);
         } 
       }  
     }

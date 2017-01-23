@@ -129,7 +129,13 @@ captionButton.addEventListener('click', function() {
 // Fullscreen Button
 var fullscreenButton = document.getElementById('fullscreen');
 fullscreenButton.addEventListener('click', function() {
-  videoElement.requestFullscreen();
+  if(videoElement.requestFullscreen) {
+    videoElement.requestFullscreen();
+  } else if (videoElement.webkitRequestFullscreen) {
+    videoElement.webkitRequestFullscreen();
+  } else if (videoElement.msRequestFullscreen) {
+    videoElement.msRequestFullscreen();
+  }
 });
 
 // Playback Rate Button

@@ -9,6 +9,16 @@
   flex-direction: column;
 }
 
+.title {
+  text-align    : center;
+  border-bottom : 1px solid #ccc;
+  font-family   : $stack-sans-condensed;
+  text-transform: uppercase;
+  color         : $color-text-title;
+  padding       : 0 10px 10px;
+  margin-top    : 0;
+}
+
 .part {
   display        : flex;
   align-items    : center;
