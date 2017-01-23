@@ -26,13 +26,13 @@ var UI = {
       this.swapButton(playButton, pauseButton);
     }
   },
-  muteHandler: function(button) {
-    if(button.id === 'unmuted') {
-      videoElement.muted = true;
-      this.swapButton(muteButton, unmuteButton);
-    } else {
+  muteHandler: function() {
+    if(playlist.getVideoInfo().isMuted()) {
       videoElement.muted = false;
       this.swapButton(unmuteButton, muteButton);
+    } else {
+      videoElement.muted = true;
+      this.swapButton(muteButton, unmuteButton);
     }
   },
   updateTitle: function(title) {
@@ -175,7 +175,7 @@ var UI = {
       } else if(typeof(partList[i]) == 'undefined') {
         // Occurs when a user is currently playing a video and some part is highlighted.
         // Then the user switches videos mid playback, and the loop would try to remove the highlight class from a now non-existant element.
-        return console.info('Transcript part no longer exists. Exiting highlightTranscript().');
+        return console.info('Transcript no longer exists. Exiting highlightTranscript()');
       } else {
         if(partList[i].classList.contains('highlight')) {
           // If part has highlight class but is not the current part, I.E. last highlighted part.

@@ -129,13 +129,7 @@ captionButton.addEventListener('click', function() {
 // Fullscreen Button
 var fullscreenButton = document.getElementById('fullscreen');
 fullscreenButton.addEventListener('click', function() {
-  if(videoElement.requestFullscreen) {
-    videoElement.requestFullscreen();
-  } else if (videoElement.webkitRequestFullscreen) {
-    videoElement.webkitRequestFullscreen();
-  } else if (videoElement.msRequestFullscreen) {
-    videoElement.msRequestFullscreen();
-  }
+  playlist.getVideoInfo().makeFullscreen();
 });
 
 // Playback Rate Button
@@ -147,8 +141,7 @@ pbRateButton.addEventListener('click', function() {
 // Rewind Button
 var rewindButton = document.getElementById('rewind');
 rewindButton.addEventListener('click', function() {
-  videoElement.currentTime = videoElement.currentTime - 10;
-  console.log('Rewinding 10 seconds, current time is ' + Math.round(videoElement.currentTime) + "s");
+  playlist.getVideoInfo().rewind();
 });
 
 // Mute Button
@@ -162,3 +155,35 @@ var unmuteButton = document.getElementById('muted');
 unmuteButton.addEventListener('click', function() {
   UI.muteHandler(this);
 });
+
+
+// Keyboard Controls
+// -----------------
+
+document.onkeypress = function(key) {
+  var keyPressed = key.which;
+  console.log(keyPressed);
+  switch(keyPressed) {
+    case 102: // F - Fullscreen Toggle
+      playlist.getVideoInfo().makeFullscreen();
+      break;
+    case 107: // K - Play/Pause
+      UI.playPause();
+      break;
+    case 106: // J - Rewind 10 Sec
+      playlist.getVideoInfo().rewind();
+      break;
+    case 108: // L - Fastforward 10 seconds
+      playlist.getVideoInfo().fastForward();
+      break;
+    case 109: // M - Mute/Unmute
+      UI.muteHandler();
+      break;
+    case 112: // P - Change Playback rate
+      UI.updatePlaybackRate();
+      break;
+    case 99:  // C - Enable/Disable CC
+      UI.captionHandler(captionButton, videoElement.textTracks[0]);
+      break;
+  }
+}
