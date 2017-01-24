@@ -97,14 +97,34 @@ videoElement.addEventListener('click', function() {
 
 // Next Button
 var nextButton = document.getElementById('next');
+var nextInfo = document.getElementById('next_info');
 nextButton.addEventListener('click', function() {
   playlist.next();
 });
 
+nextButton.addEventListener('mouseover', function() {
+  nextInfo.style.right   = '-195px';
+  nextInfo.style.opacity = '1';
+});
+
+nextButton.addEventListener('mouseleave', function() {
+  nextInfo.removeAttribute('style');
+});
+
 // Prev Button
 var prevButton = document.getElementById('prev');
+var prevInfo = document.getElementById('prev_info');
 prevButton.addEventListener('click', function() {
   playlist.prev();
+});
+
+prevButton.addEventListener('mouseover', function() {
+  prevInfo.style.left    = '-195px';
+  prevInfo.style.opacity = '1';
+});
+
+prevButton.addEventListener('mouseleave', function() {
+  prevInfo.removeAttribute('style');
 });
 
 // Play Button

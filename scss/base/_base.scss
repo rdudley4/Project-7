@@ -36,12 +36,14 @@ video {
 }
 
 .video-head {
-  display         : flex;
-  justify-content : space-between;
-  align-items     : center;
-  overflow        : hidden; 
-  background-color: $bg-dark;
-  padding         : .675em;
+  display                : flex;
+  justify-content        : space-between;
+  align-items            : center;
+  overflow               : hidden; 
+  background-color       : $bg-dark;
+  padding                : .675em;
+  border-top-left-radius : $border-radius;
+  border-top-right-radius: $border-radius;
 }
 
 #video-title {
@@ -69,14 +71,14 @@ svg * {
   max-width   : $max-width;
   margin-left : auto;
   margin-right: auto;
-  overflow    : hidden;
+  // overflow    : hidden;
   box-shadow  : 0 0 3px #555;
+  position: relative;
 
   @include mediaQuery(1150px) {
     margin-top   : 20px;
     margin-bottom: 20px;
     background   : $white;
-    // border-bottom: 2px solid #bbb;
     border-radius: $border-radius;
   }
 }

@@ -9,6 +9,17 @@ Playlist.prototype.getVideoInfo = function() {
   return this.videos[this.currentVideoIndex];
 }
 
+Playlist.prototype.getTitle = function(index) {
+  var videoIndex = index;
+  if(videoIndex >= this.videos.length) {
+    return this.videos[0].title;
+  } else if (videoIndex < 0) {
+    return this.videos[this.videos.length - 1].title;
+  } else {
+    return this.videos[videoIndex].title;
+  }
+}
+
 Playlist.prototype.next = function() {
   videoElement.textTracks[0].mode = "disabled";
   this.currentVideoIndex++;

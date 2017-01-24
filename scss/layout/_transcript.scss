@@ -3,10 +3,12 @@
 --------------------------- */
 
 #transcript {
-  padding       : 1em;
-  background    : $white;
-  display       : flex;
-  flex-direction: column;
+  padding                   : 1em;
+  background                : $white;
+  display                   : flex;
+  flex-direction            : column;
+  border-bottom-left-radius : $border-radius;
+  border-bottom-right-radius: $border-radius;
 }
 
 .title {

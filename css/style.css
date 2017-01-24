@@ -492,6 +492,8 @@ video:hover {
   overflow: hidden;
   background-color: #2c3e50;
   padding: .675em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 #video-title {
@@ -511,8 +513,8 @@ svg * {
   max-width: 1150px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
   box-shadow: 0 0 3px #555;
+  position: relative;
 }
 @media (min-width: 1150px) {
   .container {
@@ -526,6 +528,14 @@ svg * {
 /* --------------------------
   Layout Imports
 --------------------------- */
+/* --------------------------
+  Extended Layout Styles
+--------------------------- */
+#next_info, #prev_info {
+  position: absolute;
+  top: 0;
+}
+
 /* --------------------------
   Video Control Styles
 --------------------------- */
@@ -590,6 +600,36 @@ svg * {
 }
 
 /* --------------------------
+  Nex/Prev Info Styles
+--------------------------- */
+#next_info {
+  right: -225px;
+}
+
+#prev_info {
+  left: -225px;
+}
+
+.info {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 185px;
+  opacity: 0;
+  transition: all 0.6s;
+  display: none;
+}
+@media (min-width: 1600px) {
+  .info {
+    display: block;
+  }
+}
+.info p {
+  color: #46586A;
+  text-align: center;
+}
+
+/* --------------------------
   Transcript Styles
 --------------------------- */
 #transcript {
@@ -597,6 +637,8 @@ svg * {
   background: #fff;
   display: flex;
   flex-direction: column;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .title {

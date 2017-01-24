@@ -189,5 +189,10 @@ var UI = {
     this.setProgressValues();
     this.updateTime(Math.round(video.currentTime), Math.round(video.duration));
     this.populateTranscript();
+    this.updateNextPrev();
+  },
+  updateNextPrev: function() {
+    this.populateHtmlWithId('next_title', playlist.getTitle(playlist.currentVideoIndex + 1));
+    this.populateHtmlWithId('prev_title', playlist.getTitle(playlist.currentVideoIndex - 1));
   }
 }
