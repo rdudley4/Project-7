@@ -38,12 +38,6 @@ var UI = {
   updateTitle: function(title) {
     this.populateHtmlWithId('video-title', title);
   },
-  updateSources: function(sources) {
-    for(i = 0; i < sources.length; i++) {
-      var src = document.getElementById('src' + i);
-      src.setAttribute('src', sources[i]);
-    }
-  },
   createCaptionTrack: function(src) {
     var newTrack = document.createElement('track');
 
@@ -126,7 +120,7 @@ var UI = {
   },
   updateVideo: function() {
     this.updateTitle(playlist.getVideoInfo().title);
-    this.updateSources(playlist.getVideoInfo().sources);
+    playlist.getVideoInfo().updateSources();
     videoElement.load();
   },
   createTranscriptPart: function(text, time) {

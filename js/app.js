@@ -147,13 +147,13 @@ rewindButton.addEventListener('click', function() {
 // Mute Button
 var muteButton = document.getElementById('unmuted');
 muteButton.addEventListener('click', function() {
-  UI.muteHandler(this);
+  UI.muteHandler();
 });
 
 // Unmute Button
 var unmuteButton = document.getElementById('muted');
 unmuteButton.addEventListener('click', function() {
-  UI.muteHandler(this);
+  UI.muteHandler();
 });
 
 

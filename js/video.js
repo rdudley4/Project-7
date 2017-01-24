@@ -54,3 +54,10 @@ Video.prototype.makeFullscreen = function() {
     }
   }
 }
+
+Video.prototype.updateSources = function() {
+  for(i = 0; i < this.sources.length; i++) {
+    var src = document.getElementById('src' + i);
+    src.setAttribute('src', this.sources[i]);
+  }
+}
