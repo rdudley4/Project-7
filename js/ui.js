@@ -100,7 +100,6 @@ var UI = {
   },
   updateBufferedAmount: function(bufferEnd) {
     bufferedAmount.style.width = Math.round((bufferEnd / videoElement.duration) * 100) + "%";
-    console.log(bufferedAmount.style.width + " loaded");
   },
   updatePlaybackRate: function() {
     var colorMedium  = '#f5d76e';
@@ -189,9 +188,9 @@ var UI = {
     this.setProgressValues();
     this.updateTime(Math.round(video.currentTime), Math.round(video.duration));
     this.populateTranscript();
-    this.updateNextPrev();
+    this.updateInfoBox();
   },
-  updateNextPrev: function() {
+  updateInfoBox: function() {
     this.populateHtmlWithId('next_title', playlist.getTitle(playlist.currentVideoIndex + 1));
     this.populateHtmlWithId('prev_title', playlist.getTitle(playlist.currentVideoIndex - 1));
   }

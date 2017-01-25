@@ -3,12 +3,19 @@
 --------------------------- */
 
 #transcript {
-  padding                   : 1em;
+  padding                   : rem($font-size-default);
   background                : $white;
   display                   : flex;
   flex-direction            : column;
-  border-bottom-left-radius : $border-radius;
-  border-bottom-right-radius: $border-radius;
+  // Desktop
+  @include mediaQuery("desktop") {
+    padding: rem(18px) rem(32px);
+  }
+  // Larger Screen Sizes
+  @include mediaQuery(1150px) {
+    border-bottom-left-radius : $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
 }
 
 .title {
@@ -17,7 +24,7 @@
   font-family   : $stack-sans-condensed;
   text-transform: uppercase;
   color         : $color-text-title;
-  padding       : 0 10px 10px;
+  padding       : 0 rem(10px) rem(10px);
   margin-top    : 0;
 }
 
@@ -25,7 +32,7 @@
   display        : flex;
   align-items    : center;
   justify-content: space-between;
-  padding        : 10px;
+  padding        : rem(10px);
   transition     : all .3s;
 
   &:hover {
@@ -35,20 +42,20 @@
 
 .time {
   transition      : all .3s;
-  margin-left     : 5px;
+  margin-left     : rem(5px);
   background-color: $bg-light;
   border-radius   : 5px;
-  padding         : 5px;
+  padding         : rem(5px);
   color           : $white;
 }
 
 .highlight,
 .part:hover {
-  background-color: $jungle-green;
+  background-color: $color-tran-highlight;
   color           : $white;
 
   & > .time {
     background-color: $white;
-    color           : $jungle-green;
+    color           : $color-tran-highlight;
   }
 }

@@ -123,7 +123,6 @@ var transcriptData = [
   // Video 5
   // -------
   [
-    { start: 0, end: 5, text: "[Rick Roll Ensues]" },
     { start: 5, end: 15, text: "[Sweet Dance Moves]" },
     { start: 18.8, end: 22.6, text: "We're no strangers to love" },
     { start: 22.6, end: 26.7, text: "You know the rules and so do I" },
@@ -172,9 +171,4 @@ var transcriptData = [
     { start: 203, end: 208, text: "Never gonna make you cry, never gonna say goodbye" },
     { start: 208, end: 212, text: "Never gonna tell a lie and hurt you." },
   ],
-  // Video 6
-  // -------
-  [
-    { start: 0, text: "This is gonna take forever, to be continued." }
-  ]
 ];

@@ -22,6 +22,7 @@ $color-text-title    : $fiord;
 
 $color-btn-default   : $shadow-blue;
 $color-btn-highlight : $powder-blue;
+$color-tran-highlight: $jungle-green;
 
 $color-volume-level  : $shadow-blue;
 
@@ -38,9 +39,12 @@ $bg-light            : $fiord;
 // Font Variables
 // --------------
 
+$google-fonts          : 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Condensed';
 $stack-sans-serif      : Helvetica, sans-serif;
 $stack-roboto-condensed: 'Roboto Condensed', $stack-sans-serif;
 $stack-sans-condensed  : 'Open Sans Condensed', $stack-sans-serif;
+
+$font-size-default     : 16px;
 
 
 // Progress Bar

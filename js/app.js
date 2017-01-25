@@ -13,8 +13,7 @@ var videos = [
   new Video(getFiles('video2').sources, getFiles('video2').caption, 'JavaScript and the DOM'),
   new Video(getFiles('video3').sources, getFiles('video3').caption, 'Overview of Web Media'),
   new Video(getFiles('video4').sources, getFiles('video4').caption, 'Quiz Application Project'),
-  new Video(getFiles('video5').sources, getFiles('video5').caption, 'The Meaning of Life'),
-  new Video(getFiles('video6').sources, getFiles('video6').caption, 'Waddle Waddle')
+  new Video(getFiles('video5').sources, getFiles('video5').caption, 'The Meaning of Life')
 ];
 
 var playlist = new Playlist(videos);
@@ -64,7 +63,7 @@ videoElement.onended = function() {
 var volumeSlider = document.getElementById('volume-slider');
 if (!!navigator.userAgent.match(/Trident\/7\./)) {
   // Because IE is a special snowflake.
-  console.log('Internet Explorer Detected, using special snowflake event handlers.');
+  console.info('Internet Explorer Detected, using special snowflake event handlers.');
   // Volume Slider
   volumeSlider.onchange = function() {
     videoElement.volume = this.value;
@@ -75,7 +74,7 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
     videoElement.currentTime = this.value;
   }
 } else {
-  console.log('Sane Browser Detected, using normal event handlers.')
+  console.info('Sane Browser Detected, using normal event handlers.')
   // Volume Slider
   volumeSlider.oninput = function() {
     videoElement.volume = this.value;

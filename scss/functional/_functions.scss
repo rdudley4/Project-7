@@ -1,0 +1,7 @@
+/* --------------------------
+  Sass Functions
+--------------------------- */
+
+@function rem($value, $default: $font-size-default) {
+  @return ($value / $default) * 1rem;
+}

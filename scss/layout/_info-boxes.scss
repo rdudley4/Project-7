@@ -1,0 +1,32 @@
+/* --------------------------
+  Nex/Prev Info Styles
+--------------------------- */
+
+#next_info {
+  @extend %info_position;
+  right: -225px;
+}
+
+#prev_info {
+  @extend %info_position;
+  left: -225px;
+}
+
+.info {
+  background-color: white;
+  padding         : rem(10px);
+  border          : 1px solid #ccc;
+  width           : 185px;
+  opacity         : 0;
+  transition      : all $anim-speed;
+  display         : none;
+
+  @include mediaQuery(1600px) {
+    display: block;
+  }
+
+  p {
+    color     : $color-text-title;
+    text-align: center;
+  }
+}

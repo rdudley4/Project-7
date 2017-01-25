@@ -11,7 +11,7 @@ This project focuses on building an HTML5 video player using JavaScript and the 
   + The transcripts will highlight as the video plays.
   + You can click on any transcript part and go to that part of the video.
 + **Keyboard Controls (same as YouTube)**
-  + C › Toggle Closed captioning
+  + C › Toggle Closed Captioning
   + F › Toggle Fullscreen Mode
   + J › Rewind 10 Seconds
   + K › Play/Pause
@@ -23,9 +23,9 @@ This project focuses on building an HTML5 video player using JavaScript and the 
 
 ## Browser compatibility
 
-_The website has been tested on the following browsers.._
-
 _NOTE: The site was tested on Windows (10), Linux (Fedora 25), Mac OS (Sierra)_
+
+_The website has been tested on the following browsers.._
 
 | Browser       | Version       | Compatible  |
 |:-------------:|:-------------:|:-----------:|
