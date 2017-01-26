@@ -8,11 +8,11 @@ function Video(sources, caption, title) {
 }
 
 Video.prototype.rewind = function() {
-  videoElement.currentTime = videoElement.currentTime - 10;
+  videoElement.currentTime -= 10;
 }
 
 Video.prototype.fastForward = function() {
-  videoElement.currentTime = videoElement.currentTime + 10;
+  videoElement.currentTime += 10;
 }
 
 Video.prototype.isBuffering = function() {
