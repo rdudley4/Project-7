@@ -23,14 +23,14 @@ This project focuses on building an HTML5 video player using JavaScript and the 
 
 ## Browser compatibility
 
-_NOTE: The site was tested on Windows (10), Linux (Fedora 25), Mac OS (Sierra)_
+_NOTE: The site was tested on Windows (10), Linux (Fedora 25), Mac OS (Sierra), Android (7.1), and iOS (10.2)_
 
 _The website has been tested on the following browsers.._
 
 | Browser       | Version       | Compatible  |
 |:-------------:|:-------------:|:-----------:|
 | ![alt text](http://findicons.com/files/icons/2781/google_jfk_icons/32/chrome_ico.png "Google Chrome")| 55.0.2883.87 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
-| ![alt text](http://findicons.com/files/icons/783/mozilla_pack/32/firefox.png "Mozilla FireFox") | 50.1.0, 52.0a2 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
+| ![alt text](http://findicons.com/files/icons/783/mozilla_pack/32/firefox.png "Mozilla FireFox") | 45.0.2, 50.1.0, 52.0a2 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
 | ![alt text](http://findicons.com/files/icons/2796/metro_uinvert_dock/32/internet_explorer.png "Microsoft Edge") | 38.14393.0.0 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
 ![alt text](http://findicons.com/files/icons/1008/quiet/32/internet_explorer.png "Internet Explorer") | 10, 11 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
 | ![alt text](http://findicons.com/files/icons/1008/quiet/32/internet_explorer.png "Internet Explorer") | < 9 | ![alt text](http://findicons.com/files/icons/1008/quiet/32/no.png "Incompatible") |

@@ -1,0 +1,53 @@
+/* --------------------------
+  Legacy Browser Update
+--------------------------- */
+
+// Legacy Notification
+// -------------------
+
+#browser_not_supported {
+  display         : none;
+  background-color: $white;
+  max-width       : 80%;
+  margin          : 36px auto;
+  padding         : 32px; // PX instead of rem for legacy support.
+  line-height     : 1.5;
+  border          : 1px solid #ccc;
+  text-align      : center;
+
+  a {
+    display  : block;
+    color    : $pickled-bluewood;
+    max-width: 200px;
+  }
+
+  h2,
+  li {
+    margin-bottom: 50px;
+  }
+
+  h2,
+  h3 {
+    color      : $pickled-bluewood;
+    font-family: $stack-sans-condensed;
+  } 
+}
+
+// Advantages list
+// ---------------
+
+.advantages {
+  list-style: none;
+  padding   : 0;
+  max-width : 800px;
+  margin    : auto;
+
+  p {
+    text-align: left;
+  }
+
+  img {
+    margin-bottom: 10px;
+  }
+}
+

@@ -10,6 +10,41 @@
       href="img/favicon.png">
   </head>
   <body>
+    <!-- Legacy Browser Notification -->
+    <div id="browser_not_supported">
+      <img src="img/browser-outdated/panda.png" alt="Outdated Browser">
+      <h2>SAD PANDA ALERT!<br>Your browser is not compatible with this website ☹ Perhaps you might consider updating to a newer browser?</h2>
+      <ul class="advantages">
+        <li>
+          <h3>But, Why Should I Upgrade?</h3>
+        </li>
+        <li id="security">
+          <img src="img/browser-outdated/security.png" alt="Security">
+          <h3 class="title">Security</h3>
+          <p>Newer browsers are constantly being updated to protect against the latest security threats. Your browser is no longer supported by its creators, and therefor is no longer receiving security updates. This leaves you more vulnerable to viruses and other malicious evil-doers!</p>
+        </li>
+        <li id="speed">
+          <img src="img/browser-outdated/speed.png" alt="Speed">
+          <h3 class="title">Speed</h3>
+          <p>Browser vendors are constantly upgrading their performance. And with each new generation of browsers the speed keeps on improving, letting you zip around the web even faster than ever before! Who doesn't want faster browsing capabilities? You seem like a sensible person, so go ahead and hop in your new Lamborghini of browsers and speed around the web!</p>
+        </li>
+        <li id="compatibility">
+          <img src="img/browser-outdated/compatible.png" alt="Compatibility">
+          <h3 class="title">Compatibility</h3>
+          <p>Ahem. As you may have noticed, this page was unable to load in your browser. That makes me sad, and you don't want me to be sad do you? This is because our website utilizes newer web technologies that unfortunately aren't supported by your browser. Browser vendors are constantly creating new tools for us developers to use so we can deliver content to you in awesome new ways! You don't want all that hard work to go to waste do you?! Of course you don't! But never fear, you can simply upgrade to a newer browser to gain access to all of these new wonderful features!</p>
+        </li>
+        <li id="experience">
+          <img src="img/browser-outdated/features.png" alt="Features">
+          <h3 class="title">User Experience</h3>
+          <p>Remember those sweet new features I was talking about? They include things like customization, addons, plugins and all sorts of great things. You can tailor the browser to your liking, and have it set up exactly the way you like it! That sounds pretty good doesn't it? Well, what are you waiting for? Go ahead and click on one of the various links below to get your brand new shiny browser. Did I mention that they are all free? Yes, 100% free!</p>
+        </li>
+      </ul>
+      <div class="upgrades">
+        <p>We thank you for taking these things into consideration, and hope you decide to make that sad panda happy once again! We have also taken the liberty to provide you with some convienient links below to a bunch of awesome new browsers to try, look around and see which one suits you the best. When you do upgrade, don't forget to come back and check us out so you can experience our site the way it was meant to be experienced!</p>
+        <a href="https://ftp.mozilla.org/pub/firefox/releases/45.0.2/win32/en-US/Firefox%20Setup%2045.0.2.exe">Firefox v45.0.2 (32bit)</a>
+        <a href="https://ftp.mozilla.org/pub/firefox/releases/45.0.2/win64/en-US/Firefox%20Setup%2045.0.2.exe">Firefox v45.0.2 (64bit)</a>
+      </div>
+    </div>
     
     <div class="container">
     <!-- Video Player -->
@@ -143,6 +178,34 @@
       
     <!-- End Container -->
     </div>
+
+    <!--[if IE 9]>
+      <style>
+        #browser_not_supported {
+          display: block;
+        }
+
+        .container {
+          display: none;
+        }
+      </style>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <style>
+        body {
+          background: url("img/browser-outdated/pattern.png");
+        }
+        
+        #browser_not_supported {
+          display: block;
+        }
+
+        .container {
+          display: none;
+        }
+      </style>
+    <![endif]-->
     <script src="js/rangetouch.min.js"></script>
     <script src="js/video.js"></script>
     <script src="js/playlist.js"></script>
