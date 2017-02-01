@@ -4,24 +4,25 @@
 
 #next_info {
   @extend %info_position;
-  right: -225px;
+  right: -325px;
 }
 
 #prev_info {
   @extend %info_position;
-  left: -225px;
+  left: -325px;
 }
 
 .info {
   background-color: white;
   padding         : rem(10px);
   border          : 1px solid #ccc;
-  width           : 185px;
+  width           : 235px;
   opacity         : 0;
   transition      : all $anim-speed;
   display         : none;
+  text-align:   center;
 
-  @include mediaQuery(1600px) {
+  @include mediaQuery(1650px) {
     display: block;
   }
 
@@ -32,9 +33,9 @@
   }
 
   img {
-    max-width : 100%;
+    max-width : 185px;
     border    : 1px solid #ccc;
-    outline   : 1px solid #000;
+    outline   : 1px solid #333;
     box-shadow: 0 5px 5px -5px #333;
   }
 }

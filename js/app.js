@@ -93,13 +93,18 @@ videoElement.addEventListener('click', function() {
 });
 
 // Mouse Over
+var laptop = 1366;
 videoContainer.addEventListener('mouseover', function() {
-  UI.controlsDisplay('show');
+  if(window.innerWidth >= laptop) {
+    UI.controlsDisplay('show');
+  } 
 });
 
 // Mouse Leave
 videoContainer.addEventListener('mouseleave', function() {
-  UI.controlsDisplay('hide');
+  if(window.innerWidth >= laptop) {
+    UI.controlsDisplay('hide');
+  } 
 });
  
 
@@ -114,7 +119,7 @@ nextButton.addEventListener('click', function() {
 });
 
 nextButton.addEventListener('mouseover', function() {
-  nextInfo.style.right   = '-195px';
+  nextInfo.style.right   = '-245px';
   nextInfo.style.opacity = '1';
 });
 
@@ -130,7 +135,7 @@ prevButton.addEventListener('click', function() {
 });
 
 prevButton.addEventListener('mouseover', function() {
-  prevInfo.style.left    = '-195px';
+  prevInfo.style.left    = '-245px';
   prevInfo.style.opacity = '1';
 });
 

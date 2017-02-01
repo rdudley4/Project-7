@@ -78,7 +78,6 @@ svg * {
   max-width   : $max-width;
   margin-left : auto;
   margin-right: auto;
-  box-shadow  : 0 0 3px #555;
   position: relative;
   // Larger Screens
   @include mediaQuery(1150px) {
