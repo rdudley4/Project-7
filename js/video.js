@@ -1,3 +1,13 @@
+// Video Related Variables
+// -----------------------
+var videoContainer = document.querySelector('.video');
+var videoElement   = document.getElementById('video__player');
+var videoControls  = document.querySelector('.video__controls');
+var progressBar    = document.getElementById('progress__playing');
+var bufferedAmount = document.getElementById('progress__buffered');
+
+// Video Object
+// ------------
 function Video(sources, caption, title) {
   // Array of sources
   this.sources = sources;
@@ -9,23 +19,23 @@ function Video(sources, caption, title) {
 
 Video.prototype.rewind = function() {
   videoElement.currentTime -= 10;
-}
+};
 
 Video.prototype.fastForward = function() {
   videoElement.currentTime += 10;
-}
+};
 
 Video.prototype.isBuffering = function() {
   return bufferedAmount.style.width !== "100%";
-}
+};
 
 Video.prototype.isPlaying = function() {
   return !videoElement.paused;
-}
+};
 
 Video.prototype.isMuted = function() {
   return videoElement.muted;
-}
+};
 
 Video.prototype.makeFullscreen = function() {
   if (videoElement.mozRequestFullScreen) {
@@ -53,11 +63,11 @@ Video.prototype.makeFullscreen = function() {
       videoElement.requestFullscreen();
     }
   }
-}
+};
 
 Video.prototype.updateSources = function() {
   for(i = 0; i < this.sources.length; i++) {
     var src = document.getElementById('src' + i);
     src.setAttribute('src', this.sources[i]);
   }
-}
+};

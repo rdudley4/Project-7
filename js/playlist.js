@@ -7,7 +7,7 @@ function Playlist(videos) {
 
 Playlist.prototype.getVideoInfo = function() {
   return this.videos[this.currentVideoIndex];
-}
+};
 
 Playlist.prototype.getTitle = function(index) {
   var videoIndex = index;
@@ -18,17 +18,17 @@ Playlist.prototype.getTitle = function(index) {
   } else {
     return this.videos[videoIndex].title;
   }
-}
+};
 
 Playlist.prototype.next = function() {
   videoElement.textTracks[0].mode = "disabled";
   this.currentVideoIndex++;
   if(this.currentVideoIndex >= this.videos.length) {
-    console.log("Returning to start of playlist.")
+    console.log("Returning to start of playlist.");
     this.currentVideoIndex = 0;
   }
   UI.updateVideo();
-}
+};
 
 Playlist.prototype.prev = function() {
   videoElement.textTracks[0].mode = "disabled";
@@ -38,4 +38,4 @@ Playlist.prototype.prev = function() {
     this.currentVideoIndex = this.videos.length - 1;
   }
   UI.updateVideo();
-}
+};

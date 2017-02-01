@@ -5,15 +5,44 @@
 // Controls Container
 // ------------------
 
-.controls {
+.video {
+  position: relative;
+  overflow: hidden;
+
+  &__controls {
+    position  : absolute;
+    bottom    : 0;
+    left      : 0;
+    right     : 0;
+    transition: bottom $anim-speed;
+    background-color: $bg-dark-transparent;
+  }
+}
+
+// Button Container
+// ----------------
+
+.buttons {
   display        : flex;
   overflow       : hidden;
   justify-content: space-between;
-  background     : $bg-dark;
   height         : 60px;
   padding        : rem(4px) rem(10px);
-}
 
+  &__group1,
+  &__group2 {
+    display    : flex;
+    align-items: center;
+  }
+
+  &__group2 {
+    justify-content: space-between;
+    flex-wrap      : wrap;
+    max-width      : 240px;
+  }
+} 
+
+// Button Style
 .button {
   fill               : $color-btn-default;
   width              : 30px;
@@ -34,35 +63,6 @@
   display: none;
 }
 
-
-// Control Elements
-// ----------------
-
-.group {
-  &1,
-  &2 {
-    display    : flex;
-    align-items: center;
-  }
-
-  &2 {
-    justify-content: space-between;
-    flex-wrap      : wrap;
-    max-width      : 240px; 
-  }
-}
-
 #time-stamp {
   color: $color-btn-default;
-}
-
-
-// Volume Indicator
-// ----------------
-
-#vol {
-  color      : $color-volume-level;
-  width      : 13%;
-  line-height: 10px;
-  text-align : center;
 }

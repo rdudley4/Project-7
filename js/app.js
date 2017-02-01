@@ -6,7 +6,7 @@ var getFiles = function(folder) {
     caption: filePath + 'captions.vtt'
   };
   return contents;
-}
+};
 
 var videos = [
   new Video(getFiles('video1').sources, getFiles('video1').caption, 'How the Internet Works'),
@@ -34,7 +34,7 @@ videoElement.onloadedmetadata = function() {
   this.replaceChild(UI.createCaptionTrack(captionSrc), trackElement);
 
   UI.reset(this);
-}
+};
 
 
 // Time Update
@@ -52,15 +52,15 @@ videoElement.ontimeupdate = function() {
 
   // Highlight current transcript part
   UI.highlightTranscript();
-}
+};
 
 // When video has ended.
 videoElement.onended = function() {
   // Update our play/pause button to appropriate state.
   UI.playPauseDisplayHandler();
-}
+};
 
-var volumeSlider = document.getElementById('volume-slider');
+var volumeSlider = document.getElementById('volume__slider');
 if (!!navigator.userAgent.match(/Trident\/7\./)) {
   // Because IE is a special snowflake.
   console.info('Internet Explorer Detected, using special snowflake event handlers.');
@@ -68,28 +68,43 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
   volumeSlider.onchange = function() {
     videoElement.volume = this.value;
     UI.updateVolIndicator(Math.round(this.value * 100));
-  }
+  };
   // Progress Bar
   progressBar.onchange = function() {
     videoElement.currentTime = this.value;
-  }
+  };
 } else {
-  console.info('Sane Browser Detected, using normal event handlers.')
+  console.info('Sane Browser Detected, using normal event handlers.');
   // Volume Slider
   volumeSlider.oninput = function() {
     videoElement.volume = this.value;
     UI.updateVolIndicator(Math.round(this.value * 100));
-  }
+  };
   // Progress Bar
   progressBar.oninput = function() {
     videoElement.currentTime = this.value;
-  }
+  };
 }
 
+// Click
 videoElement.addEventListener('click', function() {
   UI.playPause();
 });
 
+// Mouse Over
+videoContainer.addEventListener('mouseover', function() {
+  videoControls.style.bottom = '0';
+});
+
+// Mouse Leave
+videoContainer.addEventListener('mouseleave', function() {
+  if(videoElement.paused) {
+    videoControls.style.bottom = '0';
+  } else {
+    videoControls.style.bottom = '-60px';
+  }
+});
+ 
 
 // Button Click Event Handlers
 // ---------------------------
@@ -210,4 +225,4 @@ document.onkeypress = function(key) {
       UI.captionHandler(captionButton, videoElement.textTracks[0]);
       break;
   }
-}
+};

@@ -2,28 +2,29 @@
   Progress Bar Styles
 --------------------------- */
 
-.progress {
-  background-color: $bg-light;
+#progress {
   position        : relative;
-  height          : 14px;
-}
-
-#buffered-amount {
   height          : $bar-height;
-  background-color: $color-input-track;
-  opacity         : .25;
-  width           : 0;
+  margin          : auto;
+  background-color: $bg-light;
+
+  &__buffered,
+  &__playing {
+    position: absolute;
+    bottom  : 0;
+    left    : 0;
+  }
+
+  &__buffered {
+    height          : $bar-height;
+    background-color: $color-input-track;
+    opacity         : .25;
+    width           : 0;
+  }
 }
 
-#playing,
-#buffered-amount {
-  position: absolute;
-  bottom  : 0;
-  left    : 0;
-}
-
-#playing,
-#volume-slider {
+#progress__playing,
+#volume__slider {
   margin            : 0;
   padding           : 0;
   height            : $bar-height;
@@ -97,23 +98,34 @@
   &::-moz-focus-outer { border: 0;     }
 }
 
-#volume-slider {
-  $bar-height     : $bar-height - 4; // 10px
-  width           : 87%;
-  height          : $bar-height;
-  background-color: $bg-light;
 
-  &::-webkit-slider {
-    &-thumb {
-      box-shadow: -125px 0 0 125px $color-volume-track;
+#volume {
+  // Volume Slider
+  &__slider {
+    // $bar-height     : $bar-height * 2; // 14px
+    width           : 87%;
+    height          : $bar-height;
+    background-color: $bg-light;
+
+    &::-webkit-slider {
+      &-thumb {
+        box-shadow: -125px 0 0 125px $color-volume-track;
+      }
+    }
+
+    &::-moz-range-progress {
+      background-color: $color-volume-track;
+    }
+    
+    &::-ms-fill-lower {
+      background-color: $color-volume-track;
     }
   }
-
-  &::-moz-range-progress {
-    background-color: $color-volume-track;
-  }
-  
-  &::-ms-fill-lower {
-    background-color: $color-volume-track;
+  // Volume Indicator
+  &__indicator {
+    color      : $color-volume-level;
+    width      : 13%;
+    line-height: 10px;
+    text-align : center;
   }
 }

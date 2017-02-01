@@ -1,7 +1,3 @@
-var videoElement = document.getElementById('current-video');
-var progressBar = document.getElementById('playing');
-var bufferedAmount = document.getElementById('buffered-amount');
-
 var UI = {
   populateHtmlWithId: function(id, text) {
     var element = document.getElementById(id);
@@ -14,8 +10,10 @@ var UI = {
   playPause: function() {
     if(playlist.getVideoInfo().isPlaying()) {
       videoElement.pause();
+      videoControls.style.bottom = '0';
     } else {
       videoElement.play();
+      videoControls.style.bottom = '-60px';
     }
     this.playPauseDisplayHandler();
   },
@@ -60,7 +58,7 @@ var UI = {
       textTrack.mode = "showing";
       button.style.fill = on;
     } else {
-      console.log('Disabling closed captioning.')
+      console.log('Disabling closed captioning.');
       textTrack.mode = "disabled";
       button.removeAttribute('style');
     }
@@ -83,8 +81,7 @@ var UI = {
     this.populateHtmlWithId('time-stamp', timeString);  
   },
   updateVolIndicator: function(volume) {
-    var indicator = document.getElementById('vol');
-    this.populateHtmlWithId('vol', volume);
+    this.populateHtmlWithId('volume__indicator', volume);
   },
   setProgressValues: function() {
     var min = 0;
@@ -136,7 +133,7 @@ var UI = {
     // Register event handler for newly created element.
     partSpan.onclick = function() {
       videoElement.currentTime = time + 0.001;
-    }
+    };
     return partSpan;
   },
   populateTranscript: function() {
@@ -166,8 +163,7 @@ var UI = {
           console.log('Moving to part: ' + i);
         }
       } else if(typeof(partList[i]) == 'undefined') {
-        // Occurs when a user is currently playing a video and some part is highlighted.
-        // Then the user switches videos mid playback, and the loop would try to remove the highlight class from a now non-existant element.
+        // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
         return console.info('Transcript no longer exists. Exiting highlightTranscript()');
       } else {
         if(partList[i].classList.contains('highlight')) {
@@ -194,4 +190,4 @@ var UI = {
     this.populateHtmlWithId('next_title', playlist.getTitle(playlist.currentVideoIndex + 1));
     this.populateHtmlWithId('prev_title', playlist.getTitle(playlist.currentVideoIndex - 1));
   }
-}
+};  

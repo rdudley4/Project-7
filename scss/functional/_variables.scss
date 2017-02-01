@@ -9,6 +9,7 @@ $white           : #fff;
 $jungle-green    : #27ae60;
 $fiord           : #46586A;
 $pickled-bluewood: #2c3e50;
+$pb-transparent  : rgba(44, 62, 80, 0.8);
 $powder-blue     : #bee9e8;
 $shadow-blue     : #788aa3;
 $sunset-orange   : #f2545b;
@@ -32,6 +33,7 @@ $color-input-track   : $sunset-orange;
 $color-volume-track  : $shadow-blue;
 
 $bg-dark             : $pickled-bluewood;
+$bg-dark-transparent : $pb-transparent;
 $bg-light            : $fiord;
 
 
@@ -50,7 +52,7 @@ $font-size-default     : 16px;
 // Progress Bar
 // --------------
 
-$bar-height: 14px;
+$bar-height: 7px;
 
 
 // Media Query Variables
