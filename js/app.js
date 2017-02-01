@@ -3,17 +3,18 @@ var getFiles = function(folder) {
   var filePath = 'media/' + folder + '/';
   var contents = {
     sources: [filePath + 'video.mp4', filePath + 'video.ogg'],
-    caption: filePath + 'captions.vtt'
+    caption: filePath + 'captions.vtt',
+    thumbnail: filePath + 'thumbnail.png'
   };
   return contents;
 };
 
 var videos = [
-  new Video(getFiles('video1').sources, getFiles('video1').caption, 'How the Internet Works'),
-  new Video(getFiles('video2').sources, getFiles('video2').caption, 'JavaScript and the DOM'),
-  new Video(getFiles('video3').sources, getFiles('video3').caption, 'Overview of Web Media'),
-  new Video(getFiles('video4').sources, getFiles('video4').caption, 'Quiz Application Project'),
-  new Video(getFiles('video5').sources, getFiles('video5').caption, 'The Meaning of Life')
+  new Video(getFiles('video1').sources, getFiles('video1').caption, getFiles('video1').thumbnail, 'How the Internet Works'),
+  new Video(getFiles('video2').sources, getFiles('video2').caption, getFiles('video2').thumbnail, 'JavaScript and the DOM'),
+  new Video(getFiles('video3').sources, getFiles('video3').caption, getFiles('video3').thumbnail, 'Overview of Web Media'),
+  new Video(getFiles('video4').sources, getFiles('video4').caption, getFiles('video4').thumbnail, 'Quiz Application Project'),
+  new Video(getFiles('video5').sources, getFiles('video5').caption, getFiles('video5').thumbnail, 'The Meaning of Life')
 ];
 
 var playlist = new Playlist(videos);
@@ -93,16 +94,12 @@ videoElement.addEventListener('click', function() {
 
 // Mouse Over
 videoContainer.addEventListener('mouseover', function() {
-  videoControls.style.bottom = '0';
+  UI.controlsDisplay('show');
 });
 
 // Mouse Leave
 videoContainer.addEventListener('mouseleave', function() {
-  if(videoElement.paused) {
-    videoControls.style.bottom = '0';
-  } else {
-    videoControls.style.bottom = '-60px';
-  }
+  UI.controlsDisplay('hide');
 });
  
 
@@ -169,7 +166,7 @@ fullscreenButton.addEventListener('click', function() {
 // Playback Rate Button
 var pbRateButton = document.getElementById('pb-rate');
 pbRateButton.addEventListener('click', function() {
-  UI.updatePlaybackRate();
+  UI.changePlaybackRate();
 });
 
 // Rewind Button
@@ -219,7 +216,7 @@ document.onkeypress = function(key) {
       UI.muteHandler();
       break;
     case 112: // P - Change Playback rate
-      UI.updatePlaybackRate();
+      UI.changePlaybackRate();
       break;
     case 99:  // C - Enable/Disable CC
       UI.captionHandler(captionButton, videoElement.textTracks[0]);

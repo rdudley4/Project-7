@@ -8,11 +8,13 @@ var bufferedAmount = document.getElementById('progress__buffered');
 
 // Video Object
 // ------------
-function Video(sources, caption, title) {
+function Video(sources, caption, thumbnail, title) {
   // Array of sources
   this.sources = sources;
   // Captions file
   this.captionSrc = caption;
+  // Video Thumbnail
+  this.thumbnail = thumbnail;
   // Video Title
   this.title = title;
 }

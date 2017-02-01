@@ -10,10 +10,10 @@ var UI = {
   playPause: function() {
     if(playlist.getVideoInfo().isPlaying()) {
       videoElement.pause();
-      videoControls.style.bottom = '0';
+      this.controlsDisplay('show');
     } else {
       videoElement.play();
-      videoControls.style.bottom = '-60px';
+      this.controlsDisplay('hide');
     }
     this.playPauseDisplayHandler();
   },
@@ -22,6 +22,19 @@ var UI = {
       this.swapButton(pauseButton, playButton);
     } else {
       this.swapButton(playButton, pauseButton);
+    }
+  },
+  controlsDisplay: function(state) {
+    if(state === 'hide') {
+      if(videoElement.paused) {
+        videoControls.style.bottom = '0';
+      } else {
+        videoControls.style.bottom = '-60px';
+      }
+    } else if(state === 'show') {
+      videoControls.style.bottom = '0';
+    } else {
+      return console.error("Invalid Paramater '" + arguments[0] + "' for controlsDisplay method. Please use 'show' or 'hide' instead.");
     }
   },
   muteHandler: function() {
@@ -98,7 +111,7 @@ var UI = {
   updateBufferedAmount: function(bufferEnd) {
     bufferedAmount.style.width = Math.round((bufferEnd / videoElement.duration) * 100) + "%";
   },
-  updatePlaybackRate: function() {
+  changePlaybackRate: function() {
     var colorMedium  = '#f5d76e';
     var colorFast    = '#f2545b';
     if(videoElement.playbackRate === 1) {
@@ -181,13 +194,21 @@ var UI = {
     video.volume = volumeSlider.value;
     this.updateVolIndicator(Math.round(video.volume * 100));
     this.playPauseDisplayHandler();
+    this.controlsDisplay('show');
     this.setProgressValues();
     this.updateTime(Math.round(video.currentTime), Math.round(video.duration));
     this.populateTranscript();
     this.updateInfoBox();
   },
   updateInfoBox: function() {
-    this.populateHtmlWithId('next_title', playlist.getTitle(playlist.currentVideoIndex + 1));
-    this.populateHtmlWithId('prev_title', playlist.getTitle(playlist.currentVideoIndex - 1));
+    var nextIndex = playlist.currentVideoIndex + 1;
+    var prevIndex = playlist.currentVideoIndex - 1;
+    var prevImage = document.getElementById('prev_img');
+    var nextImage = document.getElementById('next_img');
+
+    this.populateHtmlWithId('next_title', playlist.boxInfo(nextIndex)[0]);
+    nextImage.setAttribute('src', playlist.boxInfo(nextIndex)[1]);
+    this.populateHtmlWithId('prev_title', playlist.boxInfo(prevIndex)[0]);
+    prevImage.setAttribute('src', playlist.boxInfo(prevIndex)[1]);
   }
 };  

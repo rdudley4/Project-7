@@ -9,14 +9,21 @@ Playlist.prototype.getVideoInfo = function() {
   return this.videos[this.currentVideoIndex];
 };
 
-Playlist.prototype.getTitle = function(index) {
+Playlist.prototype.boxInfo = function(index) {
   var videoIndex = index;
+  var infoArray = [];
   if(videoIndex >= this.videos.length) {
-    return this.videos[0].title;
+    infoArray.push(this.videos[0].title);
+    infoArray.push(this.videos[0].thumbnail);
+    return infoArray;
   } else if (videoIndex < 0) {
-    return this.videos[this.videos.length - 1].title;
+    infoArray.push(this.videos[this.videos.length - 1].title);
+    infoArray.push(this.videos[this.videos.length - 1].thumbnail);
+    return infoArray;
   } else {
-    return this.videos[videoIndex].title;
+    infoArray.push(this.videos[videoIndex].title);
+    infoArray.push(this.videos[videoIndex].thumbnail);
+    return infoArray;
   }
 };
 
