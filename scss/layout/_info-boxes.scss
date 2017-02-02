@@ -14,7 +14,7 @@
 
 .info {
   background-color: white;
-  padding         : rem(10px);
+  padding         : rem(10px) rem(25px);
   border          : border($color-border-light);
   width           : 235px;
   opacity         : 0;
@@ -34,13 +34,12 @@
     margin-bottom   : rem(8px);
     margin-left     : auto;
     margin-right    : auto;
-    background-color: $bg-light;
-    max-width       : 185px; 
+    background-color: $bg-light; 
   }
 
   img {
     @extend %border-outline;
-    max-width : 185px;
+    max-width: 100%;
     box-shadow: 0 8px 8px -5px $color-box-shadow;
   }
 }
