@@ -53,6 +53,13 @@ videoElement.ontimeupdate = function() {
 
   // Highlight current transcript part
   UI.highlightTranscript();
+
+  // FeelsGoodMan
+  if(playlist.currentVideoIndex === playlist.videos.length - 1 && playlist.getVideoInfo().isPlaying()) {
+    if(transcript.getAttribute('style') !== null) {
+      transcript.removeAttribute('style');
+    }
+  } 
 };
 
 // When video has ended.

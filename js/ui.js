@@ -1,3 +1,5 @@
+var transcript = document.getElementById('transcript');
+
 var UI = {
   populateHtmlWithId: function(id, text) {
     var element = document.getElementById(id);
@@ -150,13 +152,12 @@ var UI = {
     return partSpan;
   },
   populateTranscript: function() {
-    var container = document.getElementById('transcript');
     var currentTranscript = transcriptData[playlist.currentVideoIndex];
-    container.innerHTML = "<h2 class='title'>Video Transcript</h2>";
+    transcript.innerHTML = "<h2 class='title'>Video Transcript</h2>";
     for(i = 0; i < currentTranscript.length; i++) {
       var text = currentTranscript[i].text;
       var time = currentTranscript[i].start;
-      container.appendChild(this.createTranscriptPart(text, time));
+      transcript.appendChild(this.createTranscriptPart(text, time));
     }
     console.log('Finished populating transcript.');
   },
@@ -199,6 +200,15 @@ var UI = {
     this.updateTime(Math.round(video.currentTime), Math.round(video.duration));
     this.populateTranscript();
     this.updateInfoBox();
+
+    // Kappa
+    if(playlist.currentVideoIndex === playlist.videos.length - 1) {
+      transcript.style.filter = 'blur(2px)';
+    } else {
+      if(transcript.getAttribute('style') !== null) {
+        transcript.removeAttribute('style');
+      }  
+    }
   },
   updateInfoBox: function() {
     var nextIndex = playlist.currentVideoIndex + 1;

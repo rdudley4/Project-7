@@ -3,10 +3,11 @@
 --------------------------- */
 
 #transcript {
-  padding                   : rem($font-size-default);
-  background                : $white;
-  display                   : flex;
-  flex-direction            : column;
+  padding       : rem($font-size-default);
+  background    : $white;
+  display       : flex;
+  flex-direction: column;
+  transition    : filter $trans-speed;
   // Desktop
   @include mediaQuery("desktop") {
     padding: rem(18px) rem(32px);
