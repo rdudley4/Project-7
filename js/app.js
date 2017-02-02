@@ -58,6 +58,8 @@ videoElement.ontimeupdate = function() {
   if(playlist.currentVideoIndex === playlist.videos.length - 1 && playlist.getVideoInfo().isPlaying()) {
     if(transcript.getAttribute('style') !== null) {
       transcript.removeAttribute('style');
+      rolled = true;
+      alert("Congratulations, you have won a free Rick Roll.");
     }
   } 
 };

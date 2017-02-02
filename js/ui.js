@@ -1,4 +1,5 @@
 var transcript = document.getElementById('transcript');
+var rolled = false;
 
 var UI = {
   populateHtmlWithId: function(id, text) {
@@ -202,7 +203,7 @@ var UI = {
     this.updateInfoBox();
 
     // Kappa
-    if(playlist.currentVideoIndex === playlist.videos.length - 1) {
+    if(playlist.currentVideoIndex === playlist.videos.length - 1 && !rolled) {
       transcript.style.filter = 'blur(2px)';
     } else {
       if(transcript.getAttribute('style') !== null) {
