@@ -5,3 +5,7 @@
 @function rem($value, $default: $font-size-default) {
   @return ($value / $default) * 1rem;
 }
+
+@function border($color, $width: 1px, $style: solid) {
+  @return $width $style $color;
+}

@@ -6,3 +6,8 @@
   position: absolute;
   top     : 0;
 }
+
+%border-outline {
+  border: border($color-border-light);
+  outline: border($color-outline-dark);
+}

@@ -13,16 +13,16 @@
   }
   // Larger Screen Sizes
   @include mediaQuery(1150px) {
-    border                    : 1px solid #ccc;
+    border                    : border($color-border-light);
     border-top                : 0;
     border-bottom-left-radius : $border-radius;
-    border-bottom-right-radius:  $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 }
 
 .title {
   text-align    : center;
-  border-bottom : 1px solid #ccc;
+  border-bottom : border($color-border-light);
   font-family   : $stack-sans-condensed;
   text-transform: uppercase;
   color         : $color-text-title;

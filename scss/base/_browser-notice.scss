@@ -12,7 +12,7 @@
   margin          : 36px auto;
   padding         : 32px; // PX instead of rem for legacy support.
   line-height     : 1.5;
-  border          : 1px solid #ccc;
+  border          : border($color-border-light);
   text-align      : center;
 
   a {

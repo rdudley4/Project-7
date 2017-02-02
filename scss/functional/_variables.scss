@@ -6,6 +6,8 @@
 // ---------------------------
 
 $white           : #fff;
+$silver          : #ccc;
+$mine-shaft      : #333;
 $jungle-green    : #27ae60;
 $fiord           : #46586A;
 $pickled-bluewood: #2c3e50;
@@ -31,6 +33,11 @@ $color-highlight-text: $white;
 
 $color-input-track   : $sunset-orange;
 $color-volume-track  : $shadow-blue;
+
+$color-border-light  : $silver;
+$color-outline-dark  : $mine-shaft;
+
+$color-box-shadow    : $mine-shaft;
 
 $bg-dark             : $pickled-bluewood;
 $bg-dark-transparent : $pb-transparent;
