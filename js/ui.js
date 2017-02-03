@@ -221,5 +221,14 @@ var UI = {
     nextImage.setAttribute('src', playlist.boxInfo(nextIndex)[1]);
     this.populateHtmlWithId('prev_title', playlist.boxInfo(prevIndex)[0]);
     prevImage.setAttribute('src', playlist.boxInfo(prevIndex)[1]);
+  },
+  showMessage: function() {
+    var popUp = document.getElementById('pop_up');
+    popUp.style.top = '80px';
+    popUp.style.opacity = '1';
+    popUp.style.visibility = 'visible';
+    setTimeout(function(){
+      popUp.removeAttribute('style');
+    }, 3500);
   }
 };  

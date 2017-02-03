@@ -87,3 +87,34 @@ svg * {
     border-radius: $border-radius;
   }
 }
+
+
+// Pop Up
+// ------
+
+#pop_up {
+  @extend %border-outline;
+  position        : fixed;
+  left            : 0;
+  right           : 0;
+  top             : 0;
+  opacity         : 0;
+  visibility      : hidden;
+  max-width       : 500px;
+  margin          : auto;
+  padding         : rem(30px);
+  color           : $white;
+  background-color: $bg-dark;
+  z-index         : 1;
+  transition      : all $anim-speed * 2.5;
+  text-align      : center;
+
+  .title {
+    color: $color-tran-highlight;
+  }
+
+  img {
+    margin-top: rem(20px);
+    max-width : 100%;
+  }
+}

@@ -59,7 +59,7 @@ videoElement.ontimeupdate = function() {
     if(transcript.getAttribute('style') !== null) {
       transcript.removeAttribute('style');
       rolled = true;
-      alert("Congratulations, you have won a free Rick Roll.");
+      UI.showMessage();
     }
   } 
 };
