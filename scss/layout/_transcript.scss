@@ -4,7 +4,7 @@
 
 #transcript {
   padding       : rem($font-size-default);
-  background    : $white;
+  background    : $color-secondary;
   display       : flex;
   flex-direction: column;
   transition    : filter $trans-speed;
@@ -14,8 +14,6 @@
   }
   // Larger Screen Sizes
   @include mediaQuery(1150px) {
-    border                    : border($color-border-light);
-    border-top                : 0;
     border-bottom-left-radius : $border-radius;
     border-bottom-right-radius: $border-radius;
   }
@@ -26,7 +24,7 @@
   border-bottom : border($color-border-light);
   font-family   : $stack-sans-condensed;
   text-transform: uppercase;
-  color         : $color-text-title;
+  color         : $color-primary;
   padding       : 0 rem(10px) rem(10px);
   margin-top    : 0;
 }
@@ -46,19 +44,19 @@
 .time {
   transition      : all .3s;
   margin-left     : rem(5px);
-  background-color: $bg-light;
+  background-color: $color-primary;
   border-radius   : 5px;
   padding         : rem(5px);
-  color           : $white;
+  color           : $color-secondary;
 }
 
 .highlight,
 .part:hover {
-  background-color: $color-tran-highlight;
-  color           : $white;
+  background-color: $color-primary;
+  color           : $color-secondary;
 
   & > .time {
-    background-color: $white;
-    color           : $color-tran-highlight;
+    background-color: $color-secondary;
+    color           : $color-primary;
   }
 }

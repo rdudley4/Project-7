@@ -64,7 +64,7 @@ var UI = {
     return newTrack;   
   },
   captionHandler: function(button, textTrack) {
-    var on  = '#f2545b';
+    var on  = '#8affc1';
     if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
       var htmlString = 'CLOSED CAPTIONING ENABLED \n';
       htmlString += '-------------------------\n';
@@ -229,6 +229,6 @@ var UI = {
     popUp.style.visibility = 'visible';
     setTimeout(function(){
       popUp.removeAttribute('style');
-    }, 3500);
+    }, 30500);
   }
 };  

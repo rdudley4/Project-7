@@ -9,3 +9,13 @@
 @function border($color, $width: 1px, $style: solid) {
   @return $width $style $color;
 }
+
+@function shadow($type, $opacity) {
+  @if($type == 'inset') {
+    @return inset 0 0 20px rgba(0, 0, 0, $opacity);
+  } @else if($type == 'normal') {
+    @return 0 10px 20px -5px rgba(0,0,0, $opacity);
+  } @else if ($type == 'left-right' ) {
+    @return -10px 0 20px -5px rgba(0, 0, 0, $opacity), 10px 0 20px -5px rgba(0, 0, 0,$opacity);
+  }
+}

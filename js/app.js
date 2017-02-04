@@ -128,7 +128,7 @@ nextButton.addEventListener('click', function() {
 });
 
 nextButton.addEventListener('mouseover', function() {
-  nextInfo.style.right   = '-245px';
+  nextInfo.style.right   = '-250px';
   nextInfo.style.opacity = '1';
 });
 
@@ -144,7 +144,7 @@ prevButton.addEventListener('click', function() {
 });
 
 prevButton.addEventListener('mouseover', function() {
-  prevInfo.style.left    = '-245px';
+  prevInfo.style.left    = '-250px';
   prevInfo.style.opacity = '1';
 });
 

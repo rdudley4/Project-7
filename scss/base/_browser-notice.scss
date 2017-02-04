@@ -7,7 +7,7 @@
 
 #browser_not_supported {
   display         : none;
-  background-color: $white;
+  background-color: $color-secondary;
   max-width       : 80%;
   margin          : 36px auto;
   padding         : 32px; // PX instead of rem for legacy support.
@@ -16,7 +16,7 @@
   text-align      : center;
 
   a {
-    color       : $pickled-bluewood;
+    color       : $color-primary;
     margin-right: 10px;
 
     &:last-of-type {
@@ -31,7 +31,7 @@
 
   h2,
   h3 {
-    color      : $pickled-bluewood;
+    color      : $color-primary;
     font-family: $stack-sans-condensed;
   } 
 }

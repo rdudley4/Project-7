@@ -6,7 +6,7 @@
   position        : relative;
   height          : $bar-height;
   margin          : auto;
-  background-color: $bg-light;
+  background-color: $bg-transprnt-prog;
 
   &__buffered,
   &__playing {
@@ -102,28 +102,27 @@
 #volume {
   // Volume Slider
   &__slider {
-    // $bar-height     : $bar-height * 2; // 14px
     width           : 87%;
     height          : $bar-height;
-    background-color: $bg-light;
+    background-color: $bg-transprnt-prog;
 
     &::-webkit-slider {
       &-thumb {
-        box-shadow: -125px 0 0 125px $color-volume-track;
+        box-shadow: -125px 0 0 125px $color-tertiary;
       }
     }
 
     &::-moz-range-progress {
-      background-color: $color-volume-track;
+      background-color: $color-tertiary;
     }
     
     &::-ms-fill-lower {
-      background-color: $color-volume-track;
+      background-color: $color-tertiary;
     }
   }
   // Volume Indicator
   &__indicator {
-    color      : $color-volume-level;
+    color      : $color-secondary;
     width      : 13%;
     line-height: 10px;
     text-align : center;

@@ -15,7 +15,7 @@
     left      : 0;
     right     : 0;
     transition: bottom $anim-speed;
-    background-color: $bg-dark-transparent;
+    background-color: $bg-transprnt-med;
   }
 }
 
@@ -44,7 +44,7 @@
 
 // Button Style
 .button {
-  fill               : $color-btn-default;
+  fill               : $color-secondary;
   width              : 30px;
   height             : 30px;
   -webkit-user-select: none;  /* Chrome all / Safari all */
@@ -64,5 +64,5 @@
 }
 
 #time-stamp {
-  color: $color-btn-default;
+  color: $color-secondary;
 }

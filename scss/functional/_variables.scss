@@ -2,46 +2,39 @@
   Project Variables
 --------------------------- */
 
+// candidates - dd7373, e3bac6, bc9ec1, bee5bf
+
 // Descriptive Color Variables
 // ---------------------------
 
-$white           : #fff;
-$silver          : #ccc;
-$mine-shaft      : #333;
-$jungle-green    : #27ae60;
-$fiord           : #46586A;
-$pickled-bluewood: #2c3e50;
-$pb-transparent  : rgba(44, 62, 80, 0.8);
-$powder-blue     : #bee9e8;
-$shadow-blue     : #788aa3;
-$sunset-orange   : #f2545b;
+$copper-rose    : #a26769;
+$honeydew       : #eff9f0;
+$aquamarine     : #8affc1;
+$silver         : #ccc;
+$mine-shaft     : #333;
+$sunset-orange  : #f2545b;
+$transprnt-light: rgba(0, 0, 0, .2);
+$transprnt-med  : rgba(0, 0, 0, .4);
+$transprnt-dark : rgba(0, 0, 0, .6);
+$transprnt-white: rgba(255,255,255, .2);
 
 
 // Functional Color Variables
 // --------------------------
 
-$color-text-light    : $white;
-$color-text-title    : $fiord;
-
-$color-btn-default   : $shadow-blue;
-$color-btn-highlight : $powder-blue;
-$color-tran-highlight: $jungle-green;
-
-$color-volume-level  : $shadow-blue;
-
-$color-highlight-text: $white;
+$color-primary  : $copper-rose;
+$color-secondary: $honeydew;
+$color-tertiary : $aquamarine;
 
 $color-input-track   : $sunset-orange;
-$color-volume-track  : $shadow-blue;
 
 $color-border-light  : $silver;
 $color-outline-dark  : $mine-shaft;
 
-$color-box-shadow    : $mine-shaft;
-
-$bg-dark             : $pickled-bluewood;
-$bg-dark-transparent : $pb-transparent;
-$bg-light            : $fiord;
+$bg-transprnt-light : $transprnt-light;
+$bg-transprnt-med   : $transprnt-med;
+$bg-transprnt-dark  : $transprnt-dark;
+$bg-transprnt-prog  : $transprnt-white;
 
 
 

@@ -18,8 +18,11 @@ html {
 // ----
 
 body {
-  font-family: $stack-roboto-condensed;
-  background-image: url("../img/batthern.png"), url("../img/pattern.svg");
+  font-family          : $stack-roboto-condensed;
+  background-image     : url("../img/bokeh.png");
+  background-position  : center center;
+  background-size      : 100% 100%;
+  background-attachment: fixed;
 }
 
 
@@ -40,12 +43,13 @@ video {
 }
 
 .video-head {
-  display                : flex;
-  justify-content        : space-between;
-  align-items            : center;
-  overflow               : hidden; 
-  background-color       : $bg-dark;
-  padding                : rem(12px);
+  display         : flex;
+  justify-content : space-between;
+  align-items     : center;
+  overflow        : hidden; 
+  background-color: $bg-transprnt-light; //f56476
+  box-shadow      : shadow('inset', .1);
+  padding         : rem(12px);
   // Larger Screens
   @include mediaQuery(1150px) {
     border-top-left-radius : $border-radius;
@@ -56,7 +60,7 @@ video {
 #video-title {
   margin        : 0;
   letter-spacing: 1px; 
-  color         : $color-text-light;
+  color         : $color-primary;
   font-family   : $stack-sans-condensed;
   font-weight   : normal;
   text-align    : center;
@@ -83,8 +87,7 @@ svg * {
   @include mediaQuery(1150px) {
     margin-top   : rem(20px);
     margin-bottom: rem(20px);
-    background   : $white;
-    border-radius: $border-radius;
+    box-shadow: shadow('left-right', .4);
   }
 }
 
@@ -93,7 +96,6 @@ svg * {
 // ------
 
 #pop_up {
-  @extend %border-outline;
   position        : fixed;
   left            : 0;
   right           : 0;
@@ -103,14 +105,17 @@ svg * {
   max-width       : 500px;
   margin          : auto;
   padding         : rem(30px);
-  color           : $white;
-  background-color: $bg-dark;
+  color           : $color-tertiary;
+  background-color: $bg-transprnt-dark;
+  box-shadow      : shadow('inset', .4);
+  border-radius   : $border-radius;
+  border          : border($color-tertiary, $width: 2px);
   z-index         : 1;
   transition      : all $anim-speed * 2.5;
   text-align      : center;
 
   .title {
-    color: $color-tran-highlight;
+    color: $color-tertiary;
   }
 
   img {
