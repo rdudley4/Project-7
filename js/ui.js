@@ -229,6 +229,6 @@ var UI = {
     popUp.style.visibility = 'visible';
     setTimeout(function(){
       popUp.removeAttribute('style');
-    }, 30500);
+    }, 3500);
   }
 };  

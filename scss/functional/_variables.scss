@@ -10,9 +10,8 @@
 $copper-rose    : #a26769;
 $honeydew       : #eff9f0;
 $aquamarine     : #8affc1;
-$silver         : #ccc;
-$mine-shaft     : #333;
 $sunset-orange  : #f2545b;
+$silver         : #ccc;
 $transprnt-light: rgba(0, 0, 0, .2);
 $transprnt-med  : rgba(0, 0, 0, .4);
 $transprnt-dark : rgba(0, 0, 0, .6);
@@ -22,20 +21,17 @@ $transprnt-white: rgba(255,255,255, .2);
 // Functional Color Variables
 // --------------------------
 
-$color-primary  : $copper-rose;
-$color-secondary: $honeydew;
-$color-tertiary : $aquamarine;
+$color-primary     : $copper-rose;
+$color-secondary   : $honeydew;
+$color-tertiary    : $aquamarine;
+$color-quaternary  : $sunset-orange;
 
-$color-input-track   : $sunset-orange;
+$bg-transprnt-light: $transprnt-light;
+$bg-transprnt-med  : $transprnt-med;
+$bg-transprnt-dark : $transprnt-dark;
+$bg-transprnt-prog : $transprnt-white;
 
-$color-border-light  : $silver;
-$color-outline-dark  : $mine-shaft;
-
-$bg-transprnt-light : $transprnt-light;
-$bg-transprnt-med   : $transprnt-med;
-$bg-transprnt-dark  : $transprnt-dark;
-$bg-transprnt-prog  : $transprnt-white;
-
+$color-border-light: $silver;
 
 
 // Font Variables

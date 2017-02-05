@@ -108,14 +108,14 @@ svg * {
   color           : $color-tertiary;
   background-color: $bg-transprnt-dark;
   box-shadow      : shadow('inset', .4);
-  border-radius   : $border-radius;
-  border          : border($color-tertiary, $width: 2px);
+  border          : border($color-tertiary, 1px);
   z-index         : 1;
   transition      : all $anim-speed * 2.5;
   text-align      : center;
 
   .title {
     color: $color-tertiary;
+    border-bottom: none;
   }
 
   img {

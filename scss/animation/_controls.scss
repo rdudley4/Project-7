@@ -27,17 +27,8 @@
 // Add Slide Anim to Elements
 // --------------------------
 
-#next,
-#prev,
-#play,
-#pause,
+.button,
 #time-stamp,
-#cc,
-#unmuted,
-#muted,
-#fullscreen,
-#pb-rate,
-#rewind,
 .sound-waves path,
 #dashes path {
   animation: slide $anim-speed forwards;
