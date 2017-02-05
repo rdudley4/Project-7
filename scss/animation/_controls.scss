@@ -10,16 +10,16 @@
 
   &:hover {
     cursor: pointer;
-    fill  : $color-tertiary;
+    fill  : color(tertiary);
   }
 }
 
 #prev,
 #next {
-  fill: $color-primary;
+  fill: color(primary);
 
   &:hover {
-    fill: $color-tertiary;
+    fill: color(tertiary);
   }
 }
 
@@ -51,7 +51,7 @@
 
   &:hover {
     cursor: default;
-    color : $color-tertiary;
+    color : color(tertiary);
   }
 }
 

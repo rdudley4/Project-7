@@ -2,14 +2,17 @@
   Sass Functions
 --------------------------- */
 
+// Convert px to rem
 @function rem($value, $default: $font-size-default) {
   @return ($value / $default) * 1rem;
 }
 
+// Border 
 @function border($color, $width: 1px, $style: solid) {
   @return $width $style $color;
 }
 
+// Box shadows
 @function shadow($type, $opacity) {
   @if($type == 'inset') {
     @return inset 0 0 20px rgba(0, 0, 0, $opacity);
@@ -17,5 +20,14 @@
     @return 0 10px 20px -5px rgba(0,0,0, $opacity);
   } @else if ($type == 'left-right' ) {
     @return -10px 0 20px -5px rgba(0, 0, 0, $opacity), 10px 0 20px -5px rgba(0, 0, 0,$opacity);
+  }
+}
+
+// Because map-get syntax is meh
+@function color($color-name, $color-variant: null) {
+  @if($color-variant != null) {
+    @return map-get(map-get($colors, $color-name), $color-variant);
+  } @else {
+    @return map-get($colors, $color-name);
   }
 }

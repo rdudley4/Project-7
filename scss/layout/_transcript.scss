@@ -3,30 +3,27 @@
 --------------------------- */
 
 #transcript {
-  padding       : rem($font-size-default);
-  background    : $color-secondary;
   display       : flex;
   flex-direction: column;
+  padding       : rem($font-size-default);
+  background    : color(secondary);
   transition    : filter $trans-speed;
   // Desktop
   @include mediaQuery("desktop") {
-    padding: rem(18px) rem(32px);
-  }
-  // Larger Screen Sizes
-  @include mediaQuery(1150px) {
+    padding                   : rem(18px) rem(32px);
     border-bottom-left-radius : $border-radius;
     border-bottom-right-radius: $border-radius;
   }
 }
 
 .title {
-  text-align    : center;
-  border-bottom : border($color-border-light);
-  font-family   : $stack-sans-condensed;
-  text-transform: uppercase;
-  color         : $color-primary;
-  padding       : 0 rem(10px) rem(10px);
   margin-top    : 0;
+  padding       : 0 rem(10px) rem(10px);
+  font-family   : $stack-sans-condensed;
+  text-align    : center;
+  text-transform: uppercase;
+  border-bottom : border(color(border, light));
+  color         : color(primary);
 }
 
 .part {
@@ -42,21 +39,21 @@
 }
 
 .time {
-  transition      : all .3s;
-  margin-left     : rem(5px);
-  background-color: $color-primary;
-  border-radius   : 5px;
   padding         : rem(5px);
-  color           : $color-secondary;
+  margin-left     : rem(5px);
+  transition      : all .3s;
+  color           : color(secondary);
+  background-color: color(primary);
+  border-radius   : 5px;
 }
 
 .highlight,
 .part:hover {
-  background-color: $color-primary;
-  color           : $color-secondary;
+  color           : color(secondary);
+  background-color: color(primary);
 
   & > .time {
-    background-color: $color-secondary;
-    color           : $color-primary;
+    color           : color(primary);
+    background-color: color(secondary);
   }
 }

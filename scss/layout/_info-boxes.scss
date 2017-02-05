@@ -13,16 +13,16 @@
 }
 
 .info {
-  background-color: $bg-transprnt-light;
+  display         : none;
+  width           : 235px;
   padding         : rem(10px) rem(25px);
+  text-align      : center;
+  background-color: color(background, light);
   box-shadow      : shadow('inset', .25);
   border-radius   : $border-radius;
-  width           : 235px;
   opacity         : 0;
   transition      : all $anim-speed;
-  display         : none;
-  text-align      : center;
-
+  
   @include mediaQuery(1650px) {
     display: block;
   }
@@ -33,20 +33,20 @@
   }
 
   p {
+    padding      : rem(10px);
+    margin-right : auto;
+    margin-bottom: rem(8px);
+    margin-left  : auto;   
     box-shadow   : shadow('inset', .4);
     border-radius: $border-radius * 4;
     border       : 1px solid;
-    color        : $color-primary;
-    padding      : rem(10px);
-    margin-bottom: rem(8px);
-    margin-left  : auto;
-    margin-right : auto; 
+    color        : color(primary);
   }
 
   img {
     max-width    : 100%;
     box-shadow   : shadow('normal', .25);
     border-radius: $border-radius;
-    border       : border(#222, 2px);
+    border       : border(color(border, dark), 2px);
   }
 }

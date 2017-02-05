@@ -7,17 +7,17 @@
 
 #browser_not_supported {
   display         : none;
-  background-color: $color-secondary;
   max-width       : 80%;
   margin          : 36px auto;
   padding         : 32px; // PX instead of rem for legacy support.
-  line-height     : 1.5;
-  border          : border($color-border-light);
   text-align      : center;
+  line-height     : 1.5;.
+  background-color: color(secondary);
+  border          : border(color(border, light));
 
   a {
-    color       : $color-primary;
     margin-right: 10px;
+    color       : color(primary);
 
     &:last-of-type {
       margin-right: 0;
@@ -31,8 +31,8 @@
 
   h2,
   h3 {
-    color      : $color-primary;
     font-family: $stack-sans-condensed;
+    color      : color(primary);
   } 
 }
 
@@ -40,10 +40,10 @@
 // ---------------
 
 .advantages {
-  list-style: none;
-  padding   : 0;
   max-width : 800px;
   margin    : auto;
+  padding   : 0;
+  list-style: none;
 
   p {
     text-align: left;

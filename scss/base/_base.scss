@@ -46,12 +46,13 @@ video {
   display         : flex;
   justify-content : space-between;
   align-items     : center;
-  overflow        : hidden; 
-  background-color: $bg-transprnt-light; //f56476
-  box-shadow      : shadow('inset', .1);
   padding         : rem(12px);
+  overflow        : hidden; 
+  background-color: color(background, light);
+  box-shadow      : shadow('inset', .1);
+  
   // Larger Screens
-  @include mediaQuery(1150px) {
+  @include mediaQuery('desktop') {
     border-top-left-radius : $border-radius;
     border-top-right-radius: $border-radius;
   }  
@@ -59,11 +60,11 @@ video {
 
 #video-title {
   margin        : 0;
-  letter-spacing: 1px; 
-  color         : $color-primary;
   font-family   : $stack-sans-condensed;
   font-weight   : normal;
   text-align    : center;
+  letter-spacing: 1px; 
+  color         : color(primary);
 }
 
 
@@ -79,15 +80,15 @@ svg * {
 // ---------
 
 .container {
+  position    : relative;
   max-width   : $max-width;
   margin-left : auto;
   margin-right: auto;
-  position: relative;
   // Larger Screens
-  @include mediaQuery(1150px) {
+  @include mediaQuery('desktop') {
     margin-top   : rem(20px);
     margin-bottom: rem(20px);
-    box-shadow: shadow('left-right', .4);
+    box-shadow   : shadow('left-right', .4);
   }
 }
 
@@ -97,29 +98,30 @@ svg * {
 
 #pop_up {
   position        : fixed;
-  left            : 0;
-  right           : 0;
   top             : 0;
-  opacity         : 0;
-  visibility      : hidden;
+  right           : 0;
+  left            : 0;
   max-width       : 500px;
   margin          : auto;
   padding         : rem(30px);
-  color           : $color-tertiary;
-  background-color: $bg-transprnt-dark;
-  box-shadow      : shadow('inset', .4);
-  border          : border($color-tertiary, 1px);
-  z-index         : 1;
-  transition      : all $anim-speed * 2.5;
   text-align      : center;
+  color           : color(tertiary);
+  background-color: color(background, dark);
+  border          : border(color(tertiary));
+  outline         : border(color(border, dark));
+  box-shadow      : shadow('inset', .4);
+  opacity         : 0;
+  visibility      : hidden;
+  transition      : all $anim-speed * 2.5;
+  z-index         : 1;
 
   .title {
-    color: $color-tertiary;
+    color        : color(tertiary);
     border-bottom: none;
   }
 
   img {
-    margin-top: rem(20px);
     max-width : 100%;
+    margin-top: rem(20px);    
   }
 }

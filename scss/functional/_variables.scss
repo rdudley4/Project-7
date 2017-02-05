@@ -2,8 +2,6 @@
   Project Variables
 --------------------------- */
 
-// candidates - dd7373, e3bac6, bc9ec1, bee5bf
-
 // Descriptive Color Variables
 // ---------------------------
 
@@ -12,6 +10,7 @@ $honeydew       : #eff9f0;
 $aquamarine     : #8affc1;
 $sunset-orange  : #f2545b;
 $silver         : #ccc;
+$mine-shaft     : #222;
 $transprnt-light: rgba(0, 0, 0, .2);
 $transprnt-med  : rgba(0, 0, 0, .4);
 $transprnt-dark : rgba(0, 0, 0, .6);
@@ -21,17 +20,22 @@ $transprnt-white: rgba(255,255,255, .2);
 // Functional Color Variables
 // --------------------------
 
-$color-primary     : $copper-rose;
-$color-secondary   : $honeydew;
-$color-tertiary    : $aquamarine;
-$color-quaternary  : $sunset-orange;
-
-$bg-transprnt-light: $transprnt-light;
-$bg-transprnt-med  : $transprnt-med;
-$bg-transprnt-dark : $transprnt-dark;
-$bg-transprnt-prog : $transprnt-white;
-
-$color-border-light: $silver;
+$colors: (
+  primary   : $copper-rose,
+  secondary : $honeydew,
+  tertiary  : $aquamarine,
+  range     : $sunset-orange,
+  border    : (
+    light: $silver,
+    dark : $mine-shaft
+  ),
+  background: (
+    light   : $transprnt-light,
+    medium  : $transprnt-med,
+    dark    : $transprnt-dark,
+    range   : $transprnt-white
+  )
+);
 
 
 // Font Variables
@@ -55,7 +59,7 @@ $bar-height: 7px;
 // ---------------------
 
 $brk-tablet : "(min-width: 768px)";
-$brk-desktop: "(min-width: 1024px)";
+$brk-desktop: "(min-width: 1150px)";
 
 
 // Miscellaneous Variables

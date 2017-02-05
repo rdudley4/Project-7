@@ -6,7 +6,7 @@
   position        : relative;
   height          : $bar-height;
   margin          : auto;
-  background-color: $bg-transprnt-prog;
+  background-color: color(background, range);
 
   &__buffered,
   &__playing {
@@ -17,18 +17,18 @@
 
   &__buffered {
     height          : $bar-height;
-    background-color: $color-quaternary;
-    opacity         : .25;
     width           : 0;
+    background-color: color(range);
+    opacity         : .25;
   }
 }
 
 #progress__playing,
 #volume__slider {
-  margin            : 0;
-  padding           : 0;
   height            : $bar-height;
   width             : 100%;
+  margin            : 0;
+  padding           : 0;
   -webkit-appearance: none;
   background-color  : transparent;
   cursor            : pointer;
@@ -39,10 +39,10 @@
     &-thumb {
       height            : $bar-height;
       width             : 0;
-      border-radius     : 0;
       border            : none;
+      border-radius     : 0;
+      box-shadow        : -575px 0 0 575px color(range);
       -webkit-appearance: none;
-      box-shadow        : -575px 0 0 575px $color-quaternary;
     }
 
     &-runnable-track {
@@ -55,8 +55,8 @@
     &-thumb {
       height          : $bar-height;
       width           : 0;
-      border-radius   : 0;
       border          : none;
+      border-radius   : 0;
     }
 
     &-track {
@@ -66,8 +66,8 @@
     }
 
     &-progress {
-      background-color: $color-quaternary;
       height          : $bar-height;
+      background-color: color(range);
     }
   }
   
@@ -76,20 +76,20 @@
     &-thumb {
       height          : $bar-height;
       width           : 0;
-      background-color: $color-quaternary;
-      border-radius   : 0;
       border          : none;
+      border-radius   : 0;
+      background-color: color(range);
     }
 
     &-track {
-      background-color: transparent;
-      color           : transparent;
       border          : 0;
+      color           : transparent;
+      background-color: transparent;
     }
 
     &-fill-lower {
-      background-color: $color-quaternary;
       height          : $bar-height;
+      background-color: color(range);
     }
   }
   
@@ -103,27 +103,27 @@
   &__slider {
     width           : 87%;
     height          : $bar-height;
-    background-color: $bg-transprnt-prog;
+    background-color: color(background, range);
 
     &::-webkit-slider {
       &-thumb {
-        box-shadow: -125px 0 0 125px $color-tertiary;
+        box-shadow: -125px 0 0 125px color(tertiary);
       }
     }
 
     &::-moz-range-progress {
-      background-color: $color-tertiary;
+      background-color: color(tertiary);
     }
     
     &::-ms-fill-lower {
-      background-color: $color-tertiary;
+      background-color: color(tertiary);
     }
   }
   // Volume Indicator
   &__indicator {
-    color      : $color-secondary;
     width      : 13%;
     line-height: 10px;
     text-align : center;
+    color      : color(secondary);
   }
 }

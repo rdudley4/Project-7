@@ -10,12 +10,12 @@
   overflow: hidden;
 
   &__controls {
-    position  : absolute;
-    bottom    : 0;
-    left      : 0;
-    right     : 0;
-    transition: bottom $anim-speed;
-    background-color: $bg-transprnt-med;
+    position        : absolute;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    transition      : bottom $anim-speed;
+    background-color: color(background, medium);
   }
 }
 
@@ -24,10 +24,10 @@
 
 .buttons {
   display        : flex;
-  overflow       : hidden;
   justify-content: space-between;
   height         : 60px;
   padding        : rem(4px) rem(10px);
+  overflow       : hidden;
 
   &__group1,
   &__group2 {
@@ -36,17 +36,17 @@
   }
 
   &__group2 {
-    justify-content: space-between;
-    flex-wrap      : wrap;
     max-width      : 240px;
+    flex-wrap      : wrap;
+    justify-content: space-between;
   }
 } 
 
 // Button Style
 .button {
-  fill               : $color-secondary;
   width              : 30px;
   height             : 30px;
+  fill               : color(secondary);
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select   : none;  /* Firefox all */
   -ms-user-select    : none;  /* IE 10+ */
@@ -64,5 +64,5 @@
 }
 
 #time-stamp {
-  color: $color-secondary;
+  color: color(secondary);
 }

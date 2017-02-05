@@ -14,14 +14,6 @@
     @media #{$brk-desktop} {
       @content;
     }
-  } @else if $breakpoint == "internet-explorer" {
-    @media #{$brk-ie} {
-      @content;
-    }
-  } @else if $breakpoint == "ms-edge" {
-    @supports #{$brk-edge} {
-      @content;
-    }
   } @else {
     @media (min-width: $breakpoint) {
       @content;
