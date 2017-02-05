@@ -37,7 +37,7 @@ var UI = {
     } else if(state === 'show') {
       videoControls.style.bottom = '0';
     } else {
-      return console.error("Invalid Paramater '" + arguments[0] + "' for controlsDisplay method. Please use 'show' or 'hide' instead.");
+      return console.error("Invalid Paramater for controlsDisplay method. Please use 'show' or 'hide' instead.");
     }
   },
   muteHandler: function() {
@@ -162,33 +162,33 @@ var UI = {
     }
     console.log('Finished populating transcript.');
   },
-  highlightTranscript: () => {
-    var partList = document.getElementsByClassName('part');
-    var currentTranscript = transcriptData[playlist.currentVideoIndex];
-    for(i = 0; i < currentTranscript.length; i++) {
-      var start = currentTranscript[i].start;
-      var end = currentTranscript[i].end;
-      if(videoElement.currentTime >= start && videoElement.currentTime < end) {
-        if(partList[i].classList.contains('highlight')) {
-          // Our part is already highlighted, exit function.
-          return;
+    highlightTranscript: () => {
+      var partList = document.getElementsByClassName('part');
+      var currentTranscript = transcriptData[playlist.currentVideoIndex];
+      for(i = 0; i < currentTranscript.length; i++) {
+        var start = currentTranscript[i].start;
+        var end = currentTranscript[i].end;
+        if(videoElement.currentTime >= start && videoElement.currentTime < end) {
+          if(partList[i].classList.contains('highlight')) {
+            // Our part is already highlighted, exit function.
+            return;
+          } else {
+            // Toggle the highlight class on.
+            partList[i].classList.toggle('highlight');
+            console.log('Moving to part: ' + i);
+          }
+        } else if(typeof(partList[i]) == 'undefined') {
+          // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
+          return console.info('Transcript no longer exists. Exiting highlightTranscript()');
         } else {
-          // Toggle the highlight class on.
-          partList[i].classList.toggle('highlight');
-          console.log('Moving to part: ' + i);
-        }
-      } else if(typeof(partList[i]) == 'undefined') {
-        // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
-        return console.info('Transcript no longer exists. Exiting highlightTranscript()');
-      } else {
-        if(partList[i].classList.contains('highlight')) {
-          // If part has highlight class but is not the current part, I.E. last highlighted part.
-          // Toggle highlight off.
-          partList[i].classList.toggle('highlight');
-        } 
-      }  
-    }
-  },
+          if(partList[i].classList.contains('highlight')) {
+            // If part has highlight class but is not the current part, I.E. last highlighted part.
+            // Toggle highlight off.
+            partList[i].classList.toggle('highlight');
+          } 
+        }  
+      }
+    },    
   reset: function(video) {
     pbRateButton.removeAttribute('style');
     captionButton.removeAttribute('style');

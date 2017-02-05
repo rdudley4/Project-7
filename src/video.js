@@ -19,11 +19,17 @@ function Video(sources, caption, thumbnail, title) {
   this.title = title;
 }
 
-Video.prototype.rewind      = () => videoElement.currentTime -= 10;
-Video.prototype.fastForward = () => videoElement.currentTime += 10;
 Video.prototype.isBuffering = () => bufferedAmount.style.width !== "100%";
 Video.prototype.isPlaying   = () => !videoElement.paused;
 Video.prototype.isMuted     = () => videoElement.muted;
+
+Video.prototype.rewind = () => { 
+  videoElement.currentTime -= 10;
+};
+
+Video.prototype.fastForward = () => { 
+  videoElement.currentTime += 10;
+};
 
 Video.prototype.updateSources = function() {
   for(i = 0; i < this.sources.length; i++) {

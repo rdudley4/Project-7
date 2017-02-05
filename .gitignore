@@ -4,3 +4,12 @@
 
 # Ignore JSHint Config
 .jshintrc
+
+#Ignore Node Modules 
+node_modules
+
+#Ignore Package
+package.json
+
+#Ignore babelrc
+.babelrc
