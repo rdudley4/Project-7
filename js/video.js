@@ -19,27 +19,20 @@ function Video(sources, caption, thumbnail, title) {
   this.title = title;
 }
 
-Video.prototype.rewind = function() {
-  videoElement.currentTime -= 10;
+Video.prototype.rewind      = () => videoElement.currentTime -= 10;
+Video.prototype.fastForward = () => videoElement.currentTime += 10;
+Video.prototype.isBuffering = () => bufferedAmount.style.width !== "100%";
+Video.prototype.isPlaying   = () => !videoElement.paused;
+Video.prototype.isMuted     = () => videoElement.muted;
+
+Video.prototype.updateSources = function() {
+  for(i = 0; i < this.sources.length; i++) {
+    var src = document.getElementById('src' + i);
+    src.setAttribute('src', this.sources[i]);
+  }
 };
 
-Video.prototype.fastForward = function() {
-  videoElement.currentTime += 10;
-};
-
-Video.prototype.isBuffering = function() {
-  return bufferedAmount.style.width !== "100%";
-};
-
-Video.prototype.isPlaying = function() {
-  return !videoElement.paused;
-};
-
-Video.prototype.isMuted = function() {
-  return videoElement.muted;
-};
-
-Video.prototype.makeFullscreen = function() {
+Video.prototype.makeFullscreen = () => {
   if (videoElement.mozRequestFullScreen) {
     if (document.mozFullScreenElement) {
       document.mozCancelFullScreen();       
@@ -64,12 +57,5 @@ Video.prototype.makeFullscreen = function() {
     } else {
       videoElement.requestFullscreen();
     }
-  }
-};
-
-Video.prototype.updateSources = function() {
-  for(i = 0; i < this.sources.length; i++) {
-    var src = document.getElementById('src' + i);
-    src.setAttribute('src', this.sources[i]);
   }
 };

@@ -2,11 +2,11 @@ var transcript = document.getElementById('transcript');
 var rolled = false;
 
 var UI = {
-  populateHtmlWithId: function(id, text) {
+  populateHtmlWithId: (id, text) => {
     var element = document.getElementById(id);
     element.innerHTML = text;
   },
-  swapButton: function(hideButton, showButton) {
+  swapButton: (hideButton, showButton) => {
     hideButton.style.display = 'none';
     showButton.style.display = 'block';
   },
@@ -27,7 +27,7 @@ var UI = {
       this.swapButton(playButton, pauseButton);
     }
   },
-  controlsDisplay: function(state) {
+  controlsDisplay: state => {
     if(state === 'hide') {
       if(videoElement.paused) {
         videoControls.style.bottom = '0';
@@ -52,7 +52,7 @@ var UI = {
   updateTitle: function(title) {
     this.populateHtmlWithId('video-title', title);
   },
-  createCaptionTrack: function(src) {
+  createCaptionTrack: src => {
     var newTrack = document.createElement('track');
 
     newTrack.kind    = 'subtitles';
@@ -63,7 +63,7 @@ var UI = {
 
     return newTrack;   
   },
-  captionHandler: function(button, textTrack) {
+  captionHandler: (button, textTrack) => {
     var on  = '#8affc1';
     if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
       var htmlString = 'CLOSED CAPTIONING ENABLED \n';
@@ -79,7 +79,7 @@ var UI = {
       button.removeAttribute('style');
     }
   },
-  convertTime: function(time) {
+  convertTime: time => {
     var minutes = Math.floor(time / 60);
     var seconds = time % 60;
 
@@ -99,7 +99,7 @@ var UI = {
   updateVolIndicator: function(volume) {
     this.populateHtmlWithId('volume__indicator', volume);
   },
-  setProgressValues: function() {
+  setProgressValues: () => {
     var min = 0;
     var max = Math.round(videoElement.duration);
     progressBar.min = min;
@@ -108,13 +108,13 @@ var UI = {
     // Reset our buffer amount
     bufferedAmount.style.width = min;
   },
-  updateProgressBar: function() {
+  updateProgressBar: () => {
     progressBar.value = videoElement.currentTime;
   },
-  updateBufferedAmount: function(bufferEnd) {
+  updateBufferedAmount: bufferEnd => {
     bufferedAmount.style.width = Math.round((bufferEnd / videoElement.duration) * 100) + "%";
   },
-  changePlaybackRate: function() {
+  changePlaybackRate: () => {
     var colorMedium  = '#f5d76e';
     var colorFast    = '#f2545b';
     if(videoElement.playbackRate === 1) {
@@ -162,7 +162,7 @@ var UI = {
     }
     console.log('Finished populating transcript.');
   },
-  highlightTranscript: function() {
+  highlightTranscript: () => {
     var partList = document.getElementsByClassName('part');
     var currentTranscript = transcriptData[playlist.currentVideoIndex];
     for(i = 0; i < currentTranscript.length; i++) {
@@ -170,7 +170,7 @@ var UI = {
       var end = currentTranscript[i].end;
       if(videoElement.currentTime >= start && videoElement.currentTime < end) {
         if(partList[i].classList.contains('highlight')) {
-          // Our part is already highlighted, exit loop.
+          // Our part is already highlighted, exit function.
           return;
         } else {
           // Toggle the highlight class on.
@@ -222,13 +222,11 @@ var UI = {
     this.populateHtmlWithId('prev_title', playlist.boxInfo(prevIndex)[0]);
     prevImage.setAttribute('src', playlist.boxInfo(prevIndex)[1]);
   },
-  showMessage: function() {
+  showMessage: () => {
     var popUp = document.getElementById('pop_up');
     popUp.style.top = '80px';
     popUp.style.opacity = '1';
     popUp.style.visibility = 'visible';
-    setTimeout(function(){
-      popUp.removeAttribute('style');
-    }, 3500);
+    setTimeout(() => { popUp.removeAttribute('style'); }, 3500);
   }
 };  

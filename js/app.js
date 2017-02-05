@@ -1,5 +1,5 @@
 // Simple function so we don't have to type out the file path every time we add a new video.
-var getFiles = function(folder) {
+const getFiles = (folder) => {
   var filePath = 'media/' + folder + '/';
   var contents = {
     sources: [filePath + 'video.mp4', filePath + 'video.ogg'],
@@ -70,7 +70,7 @@ videoElement.onended = function() {
   UI.playPauseDisplayHandler();
 };
 
-var volumeSlider = document.getElementById('volume__slider');
+const volumeSlider = document.getElementById('volume__slider');
 if (!!navigator.userAgent.match(/Trident\/7\./)) {
   // Because IE is a special snowflake.
   console.info('Internet Explorer Detected, using special snowflake event handlers.');
@@ -102,7 +102,7 @@ videoElement.addEventListener('click', function() {
 });
 
 // Mouse Over
-var laptop = 1366;
+const laptop = 1366;
 videoContainer.addEventListener('mouseover', function() {
   if(window.innerWidth >= laptop) {
     UI.controlsDisplay('show');
@@ -121,8 +121,8 @@ videoContainer.addEventListener('mouseleave', function() {
 // ---------------------------
 
 // Next Button
-var nextButton = document.getElementById('next');
-var nextInfo = document.getElementById('next_info');
+const nextButton = document.getElementById('next');
+const nextInfo = document.getElementById('next_info');
 nextButton.addEventListener('click', function() {
   playlist.next();
 });
@@ -137,8 +137,8 @@ nextButton.addEventListener('mouseleave', function() {
 });
 
 // Prev Button
-var prevButton = document.getElementById('prev');
-var prevInfo = document.getElementById('prev_info');
+const prevButton = document.getElementById('prev');
+const prevInfo = document.getElementById('prev_info');
 prevButton.addEventListener('click', function() {
   playlist.prev();
 });
@@ -153,50 +153,50 @@ prevButton.addEventListener('mouseleave', function() {
 });
 
 // Play Button
-var playButton = document.getElementById('play');
+const playButton = document.getElementById('play');
 playButton.addEventListener('click', function() {
   UI.playPause();
 });
 
 // Pause Button
-var pauseButton = document.getElementById('pause');
+const pauseButton = document.getElementById('pause');
 pauseButton.addEventListener('click', function() {
   UI.playPause();
 });
 
 // CC Button
-var captionButton = document.getElementById('cc');
+const captionButton = document.getElementById('cc');
 captionButton.addEventListener('click', function() {
   var track = videoElement.textTracks[0];
   UI.captionHandler(this, track);
 });
 
 // Fullscreen Button
-var fullscreenButton = document.getElementById('fullscreen');
+const fullscreenButton = document.getElementById('fullscreen');
 fullscreenButton.addEventListener('click', function() {
   playlist.getVideoInfo().makeFullscreen();
 });
 
 // Playback Rate Button
-var pbRateButton = document.getElementById('pb-rate');
+const pbRateButton = document.getElementById('pb-rate');
 pbRateButton.addEventListener('click', function() {
   UI.changePlaybackRate();
 });
 
 // Rewind Button
-var rewindButton = document.getElementById('rewind');
+const rewindButton = document.getElementById('rewind');
 rewindButton.addEventListener('click', function() {
   playlist.getVideoInfo().rewind();
 });
 
 // Mute Button
-var muteButton = document.getElementById('unmuted');
+const muteButton = document.getElementById('unmuted');
 muteButton.addEventListener('click', function() {
   UI.muteHandler();
 });
 
 // Unmute Button
-var unmuteButton = document.getElementById('muted');
+const unmuteButton = document.getElementById('muted');
 unmuteButton.addEventListener('click', function() {
   UI.muteHandler();
 });
@@ -205,7 +205,7 @@ unmuteButton.addEventListener('click', function() {
 // Keyboard Controls
 // -----------------
 
-document.onkeypress = function(key) {
+document.onkeypress = (key) => {
   var keyPressed = key.which;
   switch(keyPressed) {
     case 43:  // Plus (+) - Next Video
