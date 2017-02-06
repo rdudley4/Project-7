@@ -64,7 +64,7 @@ var UI = {
     return newTrack;   
   },
   captionHandler: (button, textTrack) => {
-    var on  = '#8affc1';
+    var on  = '#4ABF81';
     if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
       var htmlString = 'CLOSED CAPTIONING ENABLED \n';
       htmlString += '-------------------------\n';
