@@ -160,7 +160,6 @@ var UI = {
       var time = currentTranscript[i].start;
       transcript.appendChild(this.createTranscriptPart(text, time));
     }
-    console.log('Finished populating transcript.');
   },
     highlightTranscript: () => {
       var partList = document.getElementsByClassName('part');
@@ -175,7 +174,6 @@ var UI = {
           } else {
             // Toggle the highlight class on.
             partList[i].classList.toggle('highlight');
-            console.log('Moving to part: ' + i);
           }
         } else if(typeof(partList[i]) == 'undefined') {
           // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.

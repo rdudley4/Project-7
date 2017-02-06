@@ -28,8 +28,6 @@ UI.updateVideo();
 
 // Metadata Loaded
 videoElement.onloadedmetadata = function() {
-  console.log('Metadata has finished loading.');
-
   var trackElement = document.getElementById('caption');
   var captionSrc = playlist.getVideoInfo().captionSrc;
   this.replaceChild(UI.createCaptionTrack(captionSrc), trackElement);
