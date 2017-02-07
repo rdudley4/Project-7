@@ -1,15 +1,16 @@
 // Simple function so we don't have to type out the file path every time we add a new video.
 const getFiles = (folder) => {
-  var filePath = 'media/' + folder + '/';
-  var contents = {
+  const filePath = 'media/' + folder + '/';
+  const contents = {
     sources: [filePath + 'video.mp4', filePath + 'video.ogg'],
     caption: filePath + 'captions.vtt',
     thumbnail: filePath + 'thumbnail.png'
   };
+
   return contents;
 };
 
-var videos = [
+let videos = [
   new Video(getFiles('video1').sources, getFiles('video1').caption, getFiles('video1').thumbnail, 'How the Internet Works'),
   new Video(getFiles('video2').sources, getFiles('video2').caption, getFiles('video2').thumbnail, 'JavaScript and the DOM'),
   new Video(getFiles('video3').sources, getFiles('video3').caption, getFiles('video3').thumbnail, 'Overview of Web Media'),
@@ -17,7 +18,7 @@ var videos = [
   new Video(getFiles('video5').sources, getFiles('video5').caption, getFiles('video5').thumbnail, 'The Meaning of Life')
 ];
 
-var playlist = new Playlist(videos);
+let playlist = new Playlist(videos);
 
 // Update initial video information on page load.
 UI.updateVideo();
@@ -28,8 +29,8 @@ UI.updateVideo();
 
 // Metadata Loaded
 videoElement.onloadedmetadata = function() {
-  var trackElement = document.getElementById('caption');
-  var captionSrc = playlist.getVideoInfo().captionSrc;
+  const trackElement = document.getElementById('caption');
+  const captionSrc = playlist.getVideoInfo().captionSrc;
   this.replaceChild(UI.createCaptionTrack(captionSrc), trackElement);
 
   UI.reset(this);
@@ -43,7 +44,7 @@ videoElement.ontimeupdate = function() {
 
   // Update buffered amount
   if(this.buffered.length > 0 && playlist.getVideoInfo().isBuffering()) {
-    var bufferEnd = this.buffered.end(this.buffered.length - 1);
+    const bufferEnd = this.buffered.end(this.buffered.length - 1);
     UI.updateBufferedAmount(bufferEnd);
   }
   // Update our progress bar as video progresses.
@@ -174,7 +175,7 @@ pauseButton.addEventListener('click', function() {
 // CC Button
 const captionButton = document.getElementById('cc');
 captionButton.addEventListener('click', function() {
-  var track = videoElement.textTracks[0];
+  const track = videoElement.textTracks[0];
   UI.captionHandler(this, track);
 });
 
@@ -213,7 +214,7 @@ unmuteButton.addEventListener('click', function() {
 // -----------------
 
 document.onkeypress = (key) => {
-  var keyPressed = key.which;
+  const keyPressed = key.which;
   switch(keyPressed) {
     case 43:  // Plus (+) - Next Video
       playlist.next();

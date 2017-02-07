@@ -10,8 +10,8 @@ Playlist.prototype.getVideoInfo = function() {
 };
 
 Playlist.prototype.boxInfo = function(index) {
-  var videoIndex = index;
-  var infoArray = [];
+  const videoIndex = index;
+  const infoArray = [];
   if(videoIndex >= this.videos.length) {
     infoArray.push(this.videos[0].title);
     infoArray.push(this.videos[0].thumbnail);

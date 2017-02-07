@@ -1,4 +1,4 @@
-var transcriptData = [
+let transcriptData = [
   // Video 1
   // -------
   [ 

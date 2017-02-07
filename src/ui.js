@@ -1,9 +1,9 @@
-var transcript = document.getElementById('transcript');
-var rolled = false;
+const transcript = document.getElementById('transcript');
+let rolled = false;
 
-var UI = {
+const UI = {
   populateHtmlWithId: (id, text) => {
-    var element = document.getElementById(id);
+    const element = document.getElementById(id);
     element.innerHTML = text;
   },
   swapButton: (hideButton, showButton) => {
@@ -53,7 +53,7 @@ var UI = {
     this.populateHtmlWithId('video-title', title);
   },
   createCaptionTrack: src => {
-    var newTrack = document.createElement('track');
+    const newTrack = document.createElement('track');
 
     newTrack.kind    = 'subtitles';
     newTrack.label   = 'English';
@@ -64,9 +64,9 @@ var UI = {
     return newTrack;   
   },
   captionHandler: (button, textTrack) => {
-    var on  = '#4ABF81';
+    const on  = '#4ABF81';
     if(textTrack.mode === "hidden" || textTrack.mode === "disabled") {
-      var htmlString = 'CLOSED CAPTIONING ENABLED \n';
+      let htmlString = 'CLOSED CAPTIONING ENABLED \n';
       htmlString += '-------------------------\n';
       htmlString += 'Video       : ' + playlist.getVideoInfo().title + '\n';
       htmlString += 'Caption File: ' + playlist.getVideoInfo().captionSrc;
@@ -80,8 +80,8 @@ var UI = {
     }
   },
   convertTime: time => {
-    var minutes = Math.floor(time / 60);
-    var seconds = time % 60;
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
 
     if(seconds < 10) {
       return minutes + ":0" + seconds; 
@@ -90,7 +90,7 @@ var UI = {
     }
   },
   updateTime: function(current, total) {
-    var timeString = this.convertTime(current);
+    let timeString = this.convertTime(current);
     timeString += ' / ';
     timeString += this.convertTime(total);
 
@@ -100,8 +100,8 @@ var UI = {
     this.populateHtmlWithId('volume__indicator', volume);
   },
   setProgressValues: () => {
-    var min = 0;
-    var max = Math.round(videoElement.duration);
+    const min = 0;
+    const max = Math.round(videoElement.duration);
     progressBar.min = min;
     progressBar.max = max;
     progressBar.value = min;
@@ -115,8 +115,8 @@ var UI = {
     bufferedAmount.style.width = Math.round((bufferEnd / videoElement.duration) * 100) + "%";
   },
   changePlaybackRate: () => {
-    var colorMedium  = '#f5d76e';
-    var colorFast    = '#f2545b';
+    const colorMedium  = '#f5d76e';
+    const colorFast    = '#f2545b';
     if(videoElement.playbackRate === 1) {
       videoElement.playbackRate = 1.5;
       pbRateButton.style.fill = colorMedium;
@@ -136,8 +136,8 @@ var UI = {
     videoElement.load();
   },
   createTranscriptPart: function(text, time) {
-    var partSpan = document.createElement('span');
-    var timeSpan = document.createElement('span');
+    const partSpan = document.createElement('span');
+    const timeSpan = document.createElement('span');
     // Add classes
     partSpan.classList.add("part");
     timeSpan.classList.add("time");
@@ -153,20 +153,20 @@ var UI = {
     return partSpan;
   },
   populateTranscript: function() {
-    var currentTranscript = transcriptData[playlist.currentVideoIndex];
+    const currentTranscript = transcriptData[playlist.currentVideoIndex];
     transcript.innerHTML = "<h2 class='title'>Video Transcript</h2>";
     for(i = 0; i < currentTranscript.length; i++) {
-      var text = currentTranscript[i].text;
-      var time = currentTranscript[i].start;
+      const text = currentTranscript[i].text;
+      const time = currentTranscript[i].start;
       transcript.appendChild(this.createTranscriptPart(text, time));
     }
   },
     highlightTranscript: () => {
-      var partList = document.getElementsByClassName('part');
-      var currentTranscript = transcriptData[playlist.currentVideoIndex];
+      const partList = document.getElementsByClassName('part');
+      const currentTranscript = transcriptData[playlist.currentVideoIndex];
       for(i = 0; i < currentTranscript.length; i++) {
-        var start = currentTranscript[i].start;
-        var end = currentTranscript[i].end;
+        const start = currentTranscript[i].start;
+        const end = currentTranscript[i].end;
         if(videoElement.currentTime >= start && videoElement.currentTime < end) {
           if(partList[i].classList.contains('highlight')) {
             // Our part is already highlighted, exit function.
@@ -210,10 +210,10 @@ var UI = {
     }
   },
   updateInfoBox: function() {
-    var nextIndex = playlist.currentVideoIndex + 1;
-    var prevIndex = playlist.currentVideoIndex - 1;
-    var prevImage = document.getElementById('prev_img');
-    var nextImage = document.getElementById('next_img');
+    const nextIndex = playlist.currentVideoIndex + 1;
+    const prevIndex = playlist.currentVideoIndex - 1;
+    const prevImage = document.getElementById('prev_img');
+    const nextImage = document.getElementById('next_img');
 
     this.populateHtmlWithId('next_title', playlist.boxInfo(nextIndex)[0]);
     nextImage.setAttribute('src', playlist.boxInfo(nextIndex)[1]);
@@ -221,7 +221,7 @@ var UI = {
     prevImage.setAttribute('src', playlist.boxInfo(prevIndex)[1]);
   },
   showMessage: () => {
-    var popUp = document.getElementById('pop_up');
+    const popUp = document.getElementById('pop_up');
     popUp.style.top = '80px';
     popUp.style.opacity = '1';
     popUp.style.visibility = 'visible';
