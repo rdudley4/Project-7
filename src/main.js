@@ -68,6 +68,15 @@ videoElement.onended = function() {
   UI.playPauseDisplayHandler();
 };
 
+// For Firefox
+document.addEventListener('fullscreenchange', () => {
+  if(videoElement.hasAttribute('controls')) {
+    videoElement.removeAttribute('controls');
+  } else {
+    videoElement.setAttribute('controls', 'true');
+  }
+});
+
 const volumeSlider = document.getElementById('volume__slider');
 if (!!navigator.userAgent.match(/Trident\/7\./)) {
   // Because IE is a special snowflake.

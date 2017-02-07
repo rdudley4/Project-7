@@ -41,7 +41,7 @@ Video.prototype.updateSources = function() {
 Video.prototype.makeFullscreen = () => {
   if (videoElement.mozRequestFullScreen) {
     if (document.mozFullScreenElement) {
-      document.mozCancelFullScreen();       
+      document.mozCancelFullScreen();
     } else {
       videoElement.mozRequestFullScreen();
     }
