@@ -10,7 +10,16 @@ This project focuses on building an HTML5 video player using JavaScript and the 
 + **Closed captioning and transcripts**
   + The transcripts will highlight as the video plays.
   + You can click on any transcript part and go to that part of the video.
-+ **Keyboard Controls (same as YouTube)**
++ **Various Playback Controls**
+  + Fast Forward 10 seconds. 
+  + Rewind 10 seconds.
+  + Increase Playback Rate.
+  + Mute Toggle
+  + Fullscreen Toggle.
+  + Caption Toggle.
+  + Volume Slider - [Draggable] (Adjusts volume in real time)
+  + Progress Slider - [Draggable] (Adjusts progress in real time)
++ **Keyboard Controls (similar to YouTube)**
   + C › Toggle Closed Captioning
   + F › Toggle Fullscreen Mode
   + J › Rewind 10 Seconds
@@ -29,7 +38,7 @@ _The website has been tested on the following browsers.._
 
 | Browser       | Version       | Compatible  |
 |:-------------:|:-------------:|:-----------:|
-| ![alt text](http://findicons.com/files/icons/2781/google_jfk_icons/32/chrome_ico.png "Google Chrome")| 55.0.2883.87 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
+| ![alt text](http://findicons.com/files/icons/2781/google_jfk_icons/32/chrome_ico.png "Google Chrome")| 55.0.2883.87, 56.0.2924.87 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
 | ![alt text](http://findicons.com/files/icons/783/mozilla_pack/32/firefox.png "Mozilla FireFox") | 45.0.2, 50.1.0, 52.0a2 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
 | ![alt text](http://findicons.com/files/icons/2796/metro_uinvert_dock/32/internet_explorer.png "Microsoft Edge") | 38.14393.0.0 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
 ![alt text](http://findicons.com/files/icons/1008/quiet/32/internet_explorer.png "Internet Explorer") | 10, 11 | ![alt text](http://findicons.com/files/icons/42/basic/32/tick.png "Compatible") |
