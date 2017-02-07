@@ -1,12 +1,12 @@
 # Project #7 - Interactive Video Player
-This project focuses on building an HTML5 video player using JavaScript and the HTML5 Video API. All video controls are custom built using the aforementioned HTML5 Video API.
+This project focuses on building an HTML5 video player using JavaScript and the HTML5 Video API. All video controls are built using the aforementioned HTML5 Video API. In this project I also started working with NPM as a task runner. The production version of this page has been transpiled using Babel and then compressed using google-closure for greater compatibility and performance.
 
 ## The video player currently has the following features:
 
 + **Multiple video support**
   + Each video supports multiple formats for compatibility.
   + Each video has its own closed captioning file & transcript.
-  + When hovering over the prev/next buttons the corresponding video title will be displayed.
+  + When hovering over the prev/next buttons the corresponding video title/thumbnail will be displayed.
 + **Closed captioning and transcripts**
   + The transcripts will highlight as the video plays.
   + You can click on any transcript part and go to that part of the video.
