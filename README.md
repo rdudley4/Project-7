@@ -17,8 +17,8 @@ This project focuses on building an HTML5 video player using JavaScript and the 
   + Mute Toggle
   + Fullscreen Toggle.
   + Caption Toggle.
-  + Volume Slider - [Draggable] (Adjusts volume in real time)
-  + Progress Slider - [Draggable] (Adjusts progress in real time)
+  + Volume Slider - *Draggable (Adjusts volume in real time)*
+  + Progress Slider - *Draggable (Adjusts progress in real time)*
 + **Keyboard Controls (similar to YouTube)**
   + C › Toggle Closed Captioning
   + F › Toggle Fullscreen Mode
