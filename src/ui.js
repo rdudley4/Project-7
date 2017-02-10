@@ -1,5 +1,5 @@
 const transcript = document.getElementById('transcript');
-let rolled = false;
+let rolled       = false;
 
 const UI = {
   populateHtmlWithId: (id, text) => {
@@ -13,7 +13,6 @@ const UI = {
   playPause: function() {
     if(playlist.getVideoInfo().isPlaying()) {
       videoElement.pause();
-      this.controlsDisplay('show');
     } else {
       videoElement.play();
       this.controlsDisplay('hide');
@@ -29,13 +28,9 @@ const UI = {
   },
   controlsDisplay: state => {
     if(state === 'hide') {
-      if(videoElement.paused) {
-        videoControls.style.bottom = '0';
-      } else {
-        videoControls.style.bottom = '-60px';
-      }
+      videoControls.style.bottom = '-60px';
     } else if(state === 'show') {
-      videoControls.style.bottom = '0';
+      videoControls.removeAttribute('style');
     } else {
       return console.error("Invalid Paramater for controlsDisplay method. Please use 'show' or 'hide' instead.");
     }

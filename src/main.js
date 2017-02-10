@@ -104,26 +104,29 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
   };
 }
 
-// Click
-videoElement.addEventListener('click', function() {
-  UI.playPause();
-});
-
 // Mouse Over
-const laptop = 1366;
-videoContainer.addEventListener('mouseover', function() {
-  if(window.innerWidth >= laptop) {
-    UI.controlsDisplay('show');
-  } 
+videoContainer.addEventListener('mouseenter', function() {
+  UI.controlsDisplay('show');
 });
 
 // Mouse Leave
 videoContainer.addEventListener('mouseleave', function() {
-  if(window.innerWidth >= laptop) {
+  if(videoElement.paused) {
+    // Keep controls visible is video is paused.
+    UI.controlsDisplay('show');
+  } else {
     UI.controlsDisplay('hide');
-  } 
+  }
 });
- 
+
+// Show/Hide Controls on Touch Event for mobile.
+videoElement.addEventListener('touchend', function() {
+  if(playlist.getVideoInfo().controlsAreHidden()) {
+    UI.controlsDisplay('show');
+  } else {
+    UI.controlsDisplay('hide');
+  }
+});
 
 // Button Click Event Handlers
 // ---------------------------

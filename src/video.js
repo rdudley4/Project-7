@@ -19,9 +19,10 @@ function Video(sources, caption, thumbnail, title) {
   this.title = title;
 }
 
-Video.prototype.isBuffering = () => bufferedAmount.style.width !== "100%";
-Video.prototype.isPlaying   = () => !videoElement.paused;
-Video.prototype.isMuted     = () => videoElement.muted;
+Video.prototype.isBuffering       = () => bufferedAmount.style.width !== "100%";
+Video.prototype.isPlaying         = () => !videoElement.paused;
+Video.prototype.isMuted           = () => videoElement.muted;
+Video.prototype.controlsAreHidden = () => videoControls.style.bottom === '-60px';
 
 Video.prototype.rewind = () => { 
   videoElement.currentTime -= 10;
