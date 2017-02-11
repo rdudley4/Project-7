@@ -13,6 +13,7 @@ const UI = {
   playPause: function() {
     if(playlist.getVideoInfo().isPlaying()) {
       videoElement.pause();
+      this.controlsDisplay('show');
     } else {
       videoElement.play();
       this.controlsDisplay('hide');
