@@ -2,18 +2,21 @@
   Transcript Styles
 --------------------------- */
 
-#transcript {
-  display       : flex;
-  flex-direction: column;
-  padding       : rem($font-size-default);
-  background    : color(secondary);
-  transition    : filter $trans-speed;
-  // Desktop
+#transcript-container {
+  padding         : rem(16px);
+  background-color: color(secondary);
+
   @include mediaQuery("desktop") {
     padding                   : rem(18px) rem(32px);
     border-bottom-left-radius : $border-radius;
     border-bottom-right-radius: $border-radius;
   }
+}
+
+#transcript {
+  overflow-y: scroll;
+  transition: filter $trans-speed;
+  max-height: 480px;
 }
 
 .title {

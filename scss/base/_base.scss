@@ -19,7 +19,7 @@ html {
 
 body {
   font-family          : $stack-roboto-condensed;
-  background-image     : url("../img/bokeh.png");
+  background-image     : url("../img/background.png");
   background-position  : center center;
   background-size      : 100% 100%;
   background-attachment: fixed;
@@ -80,10 +80,10 @@ svg * {
 // ---------
 
 .container {
-  position    : relative;
-  max-width   : $max-width;
-  margin-left : auto;
-  margin-right: auto;
+  position        : relative;
+  max-width       : $max-width;
+  margin-left     : auto;
+  margin-right    : auto;
   // Larger Screens
   @include mediaQuery('desktop') {
     margin-top   : rem(20px);

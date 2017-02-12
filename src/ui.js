@@ -150,7 +150,7 @@ const UI = {
   },
   populateTranscript: function() {
     const currentTranscript = transcriptData[playlist.currentVideoIndex];
-    transcript.innerHTML = "<h2 class='title'>Video Transcript</h2>";
+    transcript.innerHTML = "";
     for(i = 0; i < currentTranscript.length; i++) {
       const text = currentTranscript[i].text;
       const time = currentTranscript[i].start;
@@ -159,6 +159,7 @@ const UI = {
   },
     highlightTranscript: () => {
       const partList = document.getElementsByClassName('part');
+      const t_title = document.getElementById('transcript__title');
       const currentTranscript = transcriptData[playlist.currentVideoIndex];
       for(i = 0; i < currentTranscript.length; i++) {
         const start = currentTranscript[i].start;
@@ -168,8 +169,15 @@ const UI = {
             // Our part is already highlighted, exit function.
             return;
           } else {
+            let scrollAmt;
             // Toggle the highlight class on.
             partList[i].classList.toggle('highlight');
+            if(i === 0) {
+              scrollAmt = 0;
+            } else {
+              scrollAmt = (partList[i - 1].offsetTop - t_title.offsetTop) - 10;
+            }
+            transcript.scrollTop = scrollAmt;
           }
         } else if(typeof(partList[i]) == 'undefined') {
           // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
