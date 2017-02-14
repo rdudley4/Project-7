@@ -209,9 +209,10 @@ const UI = {
     transcript.style.height = transcriptHeight + 'px';
   }, 
   reset: function(video) {
-    pbRateButton.removeAttribute('style');
+    pbRateButton.removeAttribute('style');        
     captionButton.removeAttribute('style');
-    
+    transcript.scrollTop = 0;
+
     video.volume = volumeSlider.value;
     this.updateVolIndicator(Math.round(video.volume * 100));
     this.playPauseDisplayHandler();

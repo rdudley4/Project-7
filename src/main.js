@@ -22,6 +22,10 @@ let playlist = new Playlist(videos);
 
 // Update initial video information on page load.
 UI.updateVideo();
+// Resize our transcript if user adjusts the size of the viewport.
+window.onresize = () => {
+  UI.setTranscriptHeight();
+};
 
 
 // Video Data Event Handlers
