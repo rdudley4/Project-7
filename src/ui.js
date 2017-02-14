@@ -157,40 +157,57 @@ const UI = {
       transcript.appendChild(this.createTranscriptPart(text, time));
     }
   },
-    highlightTranscript: () => {
-      const partList = document.getElementsByClassName('part');
-      const t_title = document.getElementById('transcript__title');
-      const currentTranscript = transcriptData[playlist.currentVideoIndex];
-      for(i = 0; i < currentTranscript.length; i++) {
-        const start = currentTranscript[i].start;
-        const end = currentTranscript[i].end;
-        if(videoElement.currentTime >= start && videoElement.currentTime < end) {
-          if(partList[i].classList.contains('highlight')) {
-            // Our part is already highlighted, exit function.
+  highlightTranscript: () => {
+    const partList = document.getElementsByClassName('part');
+    const currentTranscript = transcriptData[playlist.currentVideoIndex];
+    for(i = 0; i < currentTranscript.length; i++) {
+      const start = currentTranscript[i].start;
+      const end = currentTranscript[i].end;
+      if(videoElement.currentTime >= start && videoElement.currentTime < end) {
+        if(partList[i].classList.contains('highlight')) {
+          // Our part is already highlighted, exit function.
+          return;
+        } else {
+          // Toggle the highlight class on.
+          partList[i].classList.toggle('highlight');
+          // Determine Scroll Position
+          let scrollAmt = 0;
+          if(i === 0) {
             return;
           } else {
-            let scrollAmt;
-            // Toggle the highlight class on.
-            partList[i].classList.toggle('highlight');
-            if(i === 0) {
-              scrollAmt = 0;
-            } else {
-              scrollAmt = (partList[i - 1].offsetTop - t_title.offsetTop) - 10;
+            const prevPart = i - 1;
+            for(x = 0; x <= prevPart; x++) {
+              const partHeight = parseInt(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+              scrollAmt += partHeight;
             }
-            transcript.scrollTop = scrollAmt;
           }
-        } else if(typeof(partList[i]) == 'undefined') {
-          // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
-          return console.info('Transcript no longer exists. Exiting highlightTranscript()');
-        } else {
-          if(partList[i].classList.contains('highlight')) {
-            // If part has highlight class but is not the current part, I.E. last highlighted part.
-            // Toggle highlight off.
-            partList[i].classList.toggle('highlight');
-          } 
-        }  
-      }
-    },    
+          transcript.scrollTop = scrollAmt;
+        }
+      } else if(typeof(partList[i]) == 'undefined') {
+        // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
+        return console.info('Transcript no longer exists. Exiting highlightTranscript()');
+      } else {
+        if(partList[i].classList.contains('highlight')) {
+          // If part has highlight class but is not the current part, I.E. last highlighted part.
+          // Toggle highlight off.
+          partList[i].classList.toggle('highlight');
+        } 
+      }  
+    }
+  },
+  setTranscriptHeight: function() {
+    // Element Containers
+    const containerMain       = document.querySelector('.container');
+    const containerTranscript = document.getElementById('transcript-container');
+    // Padding and Margins
+    const mainMargin          = parseInt(window.getComputedStyle(containerMain, null).getPropertyValue('margin-bottom'));
+    const transcriptPadding   = parseInt(window.getComputedStyle(containerTranscript, null).getPropertyValue('padding'));
+    // Window & Transcript Height
+    const windowHeight        = window.innerHeight;
+    const transcriptHeight    = windowHeight - transcript.offsetTop - transcriptPadding - (mainMargin * 2);
+
+    transcript.style.height = transcriptHeight + 'px';
+  }, 
   reset: function(video) {
     pbRateButton.removeAttribute('style');
     captionButton.removeAttribute('style');

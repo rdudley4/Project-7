@@ -86,8 +86,8 @@ svg * {
   margin-right    : auto;
   // Larger Screens
   @include mediaQuery('desktop') {
-    margin-top   : rem(20px);
-    margin-bottom: rem(20px);
+    margin-top   : rem(10px);
+    margin-bottom: rem(10px);
     box-shadow   : shadow('left-right', .4);
   }
 }

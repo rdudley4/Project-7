@@ -34,6 +34,7 @@ videoElement.onloadedmetadata = function() {
   this.replaceChild(UI.createCaptionTrack(captionSrc), trackElement);
 
   UI.reset(this);
+  UI.setTranscriptHeight();
 };
 
 
