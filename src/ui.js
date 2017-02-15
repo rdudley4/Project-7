@@ -200,7 +200,7 @@ const UI = {
     const containerTranscript = document.getElementById('transcript-container');
     // Padding and Margins
     const mainMargin          = parseInt(window.getComputedStyle(containerMain, null).getPropertyValue('margin-bottom'));
-    const transcriptPadding   = parseInt(window.getComputedStyle(containerTranscript, null).getPropertyValue('padding'));
+    const transcriptPadding   = parseInt(window.getComputedStyle(containerTranscript, null).getPropertyValue('padding-bottom'));
     // Window & Transcript Height
     const windowHeight        = window.innerHeight;
     const transcriptHeight    = windowHeight - transcript.offsetTop - transcriptPadding - (mainMargin * 2);
