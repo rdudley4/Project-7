@@ -16,7 +16,6 @@ const UI = {
       this.controlsDisplay('show');
     } else {
       videoElement.play();
-      this.controlsDisplay('hide');
     }
     this.playPauseDisplayHandler();
   },
@@ -173,7 +172,7 @@ const UI = {
           // Determine Scroll Position
           let scrollAmt = 0;
           if(i === 0) {
-            return;
+            scrollAmt = 0; // This is incase the user clicks on the first transcript part, or rewinds back to the beginning.
           } else {
             const prevPart = i - 1;
             for(x = 0; x <= prevPart; x++) {
@@ -191,7 +190,7 @@ const UI = {
           // If part has highlight class but is not the current part, I.E. last highlighted part.
           // Toggle highlight off.
           partList[i].classList.toggle('highlight');
-        } 
+        }
       }  
     }
   },
@@ -249,4 +248,4 @@ const UI = {
     popUp.style.visibility = 'visible';
     setTimeout(() => { popUp.removeAttribute('style'); }, 3500);
   }
-};  
+};

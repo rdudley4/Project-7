@@ -60,8 +60,9 @@ videoElement.ontimeupdate = function() {
 
   // FeelsGoodMan
   if(playlist.currentVideoIndex === playlist.videos.length - 1 && playlist.getVideoInfo().isPlaying()) {
-    if(transcript.getAttribute('style') !== null) {
-      transcript.removeAttribute('style');
+    if(transcript.style.filter) {
+      console.log('Filter Property exists, removing it..');
+      transcript.style.removeProperty('filter');
       rolled = true;
       UI.showMessage();
     }
@@ -172,6 +173,11 @@ prevButton.addEventListener('mouseleave', function() {
 const playButton = document.getElementById('play');
 playButton.addEventListener('click', function() {
   UI.playPause();
+});
+
+playButton.addEventListener('touchend', function() {
+  // Only hide controls on play on touch screen devices.
+  UI.controlsDisplay('hide');
 });
 
 // Pause Button
