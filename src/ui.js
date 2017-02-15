@@ -176,7 +176,7 @@ const UI = {
           } else {
             const prevPart = i - 1;
             for(x = 0; x <= prevPart; x++) {
-              const partHeight = parseInt(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+              const partHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
               scrollAmt += partHeight;
             }
           }
