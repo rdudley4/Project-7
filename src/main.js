@@ -61,7 +61,6 @@ videoElement.ontimeupdate = function() {
   // FeelsGoodMan
   if(playlist.currentVideoIndex === playlist.videos.length - 1 && playlist.getVideoInfo().isPlaying()) {
     if(transcript.style.filter) {
-      console.log('Filter Property exists, removing it..');
       transcript.style.removeProperty('filter');
       rolled = true;
       UI.showMessage();
@@ -112,21 +111,26 @@ if (!!navigator.userAgent.match(/Trident\/7\./)) {
 
 // Mouse Over
 videoContainer.addEventListener('mouseenter', function() {
-  UI.controlsDisplay('show');
+  if(playlist.getVideoInfo().controlsAreHidden()) {
+    UI.controlsDisplay('show');
+  }
 });
 
 // Mouse Leave
 videoContainer.addEventListener('mouseleave', function() {
   if(videoElement.paused) {
     // Keep controls visible is video is paused.
-    UI.controlsDisplay('show');
+    if(playlist.getVideoInfo().controlsAreHidden()) {
+      UI.controlsDisplay('show');
+    }
   } else {
     UI.controlsDisplay('hide');
   }
 });
 
 // Show/Hide Controls on Touch Event for mobile.
-videoElement.addEventListener('touchend', function() {
+videoElement.addEventListener('touchend', function(e) {
+  e.preventDefault();
   if(playlist.getVideoInfo().controlsAreHidden()) {
     UI.controlsDisplay('show');
   } else {
@@ -175,8 +179,11 @@ playButton.addEventListener('click', function() {
   UI.playPause();
 });
 
-playButton.addEventListener('touchend', function() {
+playButton.addEventListener('touchend', function(e) {
   // Only hide controls on play on touch screen devices.
+  // We have to preventDefault, otherwise the browser renders the first touch as a click event as well.
+  e.preventDefault();
+  UI.playPause();
   UI.controlsDisplay('hide');
 });
 
@@ -241,6 +248,9 @@ document.onkeypress = (key) => {
       break;
     case 107: // K - Play/Pause
       UI.playPause();
+      if(playlist.getVideoInfo().isPlaying()) {
+        UI.controlsDisplay('hide');
+      }
       break;
     case 106: // J - Rewind 10 Sec
       playlist.getVideoInfo().rewind();
