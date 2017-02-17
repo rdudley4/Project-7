@@ -176,7 +176,16 @@ const UI = {
           } else {
             const prevPart = i - 1;
             for(x = 0; x <= prevPart; x++) {
-              const partHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+              let partHeight = 0;
+              if(!!navigator.userAgent.match(/Trident\/7\./)) {
+                let innerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+                let outerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('padding-top'));
+                partHeight = innerHeight + (outerHeight * 2);
+                console.log("IE doesn't factor padding into height, so we have to do it manually.");
+              } else {
+                partHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+                console.log("Calculate scroll amt normally.");
+              }
               scrollAmt += partHeight;
             }
           }
