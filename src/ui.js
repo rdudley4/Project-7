@@ -178,17 +178,19 @@ const UI = {
             for(x = 0; x <= prevPart; x++) {
               let partHeight = 0;
               if(!!navigator.userAgent.match(/Trident\/7\./)) {
+                // Internet Explorer does not factor padding into content height, so we have to add this manually.
                 let innerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
                 let outerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('padding-top'));
                 partHeight = innerHeight + (outerHeight * 2);
-                console.log("IE doesn't factor padding into height, so we have to do it manually.");
               } else {
+                // Use the elements calculated height (padding included) on every other browser.
                 partHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
-                console.log("Calculate scroll amt normally.");
               }
+              // Add current part's height to total scrollAmt
               scrollAmt += partHeight;
             }
           }
+          // Scroll the transcript after scrollAmt has been calculated.
           transcript.scrollTop = scrollAmt;
         }
       } else if(typeof(partList[i]) == 'undefined') {
