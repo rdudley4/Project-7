@@ -10,6 +10,10 @@ This project focuses on building an HTML5 video player using JavaScript and the 
 + **Closed captioning and transcripts**
   + The transcripts will highlight as the video plays.
   + You can click on any transcript part and go to that part of the video.
+  + The transcript is now a scrollable section instead of being the height of all the child elements. * *NEW* *
+  + The size of the transcript will be dynamically calculated based on the viewport size. * *NEW* *
+    + Still some work to be done here; minor issues with certain devices in landscape orientation.
+  + The transcript will scroll to the current transcript part as the video plays, or when the user clicks a specific part. * *NEW* *
 + **Various Playback Controls**
   + Fast Forward 10 seconds. 
   + Rewind 10 seconds.
@@ -29,6 +33,10 @@ This project focuses on building an HTML5 video player using JavaScript and the 
   + P › Change Playback Rate (1x/1.5x/2x)
   + Plus(+) › Next Video
   + Minus(-) › Previous Video
++ **Touch Controls** * *NEW* *
+  + The video player now differentiates between mouse and touch events and has slightly different functionality for each. * *NEW* *
+  + A single tap on the video player will toggle the control's display without pausing the video. * *NEW* *
+  + On touch screen devices, playing the video with automatically hide the controls. * *NEW* *
 
 ## Browser compatibility
 
