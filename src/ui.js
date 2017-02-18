@@ -156,6 +156,31 @@ const UI = {
       transcript.appendChild(this.createTranscriptPart(text, time));
     }
   },
+  calculateScroll: (partList, index) => {
+    // Determine Scroll Position
+    let scrollAmt = 0;
+    if(index === 0) {
+      scrollAmt = 0; // This is incase the user clicks on the first transcript part, or rewinds back to the beginning.
+    } else {
+      const prevPart = index - 1;
+      for(x = 0; x <= prevPart; x++) {
+        let partHeight = 0;
+        if(!!navigator.userAgent.match(/Trident\/7\./)) {
+          // Internet Explorer does not factor padding into content height, so we have to add this manually.
+          let innerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+          let padding = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('padding-top'));
+          partHeight = innerHeight + (padding * 2);
+        } else {
+          // Use the elements calculated height (padding included) on every other browser.
+          partHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
+        }
+        // Add current part's height to total scrollAmt
+        scrollAmt += partHeight;
+      }
+    }
+    // Return total scrollAmt.
+    return scrollAmt;
+  },
   highlightTranscript: () => {
     const partList = document.getElementsByClassName('part');
     const currentTranscript = transcriptData[playlist.currentVideoIndex];
@@ -169,29 +194,8 @@ const UI = {
         } else {
           // Toggle the highlight class on.
           partList[i].classList.toggle('highlight');
-          // Determine Scroll Position
-          let scrollAmt = 0;
-          if(i === 0) {
-            scrollAmt = 0; // This is incase the user clicks on the first transcript part, or rewinds back to the beginning.
-          } else {
-            const prevPart = i - 1;
-            for(x = 0; x <= prevPart; x++) {
-              let partHeight = 0;
-              if(!!navigator.userAgent.match(/Trident\/7\./)) {
-                // Internet Explorer does not factor padding into content height, so we have to add this manually.
-                let innerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
-                let outerHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('padding-top'));
-                partHeight = innerHeight + (outerHeight * 2);
-              } else {
-                // Use the elements calculated height (padding included) on every other browser.
-                partHeight = parseFloat(window.getComputedStyle(partList[x], null).getPropertyValue('height'));
-              }
-              // Add current part's height to total scrollAmt
-              scrollAmt += partHeight;
-            }
-          }
-          // Scroll the transcript after scrollAmt has been calculated.
-          transcript.scrollTop = scrollAmt;
+          // Scroll the transcript.
+          transcript.scrollTop = UI.calculateScroll(partList, i);
         }
       } else if(typeof(partList[i]) == 'undefined') {
         // When the user switches videos mid playback, the loop would try to remove the highlight class from a now non-existant element.
